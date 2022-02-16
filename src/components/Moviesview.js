@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import {getMoviesByidOrTitle, getMoviesBySearch} from '../api/MovieApi'
-import {MovieListCss} from '../utils/styles'
+import { MovieCard } from './MovieCard'
 
 export const Moviesview = () => {
   const [movies, setMovies] = useState(null);
@@ -41,7 +41,7 @@ export const Moviesview = () => {
   }
 
   return (
-    <MovieListCss>
+    <div>
         <input
           onChange={val => setSearchValue(val.currentTarget.value)}
           placeholder="Input Search"
@@ -49,28 +49,35 @@ export const Moviesview = () => {
         <button variant="outline-secondary" id="button-addon1" onClick={() => {handleOnSearchClick()}}>
           Search
         </button>
+      <>
       {movies && movies.length > 0 ?
-        (<>
-          <div>{movies.length} Result for {searchValueBackup}</div>
-          <ul>
-              { movies.map((movie,index) => 
-                <li
+        (
+          <div>
+            <div>{movies.length} Result for {searchValueBackup}</div>
+            <div>
+                { movies.map((movie,index) => 
+                <div
                   id = {index}
+                  key = {movie.imdbID}
                   style={{backgroundColor: (hoverIndex == index) ? '#e0e0e0': '#fff'}}
                   onMouseEnter={evt => {evt.persist(); setHoverIndex(evt.currentTarget.id)}}
                   onMouseLeave={evt => setHoverIndex(null)}>
-                    {movie.Title}
-                </li>
-              )}
-          </ul>
-        </>)
+                    <MovieCard 
+                      movie={movie}
+                    />
+                  </div>
+                )}
+            </div>
+          </div>
+        )
         : 
         searchValueBackup ?
           <div>No Result for {searchValueBackup}</div>
           :
-          <div>Please type in search box. </div>
+          <div>Please type in search box. </div>  
       }
+      </>
       
-    </MovieListCss>
+    </div>
   );
 }
