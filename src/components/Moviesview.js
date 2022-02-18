@@ -1,27 +1,22 @@
 import {useEffect, useState} from 'react'
 import {getMoviesByidOrTitle, getMoviesBySearch} from '../api/MovieApi'
 import { MovieCard } from './MovieCard'
-import { SearchBox } from './SearchBox';
-import { Grid } from '@material-ui/core';
+import { Grid, Container} from '@material-ui/core';
 import { MovieContent } from './MovieContent';
+import {MovieViewcss} from '../utils/styles'
+import { Nav } from './Nav';
 
 export const Moviesview = () => {
   const [movies, setMovies] = useState(null);
   const [resultNum, setResultNum] = useState(0);
   const [searchValueBackup, setSearchValueBackup]  = useState("")
-  const [hoverIndex, setHoverIndex] = useState(null);
-  const [onClickId, setOnClickId] = useState("")
   const [movieContent, setMovieContent] = useState(null);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   useEffect(() => {
     if(searchValueBackup.length>=3)
       fetchMovies()
   },[])
-
-  useEffect(() => {
-    if(onClickId)
-      fetchMovieById()
-  },[onClickId])
 
   /**
    * fetchMovies : fetch movies from api
@@ -46,7 +41,7 @@ export const Moviesview = () => {
   /**
    * fetchMovieById: fetch movie by id
    */
-  const fetchMovieById = () => {
+  const fetchMovieById = (onClickId) => {
     getMoviesByidOrTitle({
       id: onClickId
     }).then (res => {
@@ -65,44 +60,34 @@ export const Moviesview = () => {
   }
 
   return (
-    <div style={{ height: "100vh" }}>
-      <Grid item  xs={12}>
-        <SearchBox onSearch={handleOnSearchClick} />
-      </Grid>
+    <div className='view' style={{height:{windowHeight}}}>
+      <Nav handleOnSearchClick={handleOnSearchClick}/>
       {movies && movies.length > 0 ?
         (
-          <>
-          <div>{movies.length} Result for {searchValueBackup}</div>
-          <Grid container item  xs={12} style={{ height: "92%",  }}>
-            <Grid item xs={4} style={{ height: "100%", overflow:'hidden scroll'}}>
-                { movies.map((movie,index) => 
-                <div
-                  id = {index}
-                  key = {movie.imdbID}
-                  style={{backgroundColor: (hoverIndex == index) ? '#e0e0e0': '#fff'}}
-                  onMouseEnter={evt => {evt.persist(); setHoverIndex(evt.currentTarget.id)}}
-                  onMouseLeave={evt => setHoverIndex(null)}
-                  onClick={evt => setOnClickId(movie.imdbID)}>
+          <MovieViewcss>
+            <div className="result" >{movies.length} Result for {searchValueBackup}</div>
+            <Grid className="container movieContent" container item  xs={12}>
+              <Grid className='movieList' item xs={4} style={{height: '100%', overflow:'hidden scroll'}}>
+                  { movies.map((movie,index) => 
                     <MovieCard 
                       movie={movie}
+                      index={index}
+                      fetchMovieById = {fetchMovieById}
                     />
-                  </div>
-                )}
+                  )}
+              </Grid>
+              <Grid className='movieDetails' item xs={8} style ={{height: '100%'}}>
+                  <MovieContent movie={movieContent}/>
+              </Grid>
             </Grid>
-            <Grid item xs={8}>
-                <MovieContent movie={movieContent}/>
-            </Grid>
-          </Grid>
-          </>
+          </MovieViewcss>
         )
         : 
         searchValueBackup ?
-          <div>No Result for {searchValueBackup}</div>
+          <div className="result">No Result for {searchValueBackup}</div>
           :
-          <div>Please type in search box. </div>  
+          <div className="result" >Please type in search box. </div>  
       }
-     
-      
     </div>
   );
 }
