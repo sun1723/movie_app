@@ -33,6 +33,7 @@ export const Moviesview = () => {
         console.log(data)
         setMovies(data.Search);
         setMovieContent(data.Search[0])
+        setOnClickIndex(0)
         setResultNum(data.totalResults);
       }
     }).catch(err =>{
