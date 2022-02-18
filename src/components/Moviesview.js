@@ -12,6 +12,7 @@ export const Moviesview = () => {
   const [searchValueBackup, setSearchValueBackup]  = useState("")
   const [movieContent, setMovieContent] = useState(null);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [onClickIndex, setOnClickIndex] = useState(0)
 
   useEffect(() => {
     if(searchValueBackup.length>=3)
@@ -31,6 +32,7 @@ export const Moviesview = () => {
       if(data.Response){
         console.log(data)
         setMovies(data.Search);
+        setMovieContent(data.Search[0])
         setResultNum(data.totalResults);
       }
     }).catch(err =>{
@@ -41,15 +43,17 @@ export const Moviesview = () => {
   /**
    * fetchMovieById: fetch movie by id
    */
-  const fetchMovieById = (onClickId) => {
+  const fetchMovieById = (onClickId,index) => {
     getMoviesByidOrTitle({
       id: onClickId
     }).then (res => {
       const data = res.data;
       if(data.Response)
-        setMovieContent(data)
+        setMovieContent(data);
+        setOnClickIndex(index);
     })
   }
+  
 
   /**
    * handleOnSearchClick: handle event when click search
@@ -73,6 +77,7 @@ export const Moviesview = () => {
                       movie={movie}
                       index={index}
                       fetchMovieById = {fetchMovieById}
+                      onClickIndex = {onClickIndex}
                     />
                   )}
               </Grid>
