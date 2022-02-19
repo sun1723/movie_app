@@ -13,20 +13,24 @@ export const MovieCard = ({movie,index,fetchMovieById, onClickIndex}) => {
     }   
   },[onClickId])
 
+  useEffect (() => {
+    console.log(hoverIndex,index);
+  },[hoverIndex])
+
   return (
     <Grid container spacing={2} 
       id = {index}
       key = {movie.imdbID}
-      style={{ width: '100%', backgroundColor: (hoverIndex === index) || (onClickIndex == index)? '#1B9CB3': '#195A66', height: '150px', marginBottom: '15px'}}
-      onMouseEnter={evt => {evt.persist();  setHoverIndex(evt.currentTarget.id)}}
+      style={{ width: '100%', backgroundColor: (hoverIndex == index) || (onClickIndex == index)? '#0F0C24': '#fff', height: '100px', marginBottom: '12px', borderRadius: '8px'}}
+      onMouseEnter={evt => {evt.persist(); setHoverIndex(evt.currentTarget.id)}}
       onMouseLeave={evt => setHoverIndex(null)}
       onClick={evt => { setOnClickId(movie.imdbID); }}>
         <Grid item xs={3} style={{ padding: 0, justifyContent: 'center', height: '100%'}}>
-          <img src={movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} style={{height: '100%', width:'100%', objectFit: 'fill',boxSizing:'border-box'}}/>
+          <img src={movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} style={{height: '100%', width:'100%', objectFit: 'fill',boxSizing:'border-box', borderRadius: '5px'}}/>
         </Grid>
-        <Grid item xs={9} style={{fontSize: '1em', alignSelf: 'center'}}>
-          <div>{movie.Title}</div>
-          <div style={{marginTop:'5px'}}>{movie.Year}</div>
+        <Grid item xs={9} style={{ color: (hoverIndex == index) || (onClickIndex == index) ? '#fff' : '#000'}}>
+          <div style={{fontSize: '1.1em', lineHeight:'1.5rem', marginBottom: '2px'}}>{movie.Title}</div>
+          <div style={{ backgroundColor:(hoverIndex == index) || (onClickIndex == index) ? '#A350A3': '#CCA0B8' , width: '70px', textAlign: 'center', borderRadius: '12px', paddingTop: '2px' }}>{movie.Year}</div>
         </Grid>
     </Grid>
   )
