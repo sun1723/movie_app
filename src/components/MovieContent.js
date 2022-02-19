@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { Grid } from '@material-ui/core';
 
-export const MovieContent = ({movie}) => {
+export const MovieContent = ({movie,isOpenList}) => {
 
   return (
     <>
     { movie &&
     <>
-    <Grid container direction="column" style={{padding: '0 15px'}}>
+    <Grid container direction="column" style={{padding: '0 15px', width: '80%', margin: 'auto auto' }}>
       <Grid container item xs={12} >
         <Grid item xs={5} style={{textAlign:'center'}}>
-          <img style={{width: '80%', height: '50vh', objectFit: 'fill' }} src={movie && movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} />
+          <img style={{width: '80%', height: '50vh', objectFit: 'scale-down' }} src={movie && movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} />
         </Grid>
         <Grid item xs={7} className="movie_right">
           <div className="title">{movie && movie.Title ? movie.Title : ''}</div>
