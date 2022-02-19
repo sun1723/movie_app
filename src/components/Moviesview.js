@@ -15,11 +15,35 @@ export const Moviesview = () => {
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const [onClickIndex, setOnClickIndex] = useState(0);
   const [isOpenList, setIsOpenList] = useState(false);
+  const [hideDetail, setHideDetail] = useState(false);
+  const [showList, setShowList] = useState(false);
 
   useEffect(() => {
     if(searchValueBackup.length>=3)
       fetchMovies()
   },[])
+
+  useEffect (() => {
+    window.addEventListener('resize', windowResize);
+  })
+
+  /**
+   * windowResize: handle window resize
+   */
+  const windowResize = () => {
+    console.log(window.innerWidth)
+    if(window.innerWidth< 1024 && window.innerWidth > 720){
+      setShowList(false);
+      setHideDetail(true);
+    }else if(window.innerWidth <= 720) {
+      setHideDetail(false);
+      setShowList(true);
+    }
+    else {
+      setHideDetail(false);
+      setShowList(false);
+    }
+  }
 
   /**
    * fetchMovies : fetch movies from api
@@ -72,22 +96,24 @@ export const Moviesview = () => {
       {movies && movies.length > 0 ?
         (
           <MovieViewcss>
+            {console.log(hideDetail, " ", showList)}
             <div className="result" ><span style={{cursor:'pointer'}} onClick={(evt) => {setIsOpenList(!isOpenList)}}><MenuIcon /></span><span>{movies.length} Result for {searchValueBackup}</span></div>
             <Grid className="container movieContent" container item  xs={12}>
             { isOpenList &&
-              <Grid className='movieList' item xs={3} >
+              <Grid className='movieList' item xs={hideDetail ? 5 : showList ? 12 : 4} >
                    {movies.map((movie,index) => 
                     <MovieCard 
                       movie={movie}
                       index={index}
                       fetchMovieById = {fetchMovieById}
                       onClickIndex = {onClickIndex}
+                      hideDetail={showList}
                     />
                   )}
               </Grid>
               }
-              <Grid className='movieDetails' item xs={isOpenList ? 9 : 12} style ={{height: '100%', width: '80%'}}>
-                  <MovieContent movie={movieContent} isOpenList={isOpenList}/>
+              <Grid className='movieDetails' item xs={isOpenList ? hideDetail ? 7 : showList ? 0 : 8 : 12} style ={{height: '100%', width: '80%', display: showList && isOpenList ? 'none' : ''}}>
+                  <MovieContent movie={movieContent} isOpenList={isOpenList} hideDetail={hideDetail}/>
               </Grid>
             </Grid>
           </MovieViewcss>

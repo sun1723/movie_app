@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Grid } from '@material-ui/core';
 
-export const MovieCard = ({movie,index,fetchMovieById, onClickIndex}) => {
+export const MovieCard = ({movie,index,fetchMovieById, onClickIndex, hideDetail}) => {
   const [hoverIndex, setHoverIndex] = useState(null);
   const [onClickId, setOnClickId] = useState("")
 
@@ -21,7 +21,7 @@ export const MovieCard = ({movie,index,fetchMovieById, onClickIndex}) => {
     <Grid container spacing={2} 
       id = {index}
       key = {movie.imdbID}
-      style={{ width: '100%', backgroundColor: (hoverIndex == index) || (onClickIndex == index)? '#0F0C24': '#fff', height: '100px', marginBottom: '12px', borderRadius: '8px'}}
+      style={{ width: '100%', backgroundColor: (hoverIndex == index) || (onClickIndex == index)? '#0F0C24': '#fff', height: hideDetail ? '130px': '100px', marginBottom: '12px', borderRadius: '8px'}}
       onMouseEnter={evt => {evt.persist(); setHoverIndex(evt.currentTarget.id)}}
       onMouseLeave={evt => setHoverIndex(null)}
       onClick={evt => { setOnClickId(movie.imdbID); }}>
