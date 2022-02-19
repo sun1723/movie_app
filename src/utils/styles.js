@@ -66,7 +66,7 @@ export const MovieViewcss = styled.div`
     justify-content:space-around;
   }
   .movieDetails .movie_p {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: justify;
   }
 `
