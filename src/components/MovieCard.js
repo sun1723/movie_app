@@ -30,7 +30,7 @@ export const MovieCard = ({movie,index,fetchMovieById, onClickIndex}) => {
         </Grid>
         <Grid item xs={9} style={{ color: (hoverIndex == index) || (onClickIndex == index) ? '#fff' : '#000'}}>
           <div style={{fontSize: '1.1em', lineHeight:'1.5rem', marginBottom: '2px'}}>{movie.Title}</div>
-          <div style={{ backgroundColor:(hoverIndex == index) || (onClickIndex == index) ? '#A350A3': '#CCA0B8' , width: '70px', textAlign: 'center', borderRadius: '12px', paddingTop: '2px' }}>{movie.Year}</div>
+          <div style={{ color: (hoverIndex == index) || (onClickIndex == index) ? '#000' : '#fff', backgroundColor:(hoverIndex == index) || (onClickIndex == index) ? '#D6D6D6': '#7A7F87' , width: '70px', textAlign: 'center', borderRadius: '12px', paddingTop: '2px' }}>{movie.Year}</div>
         </Grid>
     </Grid>
   )
