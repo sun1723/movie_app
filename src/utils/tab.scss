@@ -1,0 +1,20 @@
+$hover-color: #FFB319;
+
+.tab {
+  font-size: 1rem;
+  width: 100px;
+  text-align: center;
+  box-sizing: border-box;
+  height: 35px;
+  text-transform: uppercase;
+  padding-top: 5px;
+  background-size: 0%;
+  &.active {
+    border-bottom: solid 2px $hover-color;
+  }
+  &:hover{
+    border-bottom: solid 1px $hover-color;
+    cursor: pointer;
+  }
+  
+}
