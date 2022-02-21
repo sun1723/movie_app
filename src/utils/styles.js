@@ -2,15 +2,12 @@ import styled from 'styled-components';
 
 
 export const MovieViewcss = styled.div`
+  height: 93vh
   .container {
     padding: 0 20px;
   }
   .result {
-    height: 5vh;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px
+    
   }
   .movieContent {
     // overFlow-y: scroll;
@@ -21,29 +18,8 @@ export const MovieViewcss = styled.div`
   .movieList {
     max-height: 88vh;
   }
-  .movieList {
-    font-size: 0.8em;
-    height: 100%;
-    // background-color: #0F0C24;
-    overflow: hidden scroll;
-    padding-top: 12px;
-  }
-  .movieList::-webkit-scrollbar {
-    width: 12px;               /* width of the entire scrollbar */
-  }
-  
-  .movieList::-webkit-scrollbar-track {
-    background: #0F0C24;        /* color of the tracking area */
-  }
-  
-  .movieList::-webkit-scrollbar-thumb {
-    background-color: #fff;    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 3px solid #0F0C24;  /* creates padding around scroll thumb */
-  }
   .movieDetails {
-    font-size: 0.9em;
-    overflow:hidden
+    
   }
   .scoreList {
     justify-content: space-around;
@@ -51,9 +27,7 @@ export const MovieViewcss = styled.div`
     // border-left: solid 1px #fff
   }
   .movieDetails {
-    height: 100%;
-    align-items: center;
-    margin: auto;
+    
   }
   .movieDetails .title {
     line-height: 1.5rem;
@@ -61,9 +35,7 @@ export const MovieViewcss = styled.div`
     margin-top: 20px
   }
   .movieDetails .movie_right {
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
+    
   }
   .movieDetails .movie_p {
     margin-top: 20px;

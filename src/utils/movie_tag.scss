@@ -1,0 +1,27 @@
+$bg-color: #F5A200;
+$font-color: #fff;
+
+.movie-tag {
+  display: flex;
+  color:#fff;
+  // justify-content: space-around;
+  margin-right: 30px;
+  text-transform: uppercase;
+  height: 25px;
+  &_single,
+  &_multiple {
+    padding: 0 5px;
+  }
+  &_single {
+    background-color: $bg-color;
+    width: auto;
+    border-radius:13px;
+    text-align: center;
+    font-size: 1rem;
+    box-sizing: content-box;
+  }
+  &_multiple {
+    font-size: 1rem;
+    box-sizing: content-box;
+  }
+}

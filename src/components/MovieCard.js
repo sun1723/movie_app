@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { Grid } from '@material-ui/core';
-
-export const MovieCard = ({movie,index,fetchMovieById, onClickIndex, hideDetail}) => {
+import '../utils/movie_card.scss'
+export const MovieCard = ({movie,index,fetchMovieById, onClickIndex}) => {
   const [hoverIndex, setHoverIndex] = useState(null);
-  const [onClickId, setOnClickId] = useState("")
+  const [onClickId, setOnClickId] = useState("");
 
   useEffect(() => {
+    console.log(onClickId)
     if(onClickId)
     {
       fetchMovieById(onClickId,index);
@@ -18,20 +19,19 @@ export const MovieCard = ({movie,index,fetchMovieById, onClickIndex, hideDetail}
   },[hoverIndex])
 
   return (
-    <Grid container spacing={2} 
+    <div 
       id = {index}
       key = {movie.imdbID}
-      style={{ width: '100%', backgroundColor: (hoverIndex == index) || (onClickIndex == index)? '#0F0C24': '#fff', height: hideDetail ? '130px': '100px', marginBottom: '12px', borderRadius: '8px'}}
+      className='movie-card'
+      // style={{backgroundImage: movie.Poster != 'N/A' ? `url(${movie.Poster})` : "url(./Image_not_available.png)" }}
       onMouseEnter={evt => {evt.persist(); setHoverIndex(evt.currentTarget.id)}}
       onMouseLeave={evt => setHoverIndex(null)}
-      onClick={evt => { setOnClickId(movie.imdbID); }}>
-        <Grid item xs={3} style={{ padding: 0, justifyContent: 'center', height: '100%'}}>
-          <img src={movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} style={{height: '100%', width:'100%', objectFit: 'fill',boxSizing:'border-box', borderRadius: '5px'}}/>
-        </Grid>
-        <Grid item xs={9} style={{ color: (hoverIndex == index) || (onClickIndex == index) ? '#fff' : '#000'}}>
-          <div style={{fontSize: '1.1em', lineHeight:'1.5rem', marginBottom: '2px'}}>{movie.Title}</div>
-          <div style={{ color: (hoverIndex == index) || (onClickIndex == index) ? '#000' : '#fff', backgroundColor:(hoverIndex == index) || (onClickIndex == index) ? '#D6D6D6': '#7A7F87' , width: '70px', textAlign: 'center', borderRadius: '12px', paddingTop: '2px' }}>{movie.Year}</div>
-        </Grid>
-    </Grid>
+      onClick={evt => {setOnClickId(movie.imdbID); }}>
+        <div className="movie-card_left"><img src={movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} /></div>
+        <div  className={onClickIndex==index ? 'movie-card_right active' :  ' movie-card_right '}>
+          <div className='movie-card_right__title'>{movie.Title}</div>
+          <div className='movie-card_right__info'>{movie.Year}</div>
+        </div>
+    </div>
   )
 }
