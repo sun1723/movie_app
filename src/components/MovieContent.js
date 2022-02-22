@@ -4,7 +4,7 @@ import '../utils/movie_content.scss'
 import {MovieTag} from './MovieTag';
 import { MovieMore } from "./MovieMore";
 
-export const MovieContent = ({movie,hideDetail}) => {
+export const MovieContent = ({movie}) => {
 
   return (
     <>
@@ -17,7 +17,7 @@ export const MovieContent = ({movie,hideDetail}) => {
           <Grid item  sm={5}  className="movie-content_container__mainPoster" >
             <img style={{width: '80%', height: '50vh', objectFit: 'contain' }} src={movie && movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} />
           </Grid>
-          <Grid item sm={7}  className="movie-content_right">
+          <div  className="movie-content_right">
             <div className="movie-content__movieTitle">{movie && movie.Title ? movie.Title : ''}</div>
             <div className="movie-content_tagList">
               {/* <MovieTag 
@@ -37,9 +37,9 @@ export const MovieContent = ({movie,hideDetail}) => {
             <div className='movie-content_movieMore'>
               <MovieMore movie={movie}/>
             </div>
-          </Grid>
+          </div>
         </Grid>
-        <Grid  className="scoreList" container item xs={12} direction="row" style={{marginTop: '30px'}}>
+        <div  className="scoreList">
         {movie.Ratings && movie.Ratings.length > 0 &&
           movie.Ratings.map(rate => 
             <div >
@@ -48,7 +48,7 @@ export const MovieContent = ({movie,hideDetail}) => {
             </div>
           )
         }
-        </Grid>
+        </div>
       </div>
     }
     </>

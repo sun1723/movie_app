@@ -1,3 +1,6 @@
+$phone-screen: 600px;
+$tablet-screen:768px;
+$laptop-screen: 1200px;
 
 .main {
   padding: 0 20px;
@@ -23,4 +26,20 @@
       margin: auto;
     }
   }
+}
+
+@media screen and (max-width: $phone-screen) {
+  .main {
+    width: 100%;
+    &_movies{
+      height: 100%;
+      &__list{
+        width: 100%;
+      }
+      &__details {
+        display: none;
+      }
+    }
+  }
+
 }

@@ -1,21 +1,27 @@
 import React, {useState, useEffect} from 'react';
 import { Grid } from '@material-ui/core';
 import '../utils/movie_card.scss'
-export const MovieCard = ({movie,index,fetchMovieById, onClickIndex}) => {
+import { MovieContent } from './MovieContent';
+export const MovieCard = ({movie,index,fetchMovieById, onClickIndex,movieContent}) => {
   const [hoverIndex, setHoverIndex] = useState(null);
   const [onClickId, setOnClickId] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     console.log(onClickId)
-    if(onClickId)
+    if(onClickId )
     {
       fetchMovieById(onClickId,index);
-      setOnClickId('')
+      setOnClickId('');
     }   
   },[onClickId])
 
   useEffect (() => {
-    console.log(hoverIndex,index);
+    console.log(isOpen,"------", parseInt(hoverIndex), index)
+    if(isOpen && onClickIndex != index || hoverIndex === index)
+    {
+      setIsOpen(false)
+    }
   },[hoverIndex])
 
   return (
@@ -31,6 +37,14 @@ export const MovieCard = ({movie,index,fetchMovieById, onClickIndex}) => {
         <div  className={onClickIndex==index ? 'movie-card_right active' :  ' movie-card_right '}>
           <div className='movie-card_right__title'>{movie.Title}</div>
           <div className='movie-card_right__info'>{movie.Year}</div>
+          {isOpen ?
+            movieContent && onClickIndex==index &&
+            (<div className='movie-card_right__phone'>
+                <MovieContent movie={movieContent}/>
+            </div>)
+            :
+            (<button  className='movie-card_right__button' onClick={() => {setIsOpen(true)}}>View Details</button>)
+          }
         </div>
     </div>
   )
