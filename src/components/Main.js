@@ -17,18 +17,19 @@ export const Main = ({fetchMovieById, movies, searchValueBackup, onClickIndex, m
         <div className="main_result" ><span onClick={(evt) => {setIsOpenList(!isOpenList)}}><MenuIcon /></span><span>{movies.length} Result for {searchValueBackup}</span></div>
         <Grid className="main_movies" container item  xs={12}>
         { isOpenList &&
-            <Grid className='main_movies__list' item xs={4}>
+            <div className='main_movies__list'>
               <MovieList 
                 movies={movies}
                 onClickIndex={onClickIndex}
-                fetchMovieById={fetchMovieById}/>
-            </Grid>
+                fetchMovieById={fetchMovieById}
+                movieContent={movieContent}/>
+            </div>
           }
-          <Grid className='main_movies__details' item xs={8}>
+          <div className='main_movies__details'>
             <MovieContent 
               movie={movieContent} 
               isOpenList={isOpenList}/>
-          </Grid>
+          </div>
         </Grid>
     </div>
     :

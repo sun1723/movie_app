@@ -1,11 +1,15 @@
 $hover-color: #FFB319;
+$phone-screen: 600px;
+$tablet-screen:768px;
+$laptop-screen: 1200px;
+$phone-screen-hover-color: #3e4491;
 
 .tab {
-  font-size: 1rem;
+  font-size: 0.8rem;
   width: 100px;
   text-align: center;
   box-sizing: border-box;
-  height: 35px;
+  height: 30px;
   text-transform: uppercase;
   padding-top: 5px;
   background-size: 0%;
@@ -17,4 +21,17 @@ $hover-color: #FFB319;
     cursor: pointer;
   }
   
+}
+
+@media screen and (max-width: $phone-screen) {
+  .tab {
+    &.active {
+      border-bottom: solid 1px $phone-screen-hover-color;
+    }
+
+    &:hover{
+      border-bottom: solid 1px $phone-screen-hover-color;
+    }
+  }
+
 }

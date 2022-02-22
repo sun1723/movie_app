@@ -1,3 +1,7 @@
+$phone-screen: 600px;
+$tablet-screen:768px;
+$laptop-screen: 1200px;
+$phone-screen-font-color: #3e4491;
 
 .movie_details {
   position:relative;  
@@ -5,7 +9,6 @@
   z-index: 2;
   width:100%;
   padding:0px;
-  top:120px;
   background-color:rgb(80,80,80);
   border-radius:10px; 
   opacity:0.6;
@@ -15,7 +18,7 @@
   box-shadow: 0px 0px 13px 2px rgba(0,0,0,0.7);
   &__tabs {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
   &__content {
     height: 100%;
@@ -24,6 +27,20 @@
     text-align: justify;
     & div {
       line-height: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: $phone-screen) {
+  .movie_details {
+    opacity: 1;
+    background-color: transparent;
+    box-shadow: none;
+    height: 100%;
+    color: $phone-screen-font-color;
+    &__content{
+      font-size: 0.8rem;
+      padding: 10px 0;
     }
   }
 }

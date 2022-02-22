@@ -1,6 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
+$phone-screen: 600px;
+$tablet-screen:768px;
+$laptop-screen: 1200px;
 $hover-color: #FFB319;
 $bg-color:#3e4491;
 $title-color: #ffffff;
@@ -10,17 +13,8 @@ $secondary-color: #F5A200;
 
 .movie-card {
 	width:100%;
-  height: 150px;
+  height: 180px;
   margin-bottom: 5px;
-	@media screen and (max-width: 800px) {
-		width: 95%;
-		max-width: 95%;
-    font-size: 0.8em;
-    height: 160px
-	}
-	@media screen and (max-width: 600px) {
-		height: 180px;
-	}
   &_left {
     width:40%;
     height:100%;
@@ -28,12 +22,6 @@ $secondary-color: #F5A200;
     overflow:hidden;
     background:#000;
     border-radius: 10px 0 0 10px;
-    @media screen and (max-width: 800px) {
-      width: 30%
-    }
-    @media screen and (max-width: 600px) {
-      width: 40%
-    }
     img {
       width:100%;
       height:100%;
@@ -44,6 +32,9 @@ $secondary-color: #F5A200;
       object-fit: fill;
     }
   }
+  &_phone{
+    display: none;
+  }
   &_right {
     width:60%;
     float:left;
@@ -52,28 +43,22 @@ $secondary-color: #F5A200;
     border-radius:0 10px 10px 0;
     -webkit-border-radius:0 10px 10px 0;
     -moz-border-radius:0 10px 10px 0;
-    padding:0 20px 0 40px;
+    padding:10px 20px 0 20px;
     text-align: center;
     text-transform: uppercase;
     color: $title-color;
-    @media screen and (max-width: 800px) {
-      width: 70%;
-      padding:0 0 0 20px;
-	  }
-    @media screen and (max-width: 600px) {
-      width: 60%;
-      padding:0 0 0 10px;
-    }
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 1);
     &:hover {
       background: $hover-color;
       color:$bg-color;
-      font-weight: 600;
+      font-weight: 500;
       cursor: pointer;
     }  
     &.active{
       background: $secondary-color;
       color:$bg-color;
       font-weight: 600;
+      height: auto;
     }  
     &__title {
     font-family: 'Montserrat', sans-serif;
@@ -83,10 +68,10 @@ $secondary-color: #F5A200;
     margin:30px 0 10px 0;
     letter-spacing:1px;
       :hover > & {
-        font-weight:600
+        font-weight:500
       }
       .active > &{
-        font-weight:600
+        font-weight:500
       }
     }
     &__info {
@@ -98,11 +83,64 @@ $secondary-color: #F5A200;
       :hover > & {
           background: $bg-color;
           color: $hover-color;
+          border: none;
       }
       .active > &{
           background:  $bg-color;
           color: $secondary-color;
+          border: none;
       }
     }
   }
+}
+
+// @media screen and (max-width: 800px) {
+//   width: 95%;
+//   max-width: 95%;
+//   font-size: 0.8em;
+//   height: 160px
+// }
+@media screen and (max-width: $phone-screen) {
+  .movie-card{
+    min-height: 53%;
+    display: block;
+    box-sizing: border-box;
+    &_left{
+      display: none;
+    }
+    &_right{
+      width: 100%;
+      border-radius: 10px;
+      &.active{
+        min-height: 100%;
+      } 
+      &__title {
+        font-size: 1.8rem;
+      }
+      &__info {
+        background-color: transparent;
+        border: 1px solid #ffffff;
+      }
+      &:hover {
+      }
+      &__phone {
+        display: block;
+      }
+      &__button {
+        width: 140px;
+        height: 60px;
+        background-color: $hover-color;
+        border-radius: 30px;
+        color: #ffffff;
+        font-size: 1.1rem;
+        margin-top: 8%;
+        :hover > & {
+          background-color: $bg-color;
+          
+        }
+      }
+    }
+    
+  }
+  
 }

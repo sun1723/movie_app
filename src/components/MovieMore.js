@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import '../utils/movie_more.scss'
+import { ContentDetail } from "./ContentDetail";
 import { Tab
  } from "./Tab";
 export const MovieMore = ({movie}) => {
@@ -40,23 +41,17 @@ export const MovieMore = ({movie}) => {
       <div className="movie_details__content">
           {isOpenDetails &&
             <>
-              <div>Actors: {movie.Actors}</div>
-              <div>Country: {movie.Country}</div>
-              <div>Release Date: {movie.Released}</div>
+              <ContentDetail title='Actors' content={movie.Actors} />
+              <ContentDetail title='writer' content={movie.Writer} />
+              <ContentDetail title='Director' content={movie.Director} />
+              <ContentDetail title='Country' content={movie.Country} />
+              <ContentDetail title='Release Date' content={movie.Released} />
               {/* important <div>Rating: {movie.imdbRating ? movie.imdbRating : '' }</div> */}
               {/* <div>Vote: {movie.imdbVotes ? movie.imdbVotes : '' }</div> */}
-              <div>writer: {movie.Writer}</div>
-              <div>score: {movie.Metascore}</div>
-              <div>Director: {movie.Director}</div>
-              <div>Rated: {movie.Rated}</div>
             </>
           }
           {isOpenPlot && 
-            <>
-              <div>
-                {movie.Plot}
-              </div>
-            </>
+            <ContentDetail title="Plot" active={true} content={movie.Plot}/>
           }
       </div>
     </div>
