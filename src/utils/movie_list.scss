@@ -1,6 +1,12 @@
 $sb-bg-color:#1a1b4b;
 $sb-fill-color: #3a9efd;
+$phone-screen: 600px;
+$tablet-screen:768px;
+$laptop-screen: 1200px;
+
 .movieList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   font-size: 0.6rem;
   height: 100%;
   overflow: hidden scroll;
@@ -18,4 +24,12 @@ $sb-fill-color: #3a9efd;
   background-color: $sb-fill-color;    /* color of the scroll thumb */
   border-radius: 20px;       /* roundness of the scroll thumb */
   border: 3px solid $sb-bg-color;  /* creates padding around scroll thumb */
+}
+
+@media screen and (max-width: $phone-screen) {
+  .movieList{
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(200px);
+    
+  }
 }

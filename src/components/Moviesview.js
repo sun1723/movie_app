@@ -15,6 +15,9 @@ export const Moviesview = () => {
   const [movies, setMovies] = useState(null);
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const [resultNum, setResultNum] = useState(0);
+  const [onTabletMode, setOnTabletMode] = useState(false);
+  const [onPhoneMode, setOnPhoneMode] = useState(false);
+
   useEffect(() => {
     if(searchValueBackup.length>=3)
       fetchMovies()
@@ -28,17 +31,11 @@ export const Moviesview = () => {
    * windowResize: handle window resize
    */
   const windowResize = () => {
-    console.log(window.innerWidth)
-    if(window.innerWidth< 1024 && window.innerWidth > 720){
-      setShowList(false);
-      setHideDetail(true);
-    }else if(window.innerWidth <= 720) {
-      setHideDetail(false);
-      setShowList(true);
-    }
-    else {
-      setHideDetail(false);
-      setShowList(false);
+    if(window.innerWidth <= 768 && window.innerWidth > 600){
+      setOnTabletMode(true);
+    }else if(window.innerWidth < 600){
+      setOnPhoneMode(true);
+      setOnTabletMode(false);
     }
   }
 
@@ -52,6 +49,7 @@ export const Moviesview = () => {
       id: onClickId
     }).then (res => {
       const data = res.data;
+      console.log(data)
       if(data.Response)
         setMovieContent(data);
         setOnClickIndex(index);
@@ -71,7 +69,7 @@ export const Moviesview = () => {
       if(data.Response){
         setMovies(data.Search);
         setMovieContent(data.Search[0])
-        setOnClickIndex(0)
+        setOnClickIndex(-1)
         setResultNum(data.totalResults);
       }
     }).catch(err =>{
@@ -93,7 +91,8 @@ export const Moviesview = () => {
           <MovieViewcss>
             <Main 
               fetchMovieById={fetchMovieById}
-
+              onTabletMode={onTabletMode}
+              onPhoneMode={onPhoneMode}
               movies={movies}
               searchValueBackup={searchValueBackup}
               onClickIndex={onClickIndex}

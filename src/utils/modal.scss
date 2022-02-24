@@ -1,0 +1,39 @@
+$bg-color:#3e4491;
+$sb-bg-color:#1a1b4b;
+$sb-fill-color: #3a9efd;
+$phone-screen: 600px;
+$tablet-screen:768px;
+$laptop-screen: 1200px;
+
+.modal-box {
+  position: absolute;
+  background-color: #000;
+  width: 100%;
+  height: 550px;
+  z-index: 100;
+  font-size: large;
+  top: 100px;
+  border: solid 1px $bg-color;
+  border-radius: 10px;
+  overflow-y: scroll;
+}
+
+.modal-box::-webkit-scrollbar {
+  width: 10px;               /* width of the entire scrollbar */
+}
+
+.modal-box::-webkit-scrollbar-track {
+  background: $sb-bg-color;        /* color of the tracking area */
+}
+
+.modal-box::-webkit-scrollbar-thumb {
+  background-color: $sb-fill-color;    /* color of the scroll thumb */
+  border-radius: 30px;       /* roundness of the scroll thumb */
+  border: 3px solid $sb-bg-color;  /* creates padding around scroll thumb */
+}
+
+@media screen and (max-width: $phone-screen) {
+  .modal-box {
+    background-color: transparent;
+  }
+}

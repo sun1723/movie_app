@@ -1,5 +1,6 @@
 $title-color: #3a9efd;
 $tag-color: #F5A200;
+$bg-color:#3e4491;
 $tag-name: #fff;
 $phone-screen: 600px;
 $tablet-screen:768px;
@@ -8,12 +9,12 @@ $laptop-screen: 1200px;
 
 
 .movie-content {
-  max-height: 100%;
+  height: 100%;
   width:100%;
   padding: 0;
   box-sizing: border-box;
   position: relative;
-  top:30px;
+  // top:30px;
   &_background{
     position:absolute;
     padding:0;
@@ -44,11 +45,13 @@ $laptop-screen: 1200px;
     }
   }
   &_container { 
-    display:block;
+    display:grid;
     width:800px;
     padding:0px;
     margin-left:auto;
     margin-right:auto;
+    grid-template-rows:1fr 1fr 3fr;
+    height: 100%;
     &__mainPoster {
       position:relative;
       z-index:10;
@@ -58,7 +61,7 @@ $laptop-screen: 1200px;
     }
   }
   &_right {
-    display: flex;
+    display: block;
     flex-direction: column;
   }
   &__movieTitle {
@@ -73,7 +76,8 @@ $laptop-screen: 1200px;
     padding: 0 25px;
     color: $title-color;
     z-index:10;
-    min-height: 100px;
+    min-height: 50px;
+    // grid-row: 1 / 2;
     text-transform: uppercase;
   }
   &_tagList {
@@ -83,21 +87,26 @@ $laptop-screen: 1200px;
     position:relative;
     top:55px;
     flex-wrap: wrap;
-    width: 100%
+    width: 100%;
+    // grid-row: 2 / 3;
   }
   &_movieMore {
     min-height:100%;
+    // grid-row: 3 / 5;
   }
   
 }
 
 @media screen and (max-width: $phone-screen) {
   .movie-content {
-
+    height: 100%;
+    height: 230px;
     &_background{
       display: none;
     }
     &_container{
+      width: 100%;
+      // overflow: hidden;
       &__mainPoster {
         display: none;
       }
@@ -106,8 +115,67 @@ $laptop-screen: 1200px;
     &_tagList{
       display: none;
     }
+    &_movieMore {
+      height: 100%;
+      font-size: 2rem;
+    }
   }
   .scoreList {
     display: none;
+  }
+  
+}
+@media screen and (min-width: $phone-screen) and (max-width: $tablet-screen) {
+  .movie-content{
+    
+    background-color: $bg-color;
+    // grid-template-columns: 1fr;
+    width: 100%;
+    position: relative;
+    top:0;
+    height: 100%;
+    text-align: center;
+    // position: relative;
+    &_background{
+      display: none;
+    }
+    &_container{
+      width: 80%;
+      height: 90%;
+      &__mainPoster {
+        display: none;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        top:0;
+        left:0;
+        img {
+          width: 100%;
+          object-fit: cover;
+          object-position:top;
+          height: 100%;
+        }
+      }
+    }
+    &_right {
+      top:0;
+      height: 100%;
+    }
+    &__movieTitle {
+      top:20px;
+      color: $tag-color;
+      padding:10px;
+      width: 100%;
+      height: 100%;
+      // min-height: 0px;
+    }
+    &_tagList {
+      top:10px;
+      height: 100%;
+    }
+    &_movieMore {
+      height: 100%;
+      font-size: 2rem;
+    }
   }
 }

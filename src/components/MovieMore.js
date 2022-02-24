@@ -33,7 +33,7 @@ export const MovieMore = ({movie}) => {
   }
 
   return (
-    <div className="movie_details" style={{lineHeight:'2em'}}>
+    <div className="movie_details" >
       <div className="movie_details__tabs">
         <Tab title = "Plot" handleOnclick={() => setIsOpenPlot(true)} isOnClick={isOpenPlot}/>
         <Tab title = "Details" handleOnclick={() => setIsOpenDetails(true)} isOnClick={isOpenDetails}/>

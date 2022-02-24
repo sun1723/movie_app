@@ -3,23 +3,26 @@ import { Grid } from '@material-ui/core';
 import '../utils/movie_content.scss'
 import {MovieTag} from './MovieTag';
 import { MovieMore } from "./MovieMore";
+import CloseIcon from '@material-ui/icons/Close';
 
-export const MovieContent = ({movie}) => {
+export const MovieContent = ({movie, handleClose, onTabletMode}) => {
 
   return (
     <>
     { movie &&
       <div className="movie-content"  >
+        {onTabletMode &&
+          <div style={{color: '#fff', float:'right', cursor: 'pointer'}} onClick={() => handleClose()}><CloseIcon /></div>
+        }
         <div className="movie-content_background">
           <img src={movie && movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} />
         </div>
-        <Grid className="movie-content_container" container item xs={12} >
-          <Grid item  sm={5}  className="movie-content_container__mainPoster" >
-            <img style={{width: '80%', height: '50vh', objectFit: 'contain' }} src={movie && movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} />
-          </Grid>
-          <div  className="movie-content_right">
-            <div className="movie-content__movieTitle">{movie && movie.Title ? movie.Title : ''}</div>
-            <div className="movie-content_tagList">
+        <div className="movie-content_container"  >
+          <div className="movie-content_container__mainPoster" >
+            <img src={movie && movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} />
+          </div>
+          <div className="movie-content__movieTitle">{movie && movie.Title ? movie.Title : ''}</div>
+          <div className="movie-content_tagList">
               {/* <MovieTag 
                 content={movie.Year}
                 isSeperate={true}
@@ -37,9 +40,8 @@ export const MovieContent = ({movie}) => {
             <div className='movie-content_movieMore'>
               <MovieMore movie={movie}/>
             </div>
-          </div>
-        </Grid>
-        <div  className="scoreList">
+        </div>
+        {/* <div  className="scoreList">
         {movie.Ratings && movie.Ratings.length > 0 &&
           movie.Ratings.map(rate => 
             <div >
@@ -48,7 +50,7 @@ export const MovieContent = ({movie}) => {
             </div>
           )
         }
-        </div>
+        </div> */}
       </div>
     }
     </>

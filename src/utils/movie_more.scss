@@ -40,7 +40,21 @@ $phone-screen-font-color: #3e4491;
     color: $phone-screen-font-color;
     &__content{
       font-size: 0.8rem;
+      height: 100%;
       padding: 10px 0;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-screen) and (min-width: $phone-screen) {
+  .movie_details {
+    height: 100%;
+    &__tabs{
+      justify-content: center;
+    }
+    &__content{
+      width:90%;
+      margin: auto auto;
     }
   }
 }

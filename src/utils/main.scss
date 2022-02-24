@@ -36,10 +36,24 @@ $laptop-screen: 1200px;
       &__list{
         width: 100%;
       }
+      // &__details {
+      //   display: none;
+      // }
+    }
+  }
+}
+@media screen and (max-width: $tablet-screen) and (min-width: $phone-screen) {
+  .main {
+    width: 100%;
+    &_movies{
+      width: 100%;
+      &__list{
+        width: 100%;
+      }
       &__details {
         display: none;
       }
+
     }
   }
-
 }

@@ -4,7 +4,6 @@ export const MovieTag = ({content,isSeperate }) => {
 
   return (
     <div className='movie-tag'>
-    {console.log(content)}
     {!content || content == "N/A" ? 
       null
       :

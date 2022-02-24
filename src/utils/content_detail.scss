@@ -11,3 +11,11 @@ $bg-color:#3e4491;
     font-weight: 600;
   }
 }
+
+@media screen and (max-width: $tablet-screen) and (min-width: $phone-screen) {
+  .content {
+    font-size: 1.1rem;
+    align-items: center;
+    
+  }
+}
