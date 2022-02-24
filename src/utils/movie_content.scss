@@ -7,15 +7,12 @@ $md-screen:768px;
 $lg-screen: 992px;
 $laptop-screen: 1200px;
 
-
-
 .movie-content {
   height: 100%;
   width:100%;
   padding: 0;
   box-sizing: border-box;
   position: relative;
-  // top:30px;
   &_background{
     position:absolute;
     padding:0;
@@ -28,12 +25,12 @@ $laptop-screen: 1200px;
     box-sizing: border-box;
     background-size:cover;
     background-position:center;
-    z-index:1;  
+    z-index:-1;  
     -webkit-filter: blur(15px);
     -moz-filter: blur(15px);
     -o-filter: blur(15px);
     -ms-filter: blur(15px);
-    filter: blur(15px) brightness(30%);    
+    filter: blur(10px) brightness(30%);    
     -webkit-box-shadow: inset 0px 0px 91px 137px rgba(0,0,0,1);
     -moz-box-shadow: inset 0px 0px 91px 137px rgba(0,0,0,1);
     box-shadow: inset 0px 0px 91px 137px rgba(0,0,0,1);
@@ -47,7 +44,7 @@ $laptop-screen: 1200px;
   }
   &_container { 
     display:grid;
-    width:800px;
+    width: 100%;
     padding:0px;
     margin-left:auto;
     margin-right:auto;
@@ -55,30 +52,27 @@ $laptop-screen: 1200px;
     height: 100%;
     &__mainPoster {
       position:relative;
-      z-index:10;
-      top:80px;
-      left:30px;
-      float:left;  
+      z-index:1;
+      display: flex;
+      img{
+        width: 100%;
+        object-fit: contain;
+        object-position: top;
+        margin: auto 0;
+      }
     }
-  }
-  &_right {
-    display: block;
-    flex-direction: column;
   }
   &__movieTitle {
     position:relative;
-    top:70px;
-    // left:50px;
-    float:left;
-    overflow:hidden;  
+    height: 100%;
+    width: 100%;
     font-family:Arial;
-    font-size:1.5rem;
+    font-size:1.2rem;
     font-weight:800;
     padding: 0 25px;
     color: $title-color;
-    z-index:10;
+    z-index:1;
     min-height: 50px;
-    // grid-row: 1 / 2;
     text-transform: uppercase;
   }
   &_tagList {
@@ -86,28 +80,24 @@ $laptop-screen: 1200px;
     justify-content: center;
     z-index: 10;
     position:relative;
-    top:55px;
+    top:10px;
     flex-wrap: wrap;
     width: 100%;
-    // grid-row: 2 / 3;
   }
   &_movieMore {
     min-height:100%;
-    // grid-row: 3 / 5;
+    z-index: 100;
+    padding: 0 8%  20px  8% ;
   }
   
 }
 
 @media screen and (max-width: $phone-screen) {
   .movie-content {
-    height: 100%;
-    height: 230px;
     &_background{
       display: none;
     }
     &_container{
-      width: 100%;
-      // overflow: hidden;
       &__mainPoster {
         display: none;
       }
@@ -119,6 +109,7 @@ $laptop-screen: 1200px;
     &_movieMore {
       height: 100%;
       font-size: 2rem;
+      padding: 0;
     }
   }
   .scoreList {
@@ -128,55 +119,27 @@ $laptop-screen: 1200px;
 }
 @media screen and (min-width: $phone-screen) and (max-width: $md-screen) {
   .movie-content{
-    
     background-color: $bg-color;
-    // grid-template-columns: 1fr;
-    width: 100%;
-    position: relative;
-    top:0;
-    height: 100%;
     text-align: center;
-    // position: relative;
     &_background{
       display: none;
     }
     &_container{
-      width: 80%;
+      width: 100%;
       height: 90%;
       &__mainPoster {
         display: none;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        top:0;
-        left:0;
-        img {
-          width: 100%;
-          object-fit: cover;
-          object-position:top;
-          height: 100%;
-        }
       }
-    }
-    &_right {
-      top:0;
-      height: 100%;
     }
     &__movieTitle {
       top:20px;
       color: $tag-color;
       padding:10px;
       width: 100%;
-      height: 100%;
-      // min-height: 0px;
     }
     &_tagList {
-      top:10px;
-      height: 100%;
     }
     &_movieMore {
-      height: 100%;
-      font-size: 2rem;
     }
   }
 }
@@ -184,45 +147,26 @@ $laptop-screen: 1200px;
 @media screen and (max-width: $lg-screen) and (min-width: $md-screen) {
   .movie-content {
     &_background {
-      z-index: -1;
     }
     &_container {
-      height: 100%;
-      width: 100%;
-      grid-template-rows: 100px 60px;
+      grid-template-rows: 130px 60px;
       grid-template-columns: 250px 1fr;
       grid-gap: 20px;
       &__mainPoster{
-        top:0;
-        left: 0;
-        // height: 100%;
         grid-row: 1 / 4;
-        display: flex;
-        img{
-          height: 60%;
-          width: 100%;
-          object-fit: contain;
-          object-position: top;
-          margin: auto 0;
-        }
       }
     }
     &__movieTitle {
-      height: 100%;
       top:15px;
-      width: 100%;
       text-align: left;
       font-size: 2rem;
     }
     &_tagList {
-      top: 10px;
       justify-content: left;
-      width: 100%;
-      padding-left: 20px;
+      padding-left: 25px;
     }
     &_movieMore {
-      z-index: 100;
-      padding: 10px 20px 20px 0px;
+      padding: 0 5%  20px  5% ;
     }
   }
 }
@@ -230,44 +174,29 @@ $laptop-screen: 1200px;
 @media screen and (min-width: $lg-screen)  {
   .movie-content {
     &_background {
-      z-index: -1;
     }
     &_container {
-      height: 100%;
-      width: 100%;
-      grid-template-rows: 100px 60px;
+      grid-template-rows: 130px 60px;
       grid-template-columns: 300px 1fr;
       grid-gap: 20px;
       &__mainPoster{
-        top:0;
-        left: 0;
         grid-row: 1 / 4;
-        display: flex;
         img{
           height: 80%;
-          width: 100%;
-          object-fit: contain;
-          object-position: top;
-          margin: auto 0;
         }
       }
     }
     &__movieTitle {
       height: 100%;
       top:15px;
-      width: 100%;
       text-align: center;
       font-size: 2rem;
     }
     &_tagList {
-      top: 10px;
       justify-content: center;
-      width: 100%;
       padding-left: 20px;
     }
     &_movieMore {
-      z-index: 100;
-      padding: 0 15%  20px  15% ;
     }
   }
 }

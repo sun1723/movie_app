@@ -31,31 +31,23 @@ $laptop-screen: 1200px;
 @media screen and (max-width: $phone-screen) {
   .movieList{
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(200px);
-    
   }
 }
 
 @media screen and (min-width: $phone-screen) and (max-width: $md-screen) {
   .movieList{
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(200px);
-    
   }
 }
 
 @media screen and (max-width: $lg-screen) and (min-width: $md-screen) {
   .movieList{
     grid-template-columns: repeat(3, 2fr);
-    // grid-template-rows: repeat(120px);
-    grid-gap: 20px;
   }
 }
 
 @media screen and (max-width: $laptop-screen) and (min-width: $lg-screen) {
   .movieList{
     grid-template-columns: repeat(4, 2fr);
-    // grid-template-rows: repeat(120px);
-    grid-gap: 20px;
   }
 }
