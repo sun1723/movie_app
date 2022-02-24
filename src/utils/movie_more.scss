@@ -1,5 +1,6 @@
 $phone-screen: 600px;
-$tablet-screen:768px;
+$md-screen:768px;
+$lg-screen: 992px;
 $laptop-screen: 1200px;
 $phone-screen-font-color: #3e4491;
 
@@ -21,7 +22,7 @@ $phone-screen-font-color: #3e4491;
     margin-bottom: 0;
   }
   &__content {
-    height: 100%;
+    // height: 100%;
     font-size: 1rem;
     padding: 10px;
     text-align: justify;
@@ -46,7 +47,7 @@ $phone-screen-font-color: #3e4491;
   }
 }
 
-@media screen and (max-width: $tablet-screen) and (min-width: $phone-screen) {
+@media screen and (max-width: $md-screen) and (min-width: $phone-screen) {
   .movie_details {
     height: 100%;
     &__tabs{
@@ -55,6 +56,17 @@ $phone-screen-font-color: #3e4491;
     &__content{
       width:90%;
       margin: auto auto;
+    }
+  }
+}
+
+@media screen and (min-width: $md-screen) {
+  .movie_details {
+    height: 100%;
+    margin-bottom: 100px;
+    &__tabs{
+    }
+    &__content{
     }
   }
 }

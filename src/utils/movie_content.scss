@@ -3,7 +3,8 @@ $tag-color: #F5A200;
 $bg-color:#3e4491;
 $tag-name: #fff;
 $phone-screen: 600px;
-$tablet-screen:768px;
+$md-screen:768px;
+$lg-screen: 992px;
 $laptop-screen: 1200px;
 
 
@@ -125,7 +126,7 @@ $laptop-screen: 1200px;
   }
   
 }
-@media screen and (min-width: $phone-screen) and (max-width: $tablet-screen) {
+@media screen and (min-width: $phone-screen) and (max-width: $md-screen) {
   .movie-content{
     
     background-color: $bg-color;
@@ -176,6 +177,97 @@ $laptop-screen: 1200px;
     &_movieMore {
       height: 100%;
       font-size: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: $lg-screen) and (min-width: $md-screen) {
+  .movie-content {
+    &_background {
+      z-index: -1;
+    }
+    &_container {
+      height: 100%;
+      width: 100%;
+      grid-template-rows: 100px 60px;
+      grid-template-columns: 250px 1fr;
+      grid-gap: 20px;
+      &__mainPoster{
+        top:0;
+        left: 0;
+        // height: 100%;
+        grid-row: 1 / 4;
+        display: flex;
+        img{
+          height: 60%;
+          width: 100%;
+          object-fit: contain;
+          object-position: top;
+          margin: auto 0;
+        }
+      }
+    }
+    &__movieTitle {
+      height: 100%;
+      top:15px;
+      width: 100%;
+      text-align: left;
+      font-size: 2rem;
+    }
+    &_tagList {
+      top: 10px;
+      justify-content: left;
+      width: 100%;
+      padding-left: 20px;
+    }
+    &_movieMore {
+      z-index: 100;
+      padding: 10px 20px 20px 0px;
+    }
+  }
+}
+
+@media screen and (min-width: $lg-screen)  {
+  .movie-content {
+    &_background {
+      z-index: -1;
+    }
+    &_container {
+      height: 100%;
+      width: 100%;
+      grid-template-rows: 100px 60px;
+      grid-template-columns: 300px 1fr;
+      grid-gap: 20px;
+      &__mainPoster{
+        top:0;
+        left: 0;
+        grid-row: 1 / 4;
+        display: flex;
+        img{
+          height: 80%;
+          width: 100%;
+          object-fit: contain;
+          object-position: top;
+          margin: auto 0;
+        }
+      }
+    }
+    &__movieTitle {
+      height: 100%;
+      top:15px;
+      width: 100%;
+      text-align: center;
+      font-size: 2rem;
+    }
+    &_tagList {
+      top: 10px;
+      justify-content: center;
+      width: 100%;
+      padding-left: 20px;
+    }
+    &_movieMore {
+      z-index: 100;
+      padding: 0 15%  20px  15% ;
     }
   }
 }

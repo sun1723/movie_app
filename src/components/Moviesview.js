@@ -31,7 +31,7 @@ export const Moviesview = () => {
    * windowResize: handle window resize
    */
   const windowResize = () => {
-    if(window.innerWidth <= 768 && window.innerWidth > 600){
+    if(window.innerWidth > 600){
       setOnTabletMode(true);
     }else if(window.innerWidth < 600){
       setOnPhoneMode(true);

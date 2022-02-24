@@ -1,6 +1,7 @@
 $hover-color: #FFB319;
 $phone-screen: 600px;
-$tablet-screen:768px;
+$md-screen:768px;
+$lg-screen: 992px;
 $laptop-screen: 1200px;
 $phone-screen-hover-color: #3e4491;
 
@@ -36,7 +37,13 @@ $phone-screen-hover-color: #3e4491;
 
 }
 
-@media screen and (max-width: $tablet-screen) and (min-width: $phone-screen){
+@media screen and (max-width: $md-screen) and (min-width: $phone-screen){
+  .tab {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: $md-screen){
   .tab {
     font-size: 1rem;
   }

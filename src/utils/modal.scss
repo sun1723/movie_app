@@ -2,7 +2,8 @@ $bg-color:#3e4491;
 $sb-bg-color:#1a1b4b;
 $sb-fill-color: #3a9efd;
 $phone-screen: 600px;
-$tablet-screen:768px;
+$md-screen:768px;
+$lg-screen: 992px;
 $laptop-screen: 1200px;
 
 .modal-box {
@@ -12,7 +13,7 @@ $laptop-screen: 1200px;
   height: 550px;
   z-index: 100;
   font-size: large;
-  top: 100px;
+  top: 20px;
   border: solid 1px $bg-color;
   border-radius: 10px;
   overflow-y: scroll;
@@ -35,5 +36,23 @@ $laptop-screen: 1200px;
 @media screen and (max-width: $phone-screen) {
   .modal-box {
     background-color: transparent;
+  }
+}
+@media screen and (min-width: $md-screen) and (max-width: $lg-screen){
+  .modal-box {
+    width: 95%;
+    left: 2%
+  }
+}
+
+@media screen and (min-width: $lg-screen) {
+  .modal-box {
+    width: 80%;
+    // left: 2%;
+    top: 0; 
+    left: 0; 
+    bottom: 0; 
+    right: 0;
+    margin:auto
   }
 }

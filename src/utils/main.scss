@@ -1,5 +1,6 @@
 $phone-screen: 600px;
-$tablet-screen:768px;
+$md-screen:768px;
+$lg-screen: 992px;
 $laptop-screen: 1200px;
 
 .main {
@@ -42,7 +43,7 @@ $laptop-screen: 1200px;
     }
   }
 }
-@media screen and (max-width: $tablet-screen) and (min-width: $phone-screen) {
+@media screen and (max-width: $md-screen) and (min-width: $phone-screen) {
   .main {
     width: 100%;
     &_movies{
@@ -56,4 +57,8 @@ $laptop-screen: 1200px;
 
     }
   }
+}
+
+@media screen and (min-width: $md-screen) {
+  
 }

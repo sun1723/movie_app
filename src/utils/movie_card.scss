@@ -2,7 +2,8 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 $phone-screen: 600px;
-$tablet-screen:768px;
+$md-screen:768px;
+$lg-screen: 992px;
 $laptop-screen: 1200px;
 $hover-color: #FFB319;
 $bg-color:#3e4491;
@@ -15,8 +16,10 @@ $secondary-color: #F5A200;
 	width:100%;
   height: 375px;
   margin-bottom: 5px;
+  position: relative;
   &_left {
-    width:40%;
+    position: absolute;
+    width:100%;
     height:100%;
     float:left;
     overflow:hidden;
@@ -30,6 +33,7 @@ $secondary-color: #F5A200;
       -moz-border-radius:10px 0 0 10px;
       position:relative;
       object-fit: fill;
+      opacity: 0.6;
     }
   }
   &_phone{
@@ -140,7 +144,7 @@ $secondary-color: #F5A200;
   }
 }
 
-@media screen and (max-width: $tablet-screen) and (min-width: $phone-screen) {
+@media screen and (max-width: $md-screen) and (min-width: $phone-screen) {
   .movie-card{
     height: 250px;
     width: 95%;
@@ -161,6 +165,69 @@ $secondary-color: #F5A200;
       background-color: rgba(0,0,0,0.6);
       font-size: 0.9rem;
       border-radius: 10px;
+      &:hover {
+        background: rgba(0,0,0,0.5);
+        color: $title-color;
+        font-weight: 500;
+        cursor: pointer;
+      }  
+      &.active{
+        background: rgba(0,0,0,0.4);
+        color:$title-color;
+        font-weight: 600;
+        height: 100%;
+      } 
+      &__title {
+        text-align: center;
+        font-weight: 500;
+        height: 90px;
+        :hover > & {
+          font-weight: 700;
+        }
+      }
+      &__info{
+        width: 100%;
+        margin:auto;
+        background-color: transparent;
+        font-size: 1.4rem;
+        color: $hover-color;
+        :hover > & ,
+        .active > &{
+          // color: $title-color;
+          background: transparent;
+          font-weight: 600;
+        }
+      }
+      &__phone {
+        display: none;
+      }
+      &__button {
+        width: 140px;
+        height: 40px;
+        background-color: $hover-color;
+        border-radius: 30px;
+        color: $title-color;
+        font-size: 1.1rem;
+        margin-top: 8%;
+        :hover > & {
+          background-color: $bg-color;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $md-screen) {
+  .movie-card {
+    height: 300px;
+    &_left {
+      z-index: -1;
+    }
+    &_right {
+      width: 100%;
+      background-color: transparent;
+    }
+    &_right {
       &:hover {
         background: rgba(0,0,0,0.5);
         color: $title-color;
