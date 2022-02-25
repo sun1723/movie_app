@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {MovieViewcss} from '../utils/styles'
+import '../utils/movie_view.scss'
 import {getMoviesByidOrTitle, getMoviesBySearch} from '../api/MovieApi'
 import { Nav } from './Nav';
 
@@ -86,20 +86,20 @@ export const Moviesview = () => {
 
   return (
     <div className='view' style={{height:{windowHeight}}}>
-      <Nav handleOnSearchClick={handleOnSearchClick}/>
-        (
-          <MovieViewcss>
-            <Main 
-              fetchMovieById={fetchMovieById}
-              onTabletMode={onTabletMode}
-              onPhoneMode={onPhoneMode}
-              movies={movies}
-              searchValueBackup={searchValueBackup}
-              onClickIndex={onClickIndex}
-              movieContent={movieContent}
-              />
-          </MovieViewcss>
-        )
+      <div className='nav'>
+        <Nav handleOnSearchClick={handleOnSearchClick}/>
+      </div>
+      <div className='main'>
+        <Main 
+          fetchMovieById={fetchMovieById}
+          onTabletMode={onTabletMode}
+          onPhoneMode={onPhoneMode}
+          movies={movies}
+          searchValueBackup={searchValueBackup}
+          onClickIndex={onClickIndex}
+          movieContent={movieContent}
+          />
+      </div>
     </div>
   );
 }

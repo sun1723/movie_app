@@ -1,8 +1,8 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import SearchIcon from '@material-ui/icons/Search';
+import '../utils/search_box.scss'
 
-export const SearchBox = ({onSearch}) => {
+export const SearchBox = ({onSearch, iconAfter}) => {
   const [searchValue, setSearchValue] = useState("");
   const [openSearch, setOpenSearch] = useState(false);
 
@@ -33,14 +33,18 @@ export const SearchBox = ({onSearch}) => {
 
   return (
     <div className='search-box'>
-      <input
-        onChange={val => setSearchValue(val.currentTarget.value)}
-        placeholder="Input Search"
-        value={searchValue}
-      />
-      <button onClick={() => {setOpenSearch(true); }}>
-        <SearchIcon />
-      </button>
+      <span className='search-box_input'>
+        <input
+          onChange={val => setSearchValue(val.currentTarget.value)}
+          placeholder="Input Search"
+          value={searchValue}
+        />
+      </span>
+      <div className='search-box_icon'>
+        <button onClick={() => {setOpenSearch(true); }}>
+          {iconAfter} 
+        </button>
+      </div>
     </div>
   );
 }

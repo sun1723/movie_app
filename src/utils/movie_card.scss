@@ -11,6 +11,7 @@ $title-color: #ffffff;
 $font-stack-content: 'Montserrat', helvetica, arial, sans-serif;
 $font-stack-header: 'Montserrat', helvetica, arial, sans-serif;
 $secondary-color: #F5A200;
+$second-bg-color: #3a9efd;
 
 .movie-card {
   position: relative;
@@ -145,7 +146,7 @@ $secondary-color: #F5A200;
 
 @media screen and (max-width: $md-screen) and (min-width: $phone-screen) {
   .movie-card{
-    height: 250px;
+    height: 270px;
     &_left {
       img{
         opacity: 1;
@@ -191,17 +192,17 @@ $secondary-color: #F5A200;
     }
     &_right {
       width: 100%;
-      background-color: transparent;
+      background-color: rgba(0,0,0,0.4);
     }
     &_right {
       &:hover {
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.1);
         color: $title-color;
         font-weight: 500;
         cursor: pointer;
       }  
       &.active{
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0.2);
         color:$title-color;
         font-weight: 600;
       } 

@@ -1,0 +1,17 @@
+$phone-screen: 600px;
+$md-screen:768px;
+$lg-screen: 992px;
+$laptop-screen: 1200px;
+$icon-color: #ffffff;
+
+.nav-bar {
+  width: 100%;
+  margin: 0 auto; 
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  &_search {
+    padding:10px 20px 0 20px;
+    display: inline-block;
+  }
+}
