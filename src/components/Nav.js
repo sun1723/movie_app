@@ -11,6 +11,9 @@ export const Nav = ({handleOnSearchClick, types}) => {
       <div className="nav-bar_search">
         <SearchBox onSearch={handleOnSearchClick} iconAfter={<SearchIcon/>}/>
       </div>
+      <div className='nav-bar_type'>
+        <TypesList types={types}/>
+      </div>
     </div>
   )
 }
