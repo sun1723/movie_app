@@ -15,11 +15,11 @@ export const MovieContent = ({movie, handleClose, onTabletMode}) => {
           <div style={{color: '#fff', float:'right', cursor: 'pointer', height: '2%'}} onClick={() => handleClose()}><CloseIcon /></div>
         }
         <div className="movie-content_background">
-          <img src={movie && movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} />
+          <img src={movie && movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} alt={movie && movie.Title ? movie.Title : ''}/>
         </div>
         <div className="movie-content_container"  style={{height: onTabletMode ? "98%" : '100%'}} >
           <div className="movie-content_container__mainPoster" >
-            <img src={movie && movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} />
+            <img src={movie && movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} alt={movie && movie.Title ? movie.Title : ''}/>
           </div>
           <div className="movie-content__movieTitle">{movie && movie.Title ? movie.Title : ''}</div>
           <div className="movie-content_tagList">
