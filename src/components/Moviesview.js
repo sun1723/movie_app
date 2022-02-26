@@ -23,6 +23,10 @@ export const Moviesview = () => {
   const [selectedPage, setSelectedPage] = useState(1);
 
   useEffect(() => {
+    windowResize();
+  },[]);
+
+  useEffect(() => {
     if(anchorEl == 'drop' || anchorEl == 'radio_icon' || anchorEl == 'radio_title' || anchorEl == 'radio_con' || anchorEl == "type" ){
       //stay open
     }else if(dropDownEnable){
