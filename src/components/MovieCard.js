@@ -15,12 +15,8 @@ export const MovieCard = ({movie,index,fetchMovieById, onClickIndex,movieContent
     }   
   },[onClickId]);
 
-  useEffect(() => {
-    console.log("hover: ", hoverIndex);
-  },[hoverIndex])
 
   useEffect (() => {
-    console.log("onclick: ", onClickIndex)
     if(isOpen && onClickIndex != index )
     {
       handleOpenDetail(true)
@@ -32,15 +28,13 @@ export const MovieCard = ({movie,index,fetchMovieById, onClickIndex,movieContent
       id = {index}
       key = {movie.imdbID}
       className='movie-card'
-      // style={{backgroundImage: movie.Poster != 'N/A' ? `url(${movie.Poster})` : "url(./Image_not_available.png)" }}
-      onMouseEnter={evt => {console.log(evt.currentTarget); setHoverIndex(evt.currentTarget.id)}}
+      onMouseEnter={evt => {setHoverIndex(evt.currentTarget.id)}}
       onMouseLeave={evt => setHoverIndex(null)}
       onClick={evt => {setOnClickId(movie.imdbID); }}>
         <div className="movie-card_left"><img src={movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} /></div>
         <div  className={onClickIndex==index ? 'movie-card_right active' :  ' movie-card_right '}>
           <div className='movie-card_right__title'>{movie.Title}</div>
           <div className='movie-card_right__info'>{movie.Year}</div>
-          {console.log("isOnpen", isOpen, "ontablet", onTabletMode, " ","phone " ,onPhoneMode, " " ,parseInt(onClickIndex)==index, " " ,movieContent)}
           <div>
             {isOpen && movieContent && parseInt(onClickIndex)==index && onPhoneMode ?
               ( <div className='movie-card_right__phone'>

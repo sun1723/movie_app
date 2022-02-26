@@ -85,7 +85,6 @@ export const Moviesview = () => {
       id: onClickId
     }).then (res => {
       const data = res.data;
-      console.log(data)
       if(data.Response)
         setMovieContent(data);
         setOnClickIndex(index);
