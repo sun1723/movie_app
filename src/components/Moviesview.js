@@ -30,7 +30,6 @@ export const Moviesview = () => {
   },[anchorEl ])
 
   useEffect(() => {
-    console.log("343243" ,selectedMovieType,searchValueBackup )
     if(searchValueBackup.length>=3)
       fetchMovies()
   },[selectedMovieType, searchValueBackup])
@@ -38,13 +37,6 @@ export const Moviesview = () => {
   useEffect (() => {
     window.addEventListener('resize', windowResize);
   })
-
-  /**
-   * refreshSearch: refresh after search
-   */
-  const refreshSearch = () => {
-
-  }
 
   /**
    * handleOnClick: handle click on button
@@ -101,7 +93,6 @@ export const Moviesview = () => {
  * fetchMovies : fetch movies from api
  */
   const fetchMovies = () => {
-    console.log(selectedMovieType)
     getMoviesBySearch({
       search: searchValueBackup,
       type: selectedMovieType,
@@ -131,7 +122,6 @@ export const Moviesview = () => {
    * handleOnChangeType: handle change type by radio input
    */
   const handleOnChangeType = (type) => {
-    console.log("change: ", type)
     setSelectedMovieType(type);
     setSelectedMovieTypeBackup(type)
   }
@@ -139,7 +129,6 @@ export const Moviesview = () => {
   return (
     <div className='view' onClick={(evt) => {setAnchorEl(evt.target.id) }}>
       <div className='nav'>
-        {console.log(selectedMovieTypeBackup)}
         <Nav handleOnSearchClick={handleOnSearchClick} 
           selectedType={selectedMovieTypeBackup}
           handleOnChangeType = {handleOnChangeType}

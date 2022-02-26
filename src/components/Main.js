@@ -18,7 +18,7 @@ export const Main = ({fetchMovieById, movies, searchValueBackup, onClickIndex, m
     <div className="main">
     {movies && movies.length > 0 ?
       <>
-        <div className="main_result" ><span onClick={(evt) => {console.log(evt)}}><MenuIcon /></span><span>{movies.length} Result for {searchValueBackup}</span></div>
+        <div className="main_result" ><span><MenuIcon /></span><span>{movies.length} Result for {searchValueBackup}</span></div>
         <Grid className="main_movies" container item  xs={12}>
         { onTabletMode &&
           <MovieModal isOpen={isOpen} movie={movieContent} handleClose={() => { setIsOpen(false)}} onTabletMode={onTabletMode}/>

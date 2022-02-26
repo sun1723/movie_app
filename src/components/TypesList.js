@@ -8,7 +8,6 @@ export const TypesList = ({selectedType, handleOnChangeType , types, collapMode,
   return (
     <div className='list' >
       <span className='list_title' id="type" onClick={(evt) =>{if(dropDownEnable){ handleOnClose()}else{handleOnOpen()}}}>Type </span>
-      {console.log(selectedType)}
       {!collapMode ? 
         (
           <div className='list_items'>
