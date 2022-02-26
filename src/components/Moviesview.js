@@ -101,6 +101,9 @@ export const Moviesview = () => {
  * fetchMovies : fetch movies from api
  */
   const fetchMovies = () => {
+    if(!searchValueBackup){
+      return;
+    }
     getMoviesBySearch({
       search: searchValueBackup,
       type: selectedMovieType,
