@@ -1,9 +1,10 @@
 .view {
   min-height: 100vh;
   .nav {
-    height: 20%;
+    height: 30%;
   }
   .main {
-    height: 80%;
+    height: 100%;
+    margin-top: 50px;
   }
 }
