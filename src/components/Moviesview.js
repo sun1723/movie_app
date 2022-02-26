@@ -4,13 +4,14 @@ import {getMoviesByidOrTitle, getMoviesBySearch} from '../api/MovieApi'
 import { Nav } from './Nav';
 import {types} from '../utils/app_constant'
 import { Main } from './Main';
+import { PaginationFor } from './PaginationFor';
 
 export const Moviesview = () => {
   const [searchValueBackup, setSearchValueBackup]  = useState("")
   const [movieContent, setMovieContent] = useState(null);
   
   const [onClickIndex, setOnClickIndex] = useState(0);
-  const [movies, setMovies] = useState(null);
+  const [movies, setMovies] = useState([]);
   const [resultNum, setResultNum] = useState(0);
   const [onTabletMode, setOnTabletMode] = useState(false);
   const [onPhoneMode, setOnPhoneMode] = useState(false);
@@ -156,6 +157,7 @@ export const Moviesview = () => {
           movieContent={movieContent}
           handleChangePage={handleChangePage}
         />
+        <PaginationFor count={100} handleChangePage={handleChangePage}/>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ $white: #ffffff;
 $bg-color: #F5A200;
 
 .pagination {
+  justify-content: center;
   & li > *  {
     color: $white;
     button {
