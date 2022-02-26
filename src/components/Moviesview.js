@@ -18,7 +18,7 @@ export const Moviesview = () => {
   const [dropDownEnable, setDropDownEnable] = useState(false);
   const [anchorEl, setAnchorEl] = useState('-1');
   const [selectedMovieType, setSelectedMovieType] = useState(types[1]);
-  const [selectedMovieTypeBackup, setSelectedMovieTypeBackup] = useState()
+  const [selectedMovieTypeBackup, setSelectedMovieTypeBackup] = useState(selectedMovieType)
 
 
   useEffect(() => {

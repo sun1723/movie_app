@@ -7,14 +7,14 @@ $lg-screen: 992px;
 $laptop-screen: 1200px;
 
 .modal-box {
-  position: absolute;
+  position: fixed;
   background-color: #000;
   width: 80%;
   height: 550px;
   z-index: 100;
   font-size: large;
   margin:20px auto 0 auto;
-  top:30px;
+  top:100px;
   left: 0; 
   bottom: 0; 
   right: 0;
