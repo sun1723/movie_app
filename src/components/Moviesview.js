@@ -18,6 +18,7 @@ export const Moviesview = () => {
   const [dropDownEnable, setDropDownEnable] = useState(false);
   const [anchorEl, setAnchorEl] = useState('-1');
   const [selectedMovieType, setSelectedMovieType] = useState(types[1]);
+  const [selectedMovieTypeBackup, setSelectedMovieTypeBackup] = useState()
 
 
   useEffect(() => {
@@ -122,7 +123,8 @@ export const Moviesview = () => {
    */
   const handleOnSearchClick = (val) => {
     fetchMovies(val);
-    setSearchValueBackup(val)
+    setSearchValueBackup(val);
+    setSelectedMovieType(selectedMovieTypeBackup)
   }
 
   /**
@@ -130,14 +132,16 @@ export const Moviesview = () => {
    */
   const handleOnChangeType = (type) => {
     console.log("change: ", type)
-    setSelectedMovieType(type)
+    setSelectedMovieType(type);
+    setSelectedMovieTypeBackup(type)
   }
 
   return (
-    <div className='view' onClick={(evt) => {console.log(evt.target.id); setAnchorEl(evt.target.id) }}>
+    <div className='view' onClick={(evt) => {setAnchorEl(evt.target.id) }}>
       <div className='nav'>
+        {console.log(selectedMovieTypeBackup)}
         <Nav handleOnSearchClick={handleOnSearchClick} 
-          selectedType={selectedMovieType}
+          selectedType={selectedMovieTypeBackup}
           handleOnChangeType = {handleOnChangeType}
           types={types} 
           collapMode={collapMode}
