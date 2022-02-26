@@ -1,10 +1,10 @@
 import '../utils/type_radio.scss'
-
-export const TypeRadio = ({title}) => {
+import {types} from '../utils/app_constant'
+export const TypeRadio = ({title, handleOnChangeType,checked}) => {
 
   return (
-    <label className="radio-container" id="radio_con">
-      <input type="radio" name="radio" id="radio_icon"/>
+    <label id="radio_con" className="radio-container"  onClick={(evt)=> {handleOnChangeType(title)}}>
+      <input type="radio" name="radio" id="radio_icon" value={title} checked={checked}/>
       <span id="radio_title">{title}</span>
       <span className="checkmark"></span>
     </label>

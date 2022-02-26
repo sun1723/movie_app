@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import '../utils/movie_view.scss'
 import {getMoviesByidOrTitle, getMoviesBySearch} from '../api/MovieApi'
 import { Nav } from './Nav';
-
+import {types} from '../utils/app_constant'
 import { Main } from './Main';
 
 export const Moviesview = () => {
@@ -17,11 +17,8 @@ export const Moviesview = () => {
   const [collapMode, setCollapMode] = useState(false);
   const [dropDownEnable, setDropDownEnable] = useState(false);
   const [anchorEl, setAnchorEl] = useState('-1');
-  const types = [
-    "movie",
-    "series",
-    "episode"
-  ]
+  const [selectedMovieType, setSelectedMovieType] = useState(types[1]);
+
 
   useEffect(() => {
     if(anchorEl == 'drop' || anchorEl == 'radio_icon' || anchorEl == 'radio_title' || anchorEl == 'radio_con' || anchorEl == "type" ){
@@ -32,13 +29,21 @@ export const Moviesview = () => {
   },[anchorEl ])
 
   useEffect(() => {
+    console.log("343243" ,selectedMovieType,searchValueBackup )
     if(searchValueBackup.length>=3)
       fetchMovies()
-  },[])
+  },[selectedMovieType, searchValueBackup])
 
   useEffect (() => {
     window.addEventListener('resize', windowResize);
   })
+
+  /**
+   * refreshSearch: refresh after search
+   */
+  const refreshSearch = () => {
+
+  }
 
   /**
    * handleOnClick: handle click on button
@@ -94,10 +99,11 @@ export const Moviesview = () => {
   /**
  * fetchMovies : fetch movies from api
  */
-  const fetchMovies = (search) => {
+  const fetchMovies = () => {
+    console.log(selectedMovieType)
     getMoviesBySearch({
-      search: search,
-      type:'movie',
+      search: searchValueBackup,
+      type: selectedMovieType,
       page:"1"
     }).then (res =>{
       const data = res.data
@@ -119,15 +125,25 @@ export const Moviesview = () => {
     setSearchValueBackup(val)
   }
 
+  /**
+   * handleOnChangeType: handle change type by radio input
+   */
+  const handleOnChangeType = (type) => {
+    console.log("change: ", type)
+    setSelectedMovieType(type)
+  }
+
   return (
-    <div className='view' onClick={(evt) => {setAnchorEl(evt.target.id) }}>
+    <div className='view' onClick={(evt) => {console.log(evt.target.id); setAnchorEl(evt.target.id) }}>
       <div className='nav'>
         <Nav handleOnSearchClick={handleOnSearchClick} 
-            types={types} 
-            collapMode={collapMode}
-            handleOnOpen={handleOnOpen}
-            handleOnClose={handleOnClose}
-            dropDownEnable={dropDownEnable}/>
+          selectedType={selectedMovieType}
+          handleOnChangeType = {handleOnChangeType}
+          types={types} 
+          collapMode={collapMode}
+          handleOnOpen={handleOnOpen}
+          handleOnClose={handleOnClose}
+          dropDownEnable={dropDownEnable}/>
       </div>
       <div className='main'>
         <Main 

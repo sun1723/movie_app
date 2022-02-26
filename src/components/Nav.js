@@ -4,7 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { TypesList } from './TypesList';
 
 
-export const Nav = ({handleOnSearchClick, types, collapMode, handleOnOpen, handleOnClose, dropDownEnable}) => {
+export const Nav = ({handleOnChangeType, handleOnSearchClick, selectedType, types, collapMode, handleOnOpen, handleOnClose, dropDownEnable}) => {
 
   return (
     <div className='nav-bar'>
@@ -14,10 +14,12 @@ export const Nav = ({handleOnSearchClick, types, collapMode, handleOnOpen, handl
       <div className='nav-bar_type'>
         <TypesList 
           types={types} 
+          selectedType={selectedType}
           collapMode={collapMode} 
           handleOnOpen={handleOnOpen} 
           handleOnClose={handleOnClose}
-          dropDownEnable={dropDownEnable}/>
+          dropDownEnable={dropDownEnable}
+          handleOnChangeType={handleOnChangeType}/>
       </div>
     </div>
   )
