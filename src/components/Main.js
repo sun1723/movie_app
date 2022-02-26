@@ -6,8 +6,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import {MovieList} from './MovieList';
 import { MovieModal } from './MovieModal';
 import '../utils/main.scss'
+import { PaginationFor } from './PaginationFor';
 
-export const Main = ({fetchMovieById, movies, searchValueBackup, onClickIndex, movieContent, onTabletMode, onPhoneMode}) => {
+export const Main = ({fetchMovieById, movies, searchValueBackup, onClickIndex, movieContent, onTabletMode, onPhoneMode, handleChangePage}) => {
   const [isOpen, setIsOpen] = useState(false);  
 
   const handleOpenDetail = (value) => {
@@ -18,7 +19,7 @@ export const Main = ({fetchMovieById, movies, searchValueBackup, onClickIndex, m
     <div className="main">
     {movies && movies.length > 0 ?
       <>
-        <div className="main_result" ><span><MenuIcon /></span><span>{movies.length} Result for {searchValueBackup}</span></div>
+        <div className="main_result" ><span><MenuIcon /></span><span>{movies.length} Result for {searchValueBackup}</span><PaginationFor count={100} handleChangePage={handleChangePage}/></div>
         <Grid className="main_movies" container item  xs={12}>
         { onTabletMode &&
           <MovieModal isOpen={isOpen} movie={movieContent} handleClose={() => { setIsOpen(false)}} onTabletMode={onTabletMode}/>

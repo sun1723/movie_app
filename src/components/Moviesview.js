@@ -17,9 +17,9 @@ export const Moviesview = () => {
   const [collapMode, setCollapMode] = useState(false);
   const [dropDownEnable, setDropDownEnable] = useState(false);
   const [anchorEl, setAnchorEl] = useState('-1');
-  const [selectedMovieType, setSelectedMovieType] = useState(types[1]);
+  const [selectedMovieType, setSelectedMovieType] = useState(types[0]);
   const [selectedMovieTypeBackup, setSelectedMovieTypeBackup] = useState(selectedMovieType)
-
+  const [selectedPage, setSelectedPage] = useState(1);
 
   useEffect(() => {
     if(anchorEl == 'drop' || anchorEl == 'radio_icon' || anchorEl == 'radio_title' || anchorEl == 'radio_con' || anchorEl == "type" ){
@@ -32,11 +32,18 @@ export const Moviesview = () => {
   useEffect(() => {
     if(searchValueBackup.length>=3)
       fetchMovies()
-  },[selectedMovieType, searchValueBackup])
+  },[selectedMovieType, searchValueBackup, selectedPage])
 
   useEffect (() => {
     window.addEventListener('resize', windowResize);
   })
+
+  /**
+   * handleChangePage: handle change page for movies
+   */
+  const handleChangePage = (page) => {
+    setSelectedPage(page);
+  }
 
   /**
    * handleOnClick: handle click on button
@@ -96,7 +103,7 @@ export const Moviesview = () => {
     getMoviesBySearch({
       search: searchValueBackup,
       type: selectedMovieType,
-      page:"1"
+      page: selectedPage
     }).then (res =>{
       const data = res.data
       if(data.Response){
@@ -147,7 +154,8 @@ export const Moviesview = () => {
           searchValueBackup={searchValueBackup}
           onClickIndex={onClickIndex}
           movieContent={movieContent}
-          />
+          handleChangePage={handleChangePage}
+        />
       </div>
     </div>
   );

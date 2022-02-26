@@ -1,0 +1,14 @@
+$white: #ffffff;
+$bg-color: #F5A200;
+
+.pagination {
+  & li > *  {
+    color: $white;
+    button {
+      .selected {
+        background-color: #F5A200;
+      }
+    }
+  }
+  
+}
