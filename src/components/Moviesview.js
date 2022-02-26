@@ -73,7 +73,7 @@ export const Moviesview = () => {
     if(window.innerWidth < 600){
       setOnPhoneMode(true);
       setOnTabletMode(false);
-      setCollapMode(false);
+      setCollapMode(true);
     }else if(window.innerWidth > 600 && window.innerWidth < 768){
       setOnPhoneMode(false);
       setOnTabletMode(true);

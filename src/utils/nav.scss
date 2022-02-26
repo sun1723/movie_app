@@ -3,6 +3,7 @@ $md-screen:768px;
 $lg-screen: 992px;
 $laptop-screen: 1200px;
 $icon-color: #ffffff;
+$bg-color:#3e4491;
 
 .nav-bar {
   width: 100%;
@@ -10,6 +11,9 @@ $icon-color: #ffffff;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
+  background-color: $bg-color;
+  z-index:100;
+  position: fixed;
   &_search {
     padding:10px 20px 0 20px;
   }
