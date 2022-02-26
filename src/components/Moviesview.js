@@ -9,14 +9,27 @@ export const Moviesview = () => {
   const [searchValueBackup, setSearchValueBackup]  = useState("")
   const [movieContent, setMovieContent] = useState(null);
   
-  const [hideDetail, setHideDetail] = useState(false);
-  const [showList, setShowList] = useState(false);
   const [onClickIndex, setOnClickIndex] = useState(0);
   const [movies, setMovies] = useState(null);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
   const [resultNum, setResultNum] = useState(0);
   const [onTabletMode, setOnTabletMode] = useState(false);
   const [onPhoneMode, setOnPhoneMode] = useState(false);
+  const [collapMode, setCollapMode] = useState(false);
+  const [dropDownEnable, setDropDownEnable] = useState(false);
+  const [anchorEl, setAnchorEl] = useState('-1');
+  const types = [
+    "movie",
+    "series",
+    "episode"
+  ]
+
+  useEffect(() => {
+    if(anchorEl == 'drop' || anchorEl == 'radio_icon' || anchorEl == 'radio_title' || anchorEl == 'radio_con' || anchorEl == "type" ){
+      //stay open
+    }else if(dropDownEnable){
+      setDropDownEnable(!dropDownEnable)
+    }
+  },[anchorEl ])
 
   useEffect(() => {
     if(searchValueBackup.length>=3)
@@ -28,14 +41,37 @@ export const Moviesview = () => {
   })
 
   /**
+   * handleOnClick: handle click on button
+   */
+   const handleOnOpen = () => {
+    if(collapMode){
+      setDropDownEnable(true);
+    }
+  }
+
+  /**
+   * handleOnClose: handle close drop down
+   */
+  const handleOnClose = () => {
+    setDropDownEnable(false);
+  }
+
+  /**
    * windowResize: handle window resize
    */
   const windowResize = () => {
-    if(window.innerWidth > 600){
-      setOnTabletMode(true);
-    }else if(window.innerWidth < 600){
+    if(window.innerWidth < 600){
       setOnPhoneMode(true);
       setOnTabletMode(false);
+      setCollapMode(false);
+    }else if(window.innerWidth > 600 && window.innerWidth < 768){
+      setOnPhoneMode(false);
+      setOnTabletMode(true);
+      setCollapMode(true);
+    }else if (window.innerWidth > 600 ){
+      setOnTabletMode(true);
+      setOnPhoneMode(false);
+      setCollapMode(false);
     }
   }
 
@@ -85,9 +121,14 @@ export const Moviesview = () => {
   }
 
   return (
-    <div className='view' style={{height:{windowHeight}}}>
+    <div className='view' onClick={(evt) => {setAnchorEl(evt.target.id) }}>
       <div className='nav'>
-        <Nav handleOnSearchClick={handleOnSearchClick}/>
+        <Nav handleOnSearchClick={handleOnSearchClick} 
+            types={types} 
+            collapMode={collapMode}
+            handleOnOpen={handleOnOpen}
+            handleOnClose={handleOnClose}
+            dropDownEnable={dropDownEnable}/>
       </div>
       <div className='main'>
         <Main 

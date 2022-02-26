@@ -1,3 +1,21 @@
+$label-color: #ffffff;
+$black: #000;
+$phone-screen: 600px;
+$md-screen:768px;
+$lg-screen: 992px;
+$laptop-screen: 1200px;
+
 .radio-container {
-  
+  color: $label-color;
+  padding: 10px 10px;
+  height: 100%;
+  input {
+    margin-right: 5px;
+  }
+}
+@media only screen and (max-width: $md-screen),
+only screen and (max-width: $phone-screen){
+  .radio-container{
+    color: $black;
+  }
 }
