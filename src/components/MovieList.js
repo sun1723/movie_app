@@ -8,6 +8,7 @@ export const MovieList = ({movies, onClickIndex, fetchMovieById, movieContent, o
     <div className='movieList' >
         {movies.map((movie,index) => 
           <MovieCard 
+            key={index}
             onPhoneMode={onPhoneMode}
             onTabletMode={onTabletMode}
             movie={movie}

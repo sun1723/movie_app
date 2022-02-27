@@ -11,9 +11,10 @@ export const TypesList = ({selectedType, handleOnChangeType , types, collapMode,
       {!collapMode ? 
         (
           <div className='list_items'>
-            {types.map( type => (
+            {types.map( (type, index) => (
               <TypeRadio 
                 title={type} 
+                key={index}
                 selectedType={selectedType}
                 handleOnChangeType={handleOnChangeType}/>
             ))}
@@ -28,6 +29,7 @@ export const TypesList = ({selectedType, handleOnChangeType , types, collapMode,
               {types.map( (type, index) => (
                 <TypeRadio 
                   title={type} 
+                  key={index}
                   selectedType={selectedType}
                   handleOnChangeType={handleOnChangeType}/>
               ))}

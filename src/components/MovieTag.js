@@ -9,9 +9,9 @@ export const MovieTag = ({content,isSeperate }) => {
       :
       content.split(',').length > 1 ?
       <div className='movie-tag_multiple'>
-        {content.split(',').map (item => {
+        {content.split(',').map ((item, index) => {
           return (
-            <span>{item}</span>)
+            <span key={index}>{item}</span>)
         })}
         </div>
         : 

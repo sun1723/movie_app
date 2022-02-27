@@ -129,7 +129,15 @@ export const Moviesview = () => {
   const handleOnSearchClick = (val) => {
     fetchMovies(val);
     setSearchValueBackup(val);
-    setSelectedMovieType(selectedMovieTypeBackup)
+    setSelectedMovieType(selectedMovieTypeBackup);
+    resetAfterSearch();
+  }
+
+  /**
+ * resetAfterSearch: reset variables after search
+ */
+  const resetAfterSearch = () => {
+    setSelectedPage(1);
   }
 
   /**

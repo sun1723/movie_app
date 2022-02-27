@@ -43,8 +43,8 @@ export const MovieContent = ({movie, handleClose, onTabletMode}) => {
         </div>
         {/* <div  className="scoreList">
         {movie.Ratings && movie.Ratings.length > 0 &&
-          movie.Ratings.map(rate => 
-            <div >
+          movie.Ratings.map((rate,index) => 
+            <div key={index}>
               <div>value: {rate.Value}</div>
               <div>source: {rate.Source}</div>
             </div>
