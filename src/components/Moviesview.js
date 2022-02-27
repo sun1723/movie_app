@@ -113,11 +113,14 @@ export const Moviesview = () => {
       page: selectedPage
     }).then (res =>{
       const data = res.data
-      if(data.Response){
+      if(data.Response == "True"){
         setMovies(data.Search);
-        setMovieContent(data.Search[0])
+        setMovieContent(data.Search ? data.Search[0] : null)
         setOnClickIndex(-1)
         setResultNum(data.totalResults);
+      }else{
+        setMovies([]);
+        console.log("MovieView Error: ", data.Error)
       }
     }).catch(err =>{
       console.log(err)
