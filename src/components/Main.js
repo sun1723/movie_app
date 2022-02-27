@@ -22,11 +22,12 @@ export const Main = ({fetchMovieById, movies,currentPage, handleChangePage, tota
       <>
         <div className="main_result" >
           <span><MenuIcon /></span>
-          <span>{movies.length} Result for {searchValueBackup}</span>
+          {/* <span>{movies.length} Result for {searchValueBackup}</span> */}
           <span>
             <InputPagination 
               currentPage={currentPage}
               totalResultNum={totalResultNum}
+              movieCount = {movies.length}
               handleChangePage={handleChangePage}/>
           </span>
         </div>
