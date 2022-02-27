@@ -19,14 +19,12 @@ export const MovieMore = ({movie}) => {
   },[isOpenDetails])
 
   const handleOpenPlot = () => {
-    console.log('detial', isOpenDetails)
     if(isOpenDetails){
       setIsOpenDetails(false);
     }; 
   }
 
   const handleOpenDetails = () => {
-    console.log('openPlot',isOpenPlot)
     if(isOpenPlot){
       setIsOpenPlot(false)
     }; 
