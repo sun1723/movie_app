@@ -43,7 +43,7 @@ export const MovieMore = ({movie}) => {
               <ContentDetail title='Director' content={movie.Director} />
               <ContentDetail title='Country' content={movie.Country} />
               <ContentDetail title='Release Date' content={movie.Released} />
-              important <div>Rating: {movie.imdbRating ? movie.imdbRating : '' }</div>
+              {/* important <div>Rating: {movie.imdbRating ? movie.imdbRating : '' }</div> */}
             </>
           }
           {isOpenPlot && 
