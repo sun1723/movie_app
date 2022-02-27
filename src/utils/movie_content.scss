@@ -223,3 +223,33 @@ $highlight-color: red;
     }
   }
 }
+
+@media screen and (min-width: $laptop-screen){
+  .movie-content {
+    &_background {
+    }
+    &_container {
+      grid-template-rows: 100px 20px 60px;
+      grid-template-columns: 300px 1fr;
+      grid-gap: 20px;
+      &__mainPoster{
+        grid-row: 1 / 5;
+        img{
+          height: 80%;
+        }
+      }
+    }
+    &__movieTitle {
+      height: 100%;
+      top:15px;
+      text-align: center;
+      font-size: 1.7rem;
+    }
+    &_tagList{
+      justify-content: center;
+      padding-left: 20px;
+    }
+    &_movieMore {
+    }
+  }
+}
