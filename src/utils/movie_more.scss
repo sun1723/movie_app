@@ -26,6 +26,7 @@ $phone-screen-font-color: #3e4491;
     font-size: 1rem;
     padding: 10px;
     text-align: justify;
+    hyphens: auto;
     & div {
       line-height: 25px;
     }
