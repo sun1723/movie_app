@@ -4,7 +4,7 @@ import { ContentDetail } from "./ContentDetail";
 import { Tab
  } from "./Tab";
 export const MovieMore = ({movie}) => {
-  const [isOpenPlot, setIsOpenPlot] = useState(false);
+  const [isOpenPlot, setIsOpenPlot] = useState(true);
   const [isOpenDetails, setIsOpenDetails] = useState(false);
   const [isOnClick, setIsOnClick] = useState(false);
 
