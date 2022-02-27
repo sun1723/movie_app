@@ -2,15 +2,19 @@ $white: #ffffff;
 $black: #000000;
 
 .input-pagination {
-  background-color: rgba($color: ($white), $alpha: .8);
-  color: $black;
+  // background-color: rgba($color: ($white), $alpha: .8);
+  color: $white;
   border-radius: 5px;
   width: 250px;
   display: flex;
   justify-content: space-around;
   .icon {
     height: 100%;
-    align-self: center;
+    align-items: center;
+    & > * {
+      font-size: 1rem;
+      cursor: pointer;
+    }
   }
   .text {
     font-size: 1rem;
