@@ -4,6 +4,7 @@ import '../utils/movie_content.scss'
 import {MovieTag} from './MovieTag';
 import { MovieMore } from "./MovieMore";
 import CloseIcon from '@material-ui/icons/Close';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
 
 export const MovieContent = ({movie, handleClose, onTabletMode}) => {
 
@@ -22,6 +23,11 @@ export const MovieContent = ({movie, handleClose, onTabletMode}) => {
             <img src={movie && movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} alt={movie && movie.Title ? movie.Title : ''}/>
           </div>
           <div className="movie-content__movieTitle">{movie && movie.Title ? movie.Title : ''}</div>
+          <div className="movie-content_movieInfo">
+            {/* <span><StarRating /></span> */}
+            <span><WhatshotIcon className="icon"/></span>
+            <span className="vote">{movie.imdbVotes != 'N/A' ? movie.imdbVotes : 0 }</span>
+          </div>
           <div className="movie-content_tagList">
               {/* <MovieTag 
                 content={movie.Year}
