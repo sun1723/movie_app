@@ -52,7 +52,7 @@ $second-bg-color: #3a9efd;
     font-family: 'Montserrat', sans-serif;
     font-weight:400;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin:30px 0 10px 0;
     letter-spacing:1px;
     height: 90px;
@@ -60,7 +60,7 @@ $second-bg-color: #3a9efd;
         font-weight: 600;
       }
       .active > &{
-        font-weight:800
+        font-weight:800;
       }
     }
     &__info {
@@ -169,6 +169,12 @@ $second-bg-color: #3a9efd;
       } 
       &__title {
         font-weight: 500;
+        font-size: 1rem;
+        .active > &, 
+        :hover > & 
+        {
+          font-size: 1rem;
+        }
       }
       &__info{
         margin:auto;
@@ -210,7 +216,7 @@ $second-bg-color: #3a9efd;
         font-weight: 500;
       }
       &__info{
-        margin:auto;
+        margin:50px auto 0 auto;
         color: $hover-color;
       }
       &__phone {
