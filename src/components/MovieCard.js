@@ -23,6 +23,13 @@ export const MovieCard = ({movie,index,fetchMovieById, onClickIndex,movieContent
     }
   },[onClickIndex]);
 
+  const  imgError = (image) => {
+    console.log(`Can Not Load Image from ${image.src} `)
+    image.onerror = "";
+    image.src = "./Image_not_available.png";
+    return true;
+  }
+
   return (
     <div 
       id = {index}
@@ -31,7 +38,7 @@ export const MovieCard = ({movie,index,fetchMovieById, onClickIndex,movieContent
       onMouseEnter={evt => {setHoverIndex(evt.currentTarget.id)}}
       onMouseLeave={evt => setHoverIndex(null)}
       onClick={evt => {setOnClickId(movie.imdbID); }}>
-        <div className="movie-card_left"><img src={movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} /></div>
+        <div className="movie-card_left"><img src={movie.Poster != 'N/A' ? movie.Poster : "./Image_not_available.png"} onError={(evt)=>imgError(evt.currentTarget)}/></div>
         <div  className={onClickIndex==index ? 'movie-card_right active' :  ' movie-card_right '}>
           <div className='movie-card_right__title'>{movie.Title}</div>
           <div className='movie-card_right__info'>{movie.Year}</div>
