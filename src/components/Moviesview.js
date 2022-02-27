@@ -165,6 +165,7 @@ export const Moviesview = () => {
           currentPage={selectedPage}
           totalResultNum={resultNum}
           handleChangePage={handleChangePage}
+          currentType={selectedMovieTypeBackup}
         />
       </div>
     </div>

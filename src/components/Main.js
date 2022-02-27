@@ -9,7 +9,7 @@ import '../utils/main.scss'
 import { InputPagination } from './InputPagination';
 import { PaginationFor } from './PaginationFor';
 
-export const Main = ({fetchMovieById, movies,currentPage, handleChangePage, totalResultNum, searchValueBackup, onClickIndex, movieContent, onTabletMode, onPhoneMode }) => {
+export const Main = ({fetchMovieById, movies,currentPage,currentType, handleChangePage, totalResultNum, searchValueBackup, onClickIndex, movieContent, onTabletMode, onPhoneMode }) => {
   const [isOpen, setIsOpen] = useState(false);  
 
   const handleOpenDetail = (value) => {
@@ -54,7 +54,7 @@ export const Main = ({fetchMovieById, movies,currentPage, handleChangePage, tota
     </>
     :
       searchValueBackup ?
-        <div className="main_noResult">No Result for {searchValueBackup}</div>
+        <div className="main_noResult">No Result for {searchValueBackup} ({currentType})</div>
         :
         <div className="main_emptySearch" >Please type in search box. </div>  
     }</div>

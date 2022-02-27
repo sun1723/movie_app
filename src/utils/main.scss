@@ -31,7 +31,9 @@ $icon-color: #ffffff;
     }
   }
   &_noResult {
-
+    color: $icon-color;
+    text-align: center;
+    font-size: 1.5rem;
   }
   &_emptySearch {
 
