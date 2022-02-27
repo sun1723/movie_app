@@ -1,0 +1,61 @@
+
+$phone-screen: 600px;
+$md-screen:768px;
+$lg-screen: 992px;
+$laptop-screen: 1200px; 
+$title-color: #FFB319;
+
+.score-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: $title-color;
+  text-align: center;
+  width: 80%;
+  margin: 10px auto;
+  padding-bottom: 5px;
+  border-bottom: 4px solid $title-color;
+}
+.score-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+@media screen and (max-width: $phone-screen) {
+  .score-list {
+    display: none;
+  } 
+}
+
+@media screen and (min-width: $phone-screen) and (max-width: $md-screen) {
+  .score-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    justify-content: center;
+  } 
+}
+
+@media screen and (min-width: $md-screen) and (max-width: $lg-screen) {
+  .score-title {
+    width: 94%;
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: $lg-screen) and (max-width: $laptop-screen) {
+  .score-title {
+    width: 90%;
+    margin-bottom: 15px;
+  }
+
+}
+
+@media screen and (min-width: $laptop-screen) {
+  .score-title {
+    width: 90%;
+  }
+}
+
+
