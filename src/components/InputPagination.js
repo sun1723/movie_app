@@ -7,7 +7,7 @@ export const InputPagination = ({currentPage, totalResultNum, handleChangePage})
   const backPage = currentPage - 1;
   const forwardPage =  currentPage + 1;
   const start = (currentPage - 1) * 10 + 1;
-  const end = currentPage * 10;
+  const end = currentPage * 10 < totalResultNum ? currentPage * 10 : totalResultNum ;
   
   return (
     <div className="input-pagination">
