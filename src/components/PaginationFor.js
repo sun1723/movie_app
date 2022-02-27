@@ -1,4 +1,5 @@
 import Pagination from '@material-ui/lab/Pagination';
+import { useState, useEffect } from 'react';
 import '../utils/pagination.scss'
 
 export const PaginationFor = ({count, handleChangePage}) => {
@@ -8,7 +9,8 @@ export const PaginationFor = ({count, handleChangePage}) => {
       <Pagination 
         count={count} 
         color="primary"
-        onChange={(evt, page) => {console.log(page); handleChangePage(page)}}/>
+        onChange={(evt, page) => { handleChangePage(page) }}
+        />
     </div>
   )
 }

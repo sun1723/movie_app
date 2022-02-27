@@ -1,0 +1,14 @@
+$white: #ffffff;
+$black: #000000;
+
+.input-pagination {
+  background-color: rgba($color: ($white), $alpha: .8);
+  color: $black;
+  border-radius: 5px;
+  width: 150px;
+  input{
+    border-radius: 5px;
+    width: 30%;
+    text-align: center;
+  }
+}

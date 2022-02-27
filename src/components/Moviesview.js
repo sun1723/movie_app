@@ -4,7 +4,6 @@ import {getMoviesByidOrTitle, getMoviesBySearch} from '../api/MovieApi'
 import { Nav } from './Nav';
 import {types} from '../utils/app_constant'
 import { Main } from './Main';
-import { PaginationFor } from './PaginationFor';
 
 export const Moviesview = () => {
   const [searchValueBackup, setSearchValueBackup]  = useState("")
@@ -163,8 +162,10 @@ export const Moviesview = () => {
           onClickIndex={onClickIndex}
           movieContent={movieContent}
           handleChangePage={handleChangePage}
+          currentPage={selectedPage}
+          totalResultNum={resultNum}
+          handleChangePage={handleChangePage}
         />
-        <PaginationFor count={100} handleChangePage={handleChangePage}/>
       </div>
     </div>
   );
