@@ -1,14 +1,12 @@
 import '../utils/content_detail.scss'
 
-export const ContentDetail = ({title=null, content, active=false, noTitle=false}) => {
+export const ContentDetail = ({title=null, content, active=false}) => {
 
   return (
    <>
     {content && content != 'N/A' &&
       <div className="content">
-        {!noTitle && 
-          <span className='content_title'>{title}: </span>
-        }
+        <span className='content_title'>{title}: </span>
         <span> {content}</span>
       </div>
     }

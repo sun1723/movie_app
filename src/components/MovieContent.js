@@ -6,7 +6,6 @@ import { MovieMore } from "./MovieMore";
 import CloseIcon from '@material-ui/icons/Close';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 import { StarRating } from "./StarRating";
-import { ScoreList } from "./ScoreList";
 
 export const MovieContent = ({movie, handleClose, onTabletMode}) => {
 
@@ -48,12 +47,17 @@ export const MovieContent = ({movie, handleClose, onTabletMode}) => {
             <div className='movie-content_movieMore'>
               <MovieMore movie={movie}/>
             </div>
-            <div className="movie-content_scoreList">
-              <ScoreList
-                movie={movie}
-              />
-            </div>
         </div>
+        {/* <div  className="scoreList">
+        {movie.Ratings && movie.Ratings.length > 0 &&
+          movie.Ratings.map((rate,index) => 
+            <div key={index}>
+              <div>value: {rate.Value}</div>
+              <div>source: {rate.Source}</div>
+            </div>
+          )
+        }
+        </div> */}
       </div>
     }
     </>
