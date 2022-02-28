@@ -20,6 +20,7 @@ export const Moviesview = () => {
   const [selectedMovieType, setSelectedMovieType] = useState(types[0]);
   const [selectedMovieTypeBackup, setSelectedMovieTypeBackup] = useState(selectedMovieType)
   const [selectedPage, setSelectedPage] = useState(1);
+  const [selectedYear, setSelectedYear] = useState(1900);
 
   useEffect(() => {
     windowResize();
@@ -36,7 +37,7 @@ export const Moviesview = () => {
   useEffect(() => {
     if(searchValueBackup.length>=3)
       fetchMovies()
-  },[selectedMovieType, searchValueBackup, selectedPage])
+  },[selectedMovieType, searchValueBackup, selectedPage, selectedYear])
 
   useEffect (() => {
     window.addEventListener('resize', windowResize);
@@ -47,6 +48,13 @@ export const Moviesview = () => {
    */
   const handleChangePage = (page) => {
     setSelectedPage(page);
+  }
+
+  /**
+   * handleChangeYear: handle change year for movies
+   */
+  const handleChangeYear = (year) => {
+    setSelectedYear(year);
   }
 
   /**
@@ -76,6 +84,10 @@ export const Moviesview = () => {
     }else if(window.innerWidth > 600 && window.innerWidth < 768){
       setOnPhoneMode(false);
       setOnTabletMode(true);
+      setCollapMode(true);
+    }else if (window.innerWidth > 768 && window.innerWidth < 992){
+      setOnTabletMode(false);
+      setOnPhoneMode(false);
       setCollapMode(true);
     }else if (window.innerWidth > 600 ){
       setOnTabletMode(true);
@@ -110,7 +122,8 @@ export const Moviesview = () => {
     getMoviesBySearch({
       search: searchValueBackup,
       type: selectedMovieType == 'any' ? '' : selectedMovieType,
-      page: selectedPage
+      page: selectedPage,
+      year: selectedYear
     }).then (res =>{
       const data = res.data
       if(data.Response == "True"){
@@ -161,7 +174,9 @@ export const Moviesview = () => {
           collapMode={collapMode}
           handleOnOpen={handleOnOpen}
           handleOnClose={handleOnClose}
-          dropDownEnable={dropDownEnable}/>
+          dropDownEnable={dropDownEnable}
+          selectedYear={selectedYear}
+          handleChangeYear={handleChangeYear}/>
       </div>
       <div className='main'>
         <Main 

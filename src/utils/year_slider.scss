@@ -1,0 +1,48 @@
+$text-color: #ffffff;
+$phone-screen: 600px;
+$md-screen:768px;
+$lg-screen: 992px;
+$laptop-screen: 1200px;
+
+.slider,
+.text {
+  color: $text-color;
+}
+
+.slider {
+  padding-top: 5px;
+  &_start{
+    margin-right: 5px;
+  }
+  &_end {
+    margin-left:  5px;
+  }
+}
+
+.alter {
+  width: 100px;
+  text-align: center;
+  padding-top: 2px;
+  input{
+    width: 80%;
+    border-radius: 6px;
+    text-align: center;
+    
+  }
+}
+
+.text {
+  text-align: center;
+}
+
+@media screen and (max-width: $lg-screen) {
+  .slider{
+    display: none;
+  }
+}
+
+@media screen and (min-width: $lg-screen) {
+  .alter{
+    display: none;
+  }
+}
