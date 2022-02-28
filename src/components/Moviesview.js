@@ -20,7 +20,7 @@ export const Moviesview = () => {
   const [selectedMovieType, setSelectedMovieType] = useState(types[0]);
   const [selectedMovieTypeBackup, setSelectedMovieTypeBackup] = useState(selectedMovieType)
   const [selectedPage, setSelectedPage] = useState(1);
-  const [selectedYear, setSelectedYear] = useState(1900);
+  const [selectedYear, setSelectedYear] = useState(0);
 
   useEffect(() => {
     windowResize();
@@ -116,7 +116,7 @@ export const Moviesview = () => {
  * fetchMovies : fetch movies from api
  */
   const fetchMovies = () => {
-    if(!searchValueBackup){
+    if(!searchValueBackup  || (selectedYear < 1900 && selectedYear != 0) || selectedYear > 2050 ){
       return;
     }
     getMoviesBySearch({

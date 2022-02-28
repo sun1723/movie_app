@@ -5,10 +5,10 @@ export const YearSlider = ({selectedYear, handleChangeYear}) => {
     <>
       <div className="alter" >
         <input 
-          type='text' 
-          value={selectedYear}
+          type='number'
+          value={selectedYear ? selectedYear : ''}
           placeholder="please type in year"
-          onChange={(evt) => {handleChangeYear(evt.currentTarget.value)}}
+          onChange={(evt) => {handleChangeYear(evt.currentTarget.value ? evt.currentTarget.value : 0)}}
           />
       </div>
       <div className="slider">
@@ -22,7 +22,7 @@ export const YearSlider = ({selectedYear, handleChangeYear}) => {
         <span className="slider_end">2050</span>
       </div>
       <div className="text">
-        YEAR: {selectedYear}
+        YEAR: {selectedYear ? selectedYear : 'any'}
       </div>
     </>
   )

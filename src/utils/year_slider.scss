@@ -27,7 +27,11 @@ $laptop-screen: 1200px;
     width: 80%;
     border-radius: 6px;
     text-align: center;
-    
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 }
 
