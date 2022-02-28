@@ -6,8 +6,8 @@ export const InputPagination = ({currentPage, totalResultNum, handleChangePage})
   const totalPage = Math.floor(totalResultNum / 10) + 1;
   const backPage = currentPage - 1;
   const forwardPage =  currentPage + 1;
-  const start = (currentPage - 1) * 10 + 1;
-  const end = currentPage * 10 < totalResultNum ? currentPage * 10 : totalResultNum ;
+  const start = currentPage ? (currentPage - 1) * 10 + 1 : 1;
+  const end = currentPage ? currentPage * 10 < totalResultNum ? currentPage * 10 : totalResultNum : 10 ;
   
   return (
     <div className="input-pagination">
@@ -16,8 +16,8 @@ export const InputPagination = ({currentPage, totalResultNum, handleChangePage})
       </span>
       <span className='icon'>
         <ArrowBackIosIcon 
-          style={{color: currentPage == 1 ? 'rgba(255,255,255,0.4)' : '#fff'}}
-          onClick={(evt) => {if(currentPage ==  1) return; handleChangePage(backPage)}}
+          style={{color: currentPage == 1 || currentPage == '' ? 'rgba(255,255,255,0.4)' : '#fff'}}
+          onClick={(evt) => {if(currentPage ==  1 ) return; handleChangePage(backPage)}}
         />
       </span>
       <input 
