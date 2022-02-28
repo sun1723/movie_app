@@ -109,7 +109,7 @@ export const Moviesview = () => {
     }
     getMoviesBySearch({
       search: searchValueBackup,
-      type: selectedMovieType,
+      type: selectedMovieType == 'any' ? '' : selectedMovieType,
       page: selectedPage
     }).then (res =>{
       const data = res.data
@@ -172,7 +172,6 @@ export const Moviesview = () => {
           searchValueBackup={searchValueBackup}
           onClickIndex={onClickIndex}
           movieContent={movieContent}
-          handleChangePage={handleChangePage}
           currentPage={selectedPage}
           totalResultNum={resultNum}
           handleChangePage={handleChangePage}
