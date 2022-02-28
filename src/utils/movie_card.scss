@@ -2,8 +2,11 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 $phone-screen: 600px;
+$phone-screen-2: 601px;
 $md-screen:768px;
+$md-screen-2:769px;
 $lg-screen: 992px;
+$lg-screen-2: 993px;
 $laptop-screen: 1200px;
 $hover-color: #FFB319;
 $bg-color:#3e4491;
@@ -144,7 +147,7 @@ $second-bg-color: #3a9efd;
   }
 }
 
-@media screen and (max-width: $md-screen) and (min-width: $phone-screen) {
+@media screen and (max-width: $md-screen) and (min-width: $phone-screen-2) {
   .movie-card{
     height: 270px;
     &_left {
@@ -190,7 +193,7 @@ $second-bg-color: #3a9efd;
   }
 }
 
-@media screen and (min-width: $md-screen) {
+@media screen and (min-width: $md-screen-2) {
   .movie-card {
     height: 300px;
     &_left {

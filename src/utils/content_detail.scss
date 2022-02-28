@@ -1,5 +1,7 @@
 $phone-screen: 600px;
+$phone-screen-2: 601px;
 $md-screen:768px;
+$md-screen-2:769px;
 $lg-screen: 992px;
 $laptop-screen: 1200px;
 $hover-color: #FFB319;
@@ -13,7 +15,7 @@ $bg-color:#3e4491;
   }
 }
 
-@media screen and (max-width: $md-screen) and (min-width: $phone-screen) {
+@media screen and (max-width: $md-screen) and (min-width: $phone-screen-2) {
   .content {
     font-size: 1.1rem;
     align-items: center;
@@ -21,7 +23,7 @@ $bg-color:#3e4491;
   }
 }
 
-@media screen and (min-width: $md-screen) {
+@media screen and (min-width: $md-screen-2) {
   .content {
     font-size: 1.2rem;
     align-items: center;

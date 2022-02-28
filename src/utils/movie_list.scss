@@ -1,9 +1,13 @@
 $sb-bg-color:#1a1b4b;
 $sb-fill-color: #3a9efd;
 $phone-screen: 600px;
+$phone-screen-2: 601px;
 $md-screen:768px;
+$md-screen-2:769px;
 $lg-screen: 992px;
+$lg-screen-2: 993px;
 $laptop-screen: 1200px;
+$laptop-screen-2: 1201px;
 
 .movieList {
   display: grid;
@@ -34,19 +38,19 @@ $laptop-screen: 1200px;
   }
 }
 
-@media screen and (min-width: $phone-screen) and (max-width: $md-screen) {
+@media screen and (min-width: $phone-screen-2) and (max-width: $md-screen) {
   .movieList{
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media screen and (max-width: $lg-screen) and (min-width: $md-screen) {
+@media screen and (max-width: $lg-screen) and (min-width: $md-screen-2) {
   .movieList{
     grid-template-columns: repeat(3, 2fr);
   }
 }
 
-@media screen and (max-width: $laptop-screen) and (min-width: $lg-screen) {
+@media screen and (max-width: $laptop-screen) and (min-width: $lg-screen-2) {
   .movieList{
     grid-template-columns: repeat(4, 2fr);
   }

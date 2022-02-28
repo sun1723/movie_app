@@ -2,6 +2,10 @@ $phone-screen: 600px;
 $md-screen:768px;
 $lg-screen: 992px;
 $laptop-screen: 1200px;
+$phone-screen-2: 601px;
+$md-screen-2:769px;
+$lg-screen-2: 993px;
+$laptop-screen-2: 1201px;
 $icon-color: #ffffff;
 
 .main {
@@ -51,7 +55,7 @@ $icon-color: #ffffff;
     }
   }
 }
-@media screen and (max-width: $md-screen) and (min-width: $phone-screen) {
+@media screen and (max-width: $md-screen) and (min-width: $phone-screen-2) {
   .main {
     &_movies{
       &__list{

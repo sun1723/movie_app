@@ -1,7 +1,11 @@
 $phone-screen: 600px;
+$phone-screen-2: 601px;
 $md-screen:768px;
+$md-screen-2:769px;
 $lg-screen: 992px;
+$lg-screen-2: 993px;
 $laptop-screen: 1200px;
+$laptop-screen-2: 1201px;
 $phone-screen-font-color: #3e4491;
 
 .movie_details {
@@ -47,7 +51,7 @@ $phone-screen-font-color: #3e4491;
   }
 }
 
-@media screen and (max-width: $md-screen) and (min-width: $phone-screen) {
+@media screen and (max-width: $md-screen) and (min-width: $phone-screen-2) {
   .movie_details {
     &__tabs{
       justify-content: center;
@@ -59,7 +63,7 @@ $phone-screen-font-color: #3e4491;
   }
 }
 
-@media screen and (min-width: $md-screen) and (max-width: $lg-screen) {
+@media screen and (min-width: $md-screen-2) and (max-width: $lg-screen) {
   .movie_details {
     margin-bottom: 100px;
     &__tabs{
@@ -69,7 +73,7 @@ $phone-screen-font-color: #3e4491;
   }
 }
 
-@media screen and (min-width: $lg-screen) {
+@media screen and (min-width: $lg-screen-2) {
   .movie_details {
     margin-bottom: 100px;
     &__tabs{

@@ -3,6 +3,10 @@ $phone-screen: 600px;
 $md-screen:768px;
 $lg-screen: 992px;
 $laptop-screen: 1200px; 
+$phone-screen-2: 601px;
+$md-screen-2:769px;
+$lg-screen-2: 993px;
+$laptop-screen-2: 1201px;
 $title-color: #FFB319;
 
 .score-title {
@@ -28,7 +32,7 @@ $title-color: #FFB319;
   } 
 }
 
-@media screen and (min-width: $phone-screen) and (max-width: $md-screen) {
+@media screen and (min-width: $phone-screen-2) and (max-width: $md-screen) {
   .score-list {
     display: grid;
     grid-template-columns: 1fr;
@@ -37,14 +41,14 @@ $title-color: #FFB319;
   } 
 }
 
-@media screen and (min-width: $md-screen) and (max-width: $lg-screen) {
+@media screen and (min-width: $md-screen-2) and (max-width: $lg-screen) {
   .score-title {
     width: 94%;
     margin-top: 0;
   }
 }
 
-@media screen and (min-width: $lg-screen) and (max-width: $laptop-screen) {
+@media screen and (min-width: $lg-screen-2) and (max-width: $laptop-screen) {
   .score-title {
     width: 90%;
     margin-bottom: 15px;
@@ -52,7 +56,7 @@ $title-color: #FFB319;
 
 }
 
-@media screen and (min-width: $laptop-screen) {
+@media screen and (min-width: $laptop-screen-2) {
   .score-title {
     width: 90%;
   }
