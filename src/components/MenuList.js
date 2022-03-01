@@ -1,8 +1,8 @@
 import '../utils/menu_list.scss'
 
-export const MenuList = ({options, handleChangeYear}) => {
+export const MenuList = ({options, handleChangeYear, selectedYear}) => {
   return (
-    <select className='menu-select' onChange={evt => { handleChangeYear(evt.currentTarget.value)}}>
+    <select className='menu-select' value={selectedYear} onChange={evt => { handleChangeYear(evt.currentTarget.value)}}>
       {options.map (opt => {
         return (
           <option 

@@ -15,7 +15,7 @@ export const YearSlider = ({selectedYear, handleChangeYear, collapMode}) => {
   return (
     <>
       <div className="text" onClick={(evt) => {if(collapMode){setIsOpen(!isOpen)}}}>
-        YEAR: { !isOpen ? selectedYear ? selectedYear : 'any' : ''}
+        YEAR: { !collapMode || !isOpen ? selectedYear ? selectedYear : 'any' : ''}
       </div>
       {!collapMode ?
         (<>
@@ -43,7 +43,8 @@ export const YearSlider = ({selectedYear, handleChangeYear, collapMode}) => {
       (<div className="menu">
         <MenuList 
           options={yearOptions}
-          handleChangeYear={handleChangeYear}/>
+          handleChangeYear={handleChangeYear}
+          selectedYear={selectedYear}/>
       </div>)
       :null
       }
