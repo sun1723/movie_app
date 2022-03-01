@@ -7,7 +7,7 @@ export const TypesList = ({selectedType, handleOnChangeType , types, collapMode,
 
   return (
     <div className='list' >
-      <span className='list_title' id="type" onClick={(evt) =>{if(dropDownEnable){ handleOnClose()}else{handleOnOpen()}}}>Type </span>
+      <div className='list_title' id="type" onClick={(evt) =>{if(dropDownEnable){ handleOnClose()}else{handleOnOpen()}}}>Type </div>
       {!collapMode ? 
         (
           <div className='list_items'>
@@ -21,6 +21,7 @@ export const TypesList = ({selectedType, handleOnChangeType , types, collapMode,
           </div>
         )
       : 
+      <div className='list_menu'>
         <DropDown 
           open={dropDownEnable} 
           close={handleOnClose} 
@@ -36,6 +37,7 @@ export const TypesList = ({selectedType, handleOnChangeType , types, collapMode,
             </div>
           )} 
         />
+      </div>
       }
     </div>
   )
