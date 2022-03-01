@@ -10,12 +10,13 @@ $bg-color:#3e4491;
   margin: 0 auto; 
   padding: 0 20px;
   display: flex;
+  min-height: 50px;
   justify-content: space-between;
   background-color: $bg-color;
   z-index:100;
   position: fixed;
+  align-items: center;
   &_search {
-    padding:10px 20px 0 20px;
   }
   &_type {
     box-sizing: border-box;
