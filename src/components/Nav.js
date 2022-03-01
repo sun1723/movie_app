@@ -12,7 +12,10 @@ export const Nav = ({handleOnChangeType, handleOnSearchClick, selectedYear, hand
         <SearchBox onSearch={handleOnSearchClick} iconAfter={<SearchIcon/>}/>
       </div>
       <div className='nav-bar_year'>
-        <YearSlider selectedYear={selectedYear} handleChangeYear={handleChangeYear}/>
+        <YearSlider 
+          selectedYear={selectedYear} 
+          collapMode={collapMode}  
+          handleChangeYear={handleChangeYear}/>
       </div>
       <div className='nav-bar_type'>
         <TypesList 

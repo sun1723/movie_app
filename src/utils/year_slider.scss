@@ -3,6 +3,10 @@ $phone-screen: 600px;
 $md-screen:768px;
 $lg-screen: 992px;
 $laptop-screen: 1200px;
+$phone-screen-2: 601px;
+$md-screen-2:769px;
+$lg-screen-2: 993px;
+$laptop-screen-2: 1201px;
 
 .slider,
 .text {
@@ -40,8 +44,19 @@ $laptop-screen: 1200px;
 }
 
 @media screen and (max-width: $lg-screen) {
+  .text {
+      display: inline-block;
+      padding-right: 10px
+    }
   .slider{
     display: none;
+  }
+  .alter {
+    display: none;
+  }
+  .menu {
+    display: inline-block;
+    width: auto;
   }
 }
 
