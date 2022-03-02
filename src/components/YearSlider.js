@@ -2,17 +2,11 @@ import "../utils/year_slider.scss"
 import { useState } from "react";
 import { MenuList } from "./MenuList";
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import { yearList } from "../utils/app_constant";
 
 export const YearSlider = ({selectedYear, handleChangeYear, collapMode}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const yearOptions = [
-    {label: "any", value:"any"},
-    {label: "2022",value:"2022"},
-    {label: "2021", value: "2021"},
-    {label: "2020", value: "2020"},
-    {label: "2019", value: "2019"},
-    {label: "2018", value: "2018"}
-  ]
+
   return (
     <>
       <div className="text" onClick={(evt) => {if(collapMode){setIsOpen(!isOpen)}}}>
@@ -34,7 +28,7 @@ export const YearSlider = ({selectedYear, handleChangeYear, collapMode}) => {
       isOpen ? 
       (<div className="menu">
         <MenuList 
-          options={yearOptions}
+          options={yearList()}
           handleChangeYear={handleChangeYear}
           selectedYear={selectedYear}/>
       </div>)
