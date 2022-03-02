@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import '../utils/search_box.scss'
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 export const SearchBox = ({onSearch, iconAfter}) => {
   const [searchValue, setSearchValue] = useState("");
@@ -39,6 +40,10 @@ export const SearchBox = ({onSearch, iconAfter}) => {
           placeholder="Input Search"
           value={searchValue}
         />
+        <HighlightOffIcon 
+          className='search-box_input__icon' 
+          fontSize='small'
+          onClick={evt => {setSearchValue('')}}/>
       </span>
       <div className='search-box_icon'>
         <button onClick={() => {setOpenSearch(true); }}>

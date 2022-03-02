@@ -4,7 +4,14 @@
   box-sizing: border-box;
   &_input {
     width: 90%;
+    position: relative;
     line-height: 145%;
+    &__icon {
+      position: absolute;
+      right:4px;
+      top:1px;
+      cursor: pointer;
+    }
   }
   &_icon {
     display: inline-block;
