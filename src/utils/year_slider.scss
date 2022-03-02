@@ -24,13 +24,14 @@ $laptop-screen-2: 1201px;
 }
 
 .alter {
-  width: 100px;
+  width: auto;
   text-align: center;
   padding-top: 2px;
+  margin: 0 auto;
   input{
     width: 80%;
     border-radius: 6px;
-    text-align: center;
+    // text-align: center;
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
       -webkit-appearance: none;
@@ -52,7 +53,7 @@ $laptop-screen-2: 1201px;
     display: none;
   }
   .alter {
-    display: none;
+    // display: none;
   }
   .menu {
     display: inline-block;
@@ -62,6 +63,15 @@ $laptop-screen-2: 1201px;
 
 @media screen and (min-width: $lg-screen) {
   .alter{
-    display: none;
+    // display: none;
+    position: relative;
+    input {
+    }
+    &_icon{
+      position: absolute;
+      right: 25px;
+      top:7px;
+      cursor: pointer;
+    }
   }
 }

@@ -1,6 +1,7 @@
 import "../utils/year_slider.scss"
 import { useState } from "react";
 import { MenuList } from "./MenuList";
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 export const YearSlider = ({selectedYear, handleChangeYear, collapMode}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,6 +27,7 @@ export const YearSlider = ({selectedYear, handleChangeYear, collapMode}) => {
               placeholder="please type in year"
               onChange={(evt) => {handleChangeYear(evt.currentTarget.value ? evt.currentTarget.value : 0)}}
               />
+            <HighlightOffIcon className="alter_icon" fontSize="small" onClick={evt => {handleChangeYear(0)}}/>
           </div>
           <div className="slider">
             <span className="slider_start">1900</span>
