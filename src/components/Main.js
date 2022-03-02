@@ -48,6 +48,7 @@ export const Main = ({fetchMovieById, movies,currentPage,currentType,handleOnCha
           open={Boolean(anchorEl)}
           onClose={handleOnCloseFilter}
           anchorEl={anchorEl}
+          disableScrollLock={ true }
           anchorOrigin={{
             vertical: 'bottom',
             horizontal: 'right',
