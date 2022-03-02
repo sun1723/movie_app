@@ -36,7 +36,7 @@ $laptop-screen-2: 1201px;
   }
 }
 
-@media screen and (max-width: $lg-screen) {
+@media screen and (max-width: $md-screen) {
   .text {
       display: inline-block;
       padding-right: 10px

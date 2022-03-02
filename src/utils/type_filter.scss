@@ -1,0 +1,18 @@
+$border-color: #D8B56F;
+$hover-color: #F5A200;
+$hover-text-color:#3e4491;
+
+.type {
+  color: white; 
+  border-radius: 15px;
+  width: 60px;
+  border:1px solid $border-color;
+  margin-right: 10px;
+  text-align: center;
+  cursor: pointer;
+  &:hover,
+  &.active{
+    background-color: $hover-color;
+    color: $hover-text-color;
+  }
+}

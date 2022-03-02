@@ -1,8 +1,8 @@
 export const types = [
-  "any",
   "movie",
   "series",
-  "episode"
+  "episode",
+  "season"
 ];
 
 export const yearList = () => {

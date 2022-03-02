@@ -39,8 +39,7 @@ $black: #000000;
 }
 
 @media only screen and (max-width: $md-screen) and (min-width: $phone-screen-2),
-only screen and (max-width: $phone-screen) ,
-only screen and (max-width: $lg-screen) and (min-width: $md-screen-2){
+only screen and (max-width: $phone-screen) {
   .list {
     &_title{
       cursor: pointer;

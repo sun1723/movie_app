@@ -13,6 +13,10 @@ $icon-color: #ffffff;
   font-size: 14px;
   width: 100%;
   height: 100%;
+  &_type {
+    padding-top:20px;
+    width: 100%;
+  }
   &_result {
     color: $icon-color;
     text-align: center;

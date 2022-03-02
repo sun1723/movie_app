@@ -88,7 +88,7 @@ export const Moviesview = () => {
     }else if (window.innerWidth > 768 && window.innerWidth < 992){
       setOnTabletMode(true);
       setOnPhoneMode(false);
-      setCollapMode(true);
+      setCollapMode(false);
     }else if (window.innerWidth > 600 ){
       setOnTabletMode(true);
       setOnPhoneMode(false);
@@ -191,6 +191,7 @@ export const Moviesview = () => {
           totalResultNum={resultNum}
           handleChangePage={handleChangePage}
           currentType={selectedMovieTypeBackup}
+          handleOnChangeType = {handleOnChangeType}
         />
       </div>
     </div>
