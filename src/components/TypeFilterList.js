@@ -4,12 +4,20 @@ import '../utils/typeFilter_list.scss';
 
 export const TypeFilterList = ({selectedType, handleOnChangeType }) => {
 
+  const handleOnClick = (type) => {
+    if(selectedType == type) {
+      handleOnChangeType('');
+    }else{
+      handleOnChangeType(type)
+    }
+  }
+
   return(
     <div className="type-list">
       { types.map(type =>(
         <TypeFilter title={type} 
           isSelected={selectedType == type}
-          handleOnChangeType = {handleOnChangeType}/>
+          handleOnClick = {() => handleOnClick(type)}/>
       ))
       }
     </div>

@@ -17,7 +17,7 @@ export const Moviesview = () => {
   const [collapMode, setCollapMode] = useState(false);
   const [dropDownEnable, setDropDownEnable] = useState(false);
   const [anchorEl, setAnchorEl] = useState('-1');
-  const [selectedMovieType, setSelectedMovieType] = useState(types[0]);
+  const [selectedMovieType, setSelectedMovieType] = useState('');
   const [selectedMovieTypeBackup, setSelectedMovieTypeBackup] = useState(selectedMovieType)
   const [selectedPage, setSelectedPage] = useState(1);
   const [selectedYear, setSelectedYear] = useState(0);
