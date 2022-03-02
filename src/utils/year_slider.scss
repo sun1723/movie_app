@@ -31,6 +31,9 @@ $laptop-screen-2: 1201px;
 
 .text {
   text-align: center;
+  a {
+    cursor: default;
+  }
 }
 
 @media screen and (max-width: $lg-screen) {

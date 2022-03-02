@@ -17,13 +17,18 @@ $black: #000000;
   display: flex;
   align-items: center;
   padding-right: 35px;
+  a{
+    color: $white
+  }
   &_title{
     padding-bottom: 2px;
+    cursor: default;
     width: 50px;
     text-align: center;
     margin-right: 10px;
     text-transform: uppercase;
     position: relative;
+    text-decoration: none;
     // background-color: #ffffff;
     // border: solid 1px red;
     border-radius: 5px;
