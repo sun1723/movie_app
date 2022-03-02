@@ -29,16 +29,6 @@ export const YearSlider = ({selectedYear, handleChangeYear, collapMode}) => {
               />
             <HighlightOffIcon className="alter_icon" fontSize="small" onClick={evt => {handleChangeYear(0)}}/>
           </div>
-          <div className="slider">
-            <span className="slider_start">1900</span>
-            <input type="range"  
-              min="1900" 
-              max="2050" 
-              step="1"
-              defaultValue={selectedYear}
-              onChange={(evt) => {handleChangeYear(evt.currentTarget.value)}} />
-            <span className="slider_end">2050</span>
-          </div>
         </>)    
       :
       isOpen ? 

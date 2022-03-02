@@ -8,19 +8,8 @@ $md-screen-2:769px;
 $lg-screen-2: 993px;
 $laptop-screen-2: 1201px;
 
-.slider,
 .text {
   color: $text-color;
-}
-
-.slider {
-  padding-top: 5px;
-  &_start{
-    margin-right: 5px;
-  }
-  &_end {
-    margin-left:  5px;
-  }
 }
 
 .alter {
@@ -29,7 +18,7 @@ $laptop-screen-2: 1201px;
   padding-top: 2px;
   margin: 0 auto;
   input{
-    width: 80%;
+    width: 100%;
     border-radius: 6px;
     // text-align: center;
     &::-webkit-outer-spin-button,
@@ -49,9 +38,6 @@ $laptop-screen-2: 1201px;
       display: inline-block;
       padding-right: 10px
     }
-  .slider{
-    display: none;
-  }
   .alter {
     // display: none;
   }
@@ -64,12 +50,13 @@ $laptop-screen-2: 1201px;
 @media screen and (min-width: $lg-screen) {
   .alter{
     // display: none;
-    position: relative;
+   position: relative;
     input {
+      font-size: 1rem;
     }
     &_icon{
       position: absolute;
-      right: 25px;
+      right: 5px;
       top:7px;
       cursor: pointer;
     }
