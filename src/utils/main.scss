@@ -8,6 +8,10 @@ $lg-screen-2: 993px;
 $laptop-screen-2: 1201px;
 $icon-color: #ffffff;
 
+.MuiPopover-root{
+  padding-right: 0;
+  overflow: auto;
+}
 .main {
   padding: 0 20px;
   font-size: 14px;
@@ -23,6 +27,9 @@ $icon-color: #ffffff;
     display: flex;
     justify-content: space-between;
     padding: 10px 15px 10px 0;
+    &__icon{
+      cursor: pointer;
+    }
   }
   &_movies {
     position:relative;

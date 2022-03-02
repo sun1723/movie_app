@@ -10,12 +10,28 @@ import { InputPagination } from './InputPagination';
 import { PaginationFor } from './PaginationFor';
 import { TypeFilterList } from './TypeFilterList';
 import FilterListIcon from '@material-ui/icons/FilterList';
+import Popover from '@material-ui/core/Popover';
 
 export const Main = ({fetchMovieById, movies,currentPage,currentType,handleOnChangeType, handleChangePage, totalResultNum, searchValueBackup, onClickIndex, movieContent, onTabletMode, onPhoneMode }) => {
   const [isOpen, setIsOpen] = useState(false);  
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleOpenDetail = (value) => {
     setIsOpen(value)
+  }
+
+  /**
+   * handleOpenFilter: handle open popOver window for filter
+   */
+  const handleOpenFilter = (evt) => {
+    setAnchorEl(evt.currentTarget);
+  }
+
+  /**
+   * handleOnCloseFilter: handle close popOver window for filter
+   */
+  const handleOnCloseFilter = () => {
+    setAnchorEl(null);
   }
 
   return (
@@ -26,7 +42,22 @@ export const Main = ({fetchMovieById, movies,currentPage,currentType,handleOnCha
           handleOnChangeType={handleOnChangeType}/>
       </div>
       <div className="main_result" >
-        <FilterListIcon className='main_result__' fontSize='small'/>
+        <FilterListIcon id={Boolean(anchorEl) ? "filter" : undefined} className='main_result__icon' fontSize='small' onClick={(evt) => {handleOpenFilter(evt)}}/>
+        <Popover
+          id={Boolean(anchorEl) ? "filter" : undefined}
+          open={Boolean(anchorEl)}
+          onClose={handleOnCloseFilter}
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
+          }}
+        >a popsdas 
+        </Popover>
         {/* <span><MenuIcon /></span> */}
         {/* <span>{movies.length} Result for {searchValueBackup}</span> */}
         <span>
