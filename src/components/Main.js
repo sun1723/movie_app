@@ -11,8 +11,9 @@ import { PaginationFor } from './PaginationFor';
 import { TypeFilterList } from './TypeFilterList';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import Popover from '@material-ui/core/Popover';
+import { YearSelect } from './YearSlider';
 
-export const Main = ({fetchMovieById, movies,currentPage,currentType,handleOnChangeType, handleChangePage, totalResultNum, searchValueBackup, onClickIndex, movieContent, onTabletMode, onPhoneMode }) => {
+export const Main = ({fetchMovieById, movies,currentPage,currentType, selectedYear, handleOnChangeType,handleChangeYear, handleChangePage, totalResultNum, searchValueBackup, onClickIndex, movieContent, onTabletMode, onPhoneMode }) => {
   const [isOpen, setIsOpen] = useState(false);  
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -57,7 +58,11 @@ export const Main = ({fetchMovieById, movies,currentPage,currentType,handleOnCha
             vertical: 'top',
             horizontal: 'left',
           }}
-        >a popsdas 
+        >
+          <YearSelect 
+            handleChangeYear={handleChangeYear}
+            selectedYear={selectedYear}
+          />
         </Popover>
         {/* <span><MenuIcon /></span> */}
         {/* <span>{movies.length} Result for {searchValueBackup}</span> */}

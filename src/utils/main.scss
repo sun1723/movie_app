@@ -8,9 +8,11 @@ $lg-screen-2: 993px;
 $laptop-screen-2: 1201px;
 $icon-color: #ffffff;
 
-.MuiPopover-root{
-  padding-right: 0;
-  overflow: auto;
+.MuiPopover-paper{
+  min-height: 200px;
+  width: 250px;
+  text-align: center;
+  padding: 10px;
 }
 .main {
   padding: 0 20px;

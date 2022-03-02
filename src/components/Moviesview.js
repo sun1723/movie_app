@@ -189,8 +189,10 @@ export const Moviesview = () => {
           movieContent={movieContent}
           currentPage={selectedPage}
           totalResultNum={resultNum}
+          selectedYear={selectedYear}
           handleChangePage={handleChangePage}
           currentType={selectedMovieTypeBackup}
+          handleChangeYear={handleChangeYear}
           handleOnChangeType = {handleOnChangeType}
         />
       </div>

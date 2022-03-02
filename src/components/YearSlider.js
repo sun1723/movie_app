@@ -3,6 +3,7 @@ import { useState } from "react";
 import { MenuList } from "./MenuList";
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import { yearList } from "../utils/app_constant";
+import { FilterItem } from "./FilterItem";
 
 export const YearSlider = ({selectedYear, handleChangeYear, collapMode}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,4 +37,21 @@ export const YearSlider = ({selectedYear, handleChangeYear, collapMode}) => {
       }
     </>
   )
+}
+
+export const YearSelect = ({handleChangeYear, selectedYear}) => {
+
+  return (
+    <FilterItem 
+      title="Year"
+      content={(
+      <div className="menu">
+        <MenuList 
+          options={yearList()}
+          handleChangeYear={handleChangeYear}
+          selectedYear={selectedYear}/>
+      </div>
+      )}
+    />
+  );
 }
