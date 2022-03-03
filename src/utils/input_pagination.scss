@@ -5,9 +5,9 @@ $black: #000000;
   // background-color: rgba($color: ($white), $alpha: .8);
   color: $white;
   border-radius: 5px;
-  width: 250px;
+  min-width: 250px;
   display: flex;
-  justify-content: space-around;
+  justify-content: end;
   .icon {
     height: 100%;
     align-items: center;
@@ -19,7 +19,7 @@ $black: #000000;
   .input-text {
     font-size: 1rem;
     font-weight: 600;
-    margin:0 auto;
+    margin:0 10px;
   }
   input{
     border-radius: 5px;
