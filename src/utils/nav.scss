@@ -19,7 +19,8 @@ $bg-color: #3e4491;
   &_search {
     min-width: 25%;
   }
-  &_type {
-    box-sizing: border-box;
+  &_menu {
+    color: $icon-color;
+    cursor: pointer;
   }
 }

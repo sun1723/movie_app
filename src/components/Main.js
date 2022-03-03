@@ -34,7 +34,6 @@ export const Main = ({
   const [anchorEl, setAnchorEl] = useState(null);
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
-  const [year, setYear] = useState("");
   const [filter, setFilter] = useState({ year: { start: "", end: "" } });
   const [collapSetting, setCollapSetting] = useState(false);
   const [menuList, setMenuList] = useState([]);
@@ -170,7 +169,6 @@ export const Main = ({
             Search
           </button>
         </Popover>
-        {/* <span><MenuIcon /></span> */}
         <InputPagination
           currentPage={currentPage}
           totalResultNum={totalResultNum}
