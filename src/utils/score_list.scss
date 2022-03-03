@@ -21,8 +21,8 @@ $title-color: #FFB319;
 }
 .score-list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-content: center;
+  grid-template-columns: auto auto auto;
+  justify-content:center;
   padding-bottom: 15px;
 }
 

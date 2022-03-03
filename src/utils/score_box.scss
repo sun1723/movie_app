@@ -17,6 +17,8 @@ $laptop-screen-2: 1201px;
   text-align: center;
   border-right: 3px solid $border-color;
   justify-content: center;
+  padding: 10px 20px;
+  min-width: 200px;
   &.no_border {
     border: none;
   }
