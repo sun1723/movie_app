@@ -25,6 +25,7 @@ export const Main = ({
   movieContent,
   onTabletMode,
   onPhoneMode,
+  selectedYear
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -68,6 +69,7 @@ export const Main = ({
           selectedType={currentType}
           handleOnChangeType={handleOnChangeType}
         />
+        <div className="main_info">Release Year: {selectedYear ? selectedYear : 'any'}</div>
       </div>
       <div className="main_result">
         <FilterListIcon
@@ -139,7 +141,6 @@ export const Main = ({
           </button>
         </Popover>
         {/* <span><MenuIcon /></span> */}
-        {/* <span>{movies.length} Result for {searchValueBackup}</span> */}
         <InputPagination
           currentPage={currentPage}
           totalResultNum={totalResultNum}
@@ -172,13 +173,13 @@ export const Main = ({
             />
           </div>
         </Grid>
-      ) : searchValueBackup ? (
-        <div className="main_noResult">
-          No Result for {searchValueBackup} ({currentType})
-        </div>
-      ) : (
-        <div className="main_emptySearch">Please type in search box. </div>
-      )}
+      ) : 
+      <div className="main_noResult">
+        <div>No Movie Found for {searchValueBackup} !</div>
+        <div>Type: {currentType ? currentType : "any"} </div>
+        <div>Release Year: {selectedYear ? selectedYear : "any"}</div>
+      </div>
+      }
     </div>
   );
 };

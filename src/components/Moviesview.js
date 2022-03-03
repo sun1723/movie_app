@@ -195,7 +195,6 @@ export const Moviesview = () => {
           handleOnOpen={handleOnOpen}
           handleOnClose={handleOnClose}
           dropDownEnable={dropDownEnable}
-          selectedYear={selectedYear}
           handleChangeYear={handleChangeYear}
         />
       </div>
