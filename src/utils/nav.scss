@@ -8,15 +8,16 @@ $bg-color: #3e4491;
 .nav-bar {
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
   display: flex;
-  min-height: 50px;
+  min-height: 55px;
   justify-content: space-between;
   background-color: $bg-color;
   z-index: 100;
   position: fixed;
   align-items: center;
   &_search {
+    min-width: 25%;
   }
   &_type {
     box-sizing: border-box;
