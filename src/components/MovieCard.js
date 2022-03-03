@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../utils/movie_card.scss";
 import { MovieContent } from "./MovieContent";
+import WhatshotIcon from '@material-ui/icons/Whatshot';
 
 export const MovieCard = ({
   movie,
@@ -13,7 +14,6 @@ export const MovieCard = ({
   onTabletMode,
   handleOpenDetail,
 }) => {
-  const [hoverIndex, setHoverIndex] = useState(index);
   const [onClickId, setOnClickId] = useState("");
 
   useEffect(() => {
@@ -41,10 +41,6 @@ export const MovieCard = ({
       id={index}
       key={movie.imdbID}
       className="movie-card"
-      onMouseEnter={(evt) => {
-        setHoverIndex(evt.currentTarget.id);
-      }}
-      onMouseLeave={(evt) => setHoverIndex(null)}
       onClick={(evt) => {
         setOnClickId(movie.imdbID);
       }}
@@ -65,7 +61,15 @@ export const MovieCard = ({
         }
       >
         <div className="movie-card_right__title">{movie.Title}</div>
-        <div className="movie-card_right__info">{movie.Year}</div>
+        {movie.Episode && movie.imdbRating != 'N/A' &&
+          <div className="movie-card_right__bd">
+            <WhatshotIcon fontSize="medium"/> { movie.imdbRating }
+          </div>
+        }
+        <div className="movie-card_right__info">
+          {movie.Episode ? `Episode #${movie.Episode}` : ''}
+          {movie.Year}
+        </div>
         <div>
           {isOpen &&
           movieContent &&
