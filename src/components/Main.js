@@ -106,13 +106,11 @@ export const Main = ({fetchMovieById, movies,currentPage,currentType, selectedYe
         </Popover>
         {/* <span><MenuIcon /></span> */}
         {/* <span>{movies.length} Result for {searchValueBackup}</span> */}
-        <span>
-          <InputPagination 
-            currentPage={currentPage}
-            totalResultNum={totalResultNum}
-            movieCount = {movies.length}
-            handleChangePage={handleChangePage}/>
-        </span>
+        <InputPagination 
+          currentPage={currentPage}
+          totalResultNum={totalResultNum}
+          movieCount = {movies.length}
+          handleChangePage={handleChangePage}/>
       </div>
       {movies && movies.length > 0 ?
         <Grid className="main_movies" container item  xs={12}>
