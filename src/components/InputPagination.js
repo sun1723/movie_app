@@ -6,8 +6,9 @@ export const InputPagination = ({
   currentPage,
   totalResultNum,
   handleChangePage,
+  movieCount
 }) => {
-  const totalPage = Math.floor(totalResultNum / 10) + 1;
+  const totalPage = movieCount ? Math.floor(totalResultNum / 10) + 1 : 1;
   const backPage = parseInt(currentPage) - 1;
   const forwardPage = parseInt(currentPage) + 1;
   const start = currentPage ? (currentPage - 1) * 10 + 1 : 1;
@@ -20,7 +21,7 @@ export const InputPagination = ({
   return (
     <div className="input-pagination">
       <span className="input-text">
-        {start} - {end} Results
+        {movieCount ? start : 0} - {movieCount ? end : 0} Results
       </span>
       <span className="icon">
         <ArrowBackIosIcon
@@ -38,7 +39,7 @@ export const InputPagination = ({
       </span>
       <input
         placeholder={currentPage}
-        value={currentPage}
+        value={movieCount ? currentPage : 1}
         onChange={(evt) => {
           if (evt.currentTarget.value > totalPage) return;
           handleChangePage(evt.currentTarget.value);
