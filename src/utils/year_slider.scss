@@ -1,10 +1,10 @@
 $text-color: #ffffff;
 $phone-screen: 600px;
-$md-screen:768px;
+$md-screen: 768px;
 $lg-screen: 992px;
 $laptop-screen: 1200px;
 $phone-screen-2: 601px;
-$md-screen-2:769px;
+$md-screen-2: 769px;
 $lg-screen-2: 993px;
 $laptop-screen-2: 1201px;
 
@@ -17,7 +17,7 @@ $laptop-screen-2: 1201px;
   text-align: center;
   padding-top: 2px;
   margin: 0 auto;
-  input{
+  input {
     width: 100%;
     border-radius: 6px;
     // text-align: center;
@@ -38,11 +38,10 @@ $laptop-screen-2: 1201px;
 
 @media screen and (max-width: $md-screen) {
   .text {
-      display: inline-block;
-      padding-right: 10px
-    }
+    display: inline-block;
+    padding-right: 10px;
+  }
   .alter {
-    // display: none;
   }
   .menu {
     display: inline-block;
@@ -51,16 +50,15 @@ $laptop-screen-2: 1201px;
 }
 
 @media screen and (min-width: $lg-screen) {
-  .alter{
-    // display: none;
-   position: relative;
+  .alter {
+    position: relative;
     input {
       font-size: 1rem;
     }
-    &_icon{
+    &_icon {
       position: absolute;
       right: 5px;
-      top:7px;
+      top: 7px;
       cursor: pointer;
     }
   }

@@ -1,16 +1,16 @@
-import Pagination from '@material-ui/lab/Pagination';
-import { useState, useEffect } from 'react';
-import '../utils/pagination.scss'
+import Pagination from "@material-ui/lab/Pagination";
+import "../utils/pagination.scss";
 
-export const PaginationFor = ({count, handleChangePage}) => {
-
+export const PaginationFor = ({ count, handleChangePage }) => {
   return (
-    <div className='pagination'>
-      <Pagination 
-        count={count} 
+    <div className="pagination">
+      <Pagination
+        count={count}
         color="primary"
-        onChange={(evt, page) => { handleChangePage(page) }}
-        />
+        onChange={(evt, page) => {
+          handleChangePage(page);
+        }}
+      />
     </div>
-  )
-}
+  );
+};

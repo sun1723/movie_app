@@ -1,11 +1,11 @@
 $title-color: #3a9efd;
-$tag-color: #F5A200;
-$bg-color:#3e4491;
+$tag-color: #f5a200;
+$bg-color: #3e4491;
 $tag-name: #fff;
 $phone-screen: 600px;
 $phone-screen-2: 601px;
-$md-screen:768px;
-$md-screen-2:769px;
+$md-screen: 768px;
+$md-screen-2: 769px;
 $lg-screen: 992px;
 $lg-screen-2: 993px;
 $laptop-screen: 1200px;
@@ -14,32 +14,32 @@ $highlight-color: red;
 
 .movie-content {
   min-height: 100%;
-  width:100%;
+  width: 100%;
   padding: 0;
   box-sizing: border-box;
   position: relative;
-  &_background{
-    position:absolute;
-    padding:0;
-    margin:0;
-    left:0;
-    width:100%;
-    top:0;
-    height:100%;
-    background-repeat:no-repeat;
+  &_background {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    background-repeat: no-repeat;
     box-sizing: border-box;
-    background-size:cover;
-    background-position:center;
-    z-index:-1;  
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
     -webkit-filter: blur(15px);
     -moz-filter: blur(15px);
     -o-filter: blur(15px);
     -ms-filter: blur(15px);
-    filter: blur(10px) brightness(30%);    
-    -webkit-box-shadow: inset 0px 0px 91px 137px rgba(0,0,0,1);
-    -moz-box-shadow: inset 0px 0px 91px 137px rgba(0,0,0,1);
-    box-shadow: inset 0px 0px 91px 137px rgba(0,0,0,1);
-    img{
+    filter: blur(10px) brightness(30%);
+    -webkit-box-shadow: inset 0px 0px 91px 137px rgba(0, 0, 0, 1);
+    -moz-box-shadow: inset 0px 0px 91px 137px rgba(0, 0, 0, 1);
+    box-shadow: inset 0px 0px 91px 137px rgba(0, 0, 0, 1);
+    img {
       display: block;
       width: 100%;
       height: 100%;
@@ -47,18 +47,18 @@ $highlight-color: red;
       box-sizing: border-box;
     }
   }
-  &_container { 
-    display:grid;
+  &_container {
+    display: grid;
     width: 100%;
-    padding:0px;
-    margin-left:auto;
-    margin-right:auto;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
     height: 100%;
     &__mainPoster {
-      position:relative;
-      z-index:1;
+      position: relative;
+      z-index: 1;
       display: flex;
-      img{
+      img {
         width: 100%;
         object-fit: contain;
         object-position: top;
@@ -68,15 +68,15 @@ $highlight-color: red;
     }
   }
   &__movieTitle {
-    position:relative;
+    position: relative;
     height: 100%;
     width: 100%;
-    font-family:Arial;
-    font-size:1.2rem;
-    font-weight:800;
+    font-family: Arial;
+    font-size: 1.2rem;
+    font-weight: 800;
     padding: 0 25px;
     color: $title-color;
-    z-index:1;
+    z-index: 1;
     min-height: 50px;
     text-transform: uppercase;
   }
@@ -91,18 +91,18 @@ $highlight-color: red;
     display: flex;
     justify-content: center;
     z-index: 10;
-    position:relative;
-    top:10px;
+    position: relative;
+    top: 10px;
     flex-wrap: wrap;
     width: 100%;
   }
   &_movieMore {
-    min-height:100%;
+    min-height: 100%;
     z-index: 100;
-    padding: 0 8%  5px  8% ;
+    padding: 0 8% 5px 8%;
   }
   &_scoreList {
-    min-height:100%;
+    min-height: 100%;
     width: 100%;
   }
   .icon {
@@ -116,16 +116,16 @@ $highlight-color: red;
 
 @media screen and (max-width: $phone-screen) {
   .movie-content {
-    &_background{
+    &_background {
       display: none;
     }
-    &_container{
+    &_container {
       &__mainPoster {
         display: none;
       }
     }
     &__movieTitle,
-    &_tagList{
+    &_tagList {
       display: none;
     }
     &_movieInfo {
@@ -142,25 +142,25 @@ $highlight-color: red;
   }
 }
 @media screen and (min-width: $phone-screen-2) and (max-width: $md-screen) {
-  .movie-content{
+  .movie-content {
     background-color: $bg-color;
     text-align: center;
-    &_background{
+    &_background {
       display: none;
     }
-    &_container{
+    &_container {
       width: 100%;
       height: 90%;
-      grid-template-rows: 100px 30px 60px minmax(250px,300px) ;
+      grid-template-rows: 100px 30px 60px minmax(250px, 300px);
       grid-auto-rows: 1fr;
       &__mainPoster {
         display: none;
       }
     }
     &__movieTitle {
-      top:20px;
+      top: 20px;
       color: $tag-color;
-      padding:10px;
+      padding: 10px;
       width: 100%;
     }
     &_tagList {
@@ -168,7 +168,6 @@ $highlight-color: red;
     &_movieMore {
     }
     &_scoreList {
-      
     }
   }
 }
@@ -178,19 +177,19 @@ $highlight-color: red;
     &_background {
     }
     &_container {
-      grid-template-rows: auto 23px 60px minmax(250px,300px) 100px;
+      grid-template-rows: auto 23px 60px minmax(250px, 300px) 100px;
       grid-template-columns: 250px 1fr;
       grid-gap: 20px;
-      &__mainPoster{
+      &__mainPoster {
         grid-row: 1 / 5;
       }
     }
     &__movieTitle {
-      top:15px;
+      top: 15px;
       text-align: left;
       font-size: 1.5rem;
     }
-    &_movieInfo{
+    &_movieInfo {
       text-align: left;
       justify-content: left;
       padding-left: 25px;
@@ -200,7 +199,7 @@ $highlight-color: red;
       padding-left: 25px;
     }
     &_movieMore {
-      padding: 0 5%  20px  5% ;
+      padding: 0 5% 20px 5%;
     }
     &_scoreList {
       grid-column: 1 / 3;
@@ -213,23 +212,23 @@ $highlight-color: red;
     &_background {
     }
     &_container {
-      grid-template-rows: auto 20px 60px minmax(250px,300px) 120px;
+      grid-template-rows: auto 20px 60px minmax(250px, 300px) 120px;
       grid-template-columns: 300px 1fr;
       grid-gap: 20px;
-      &__mainPoster{
+      &__mainPoster {
         grid-row: 1 / 5;
-        img{
+        img {
           height: 80%;
         }
       }
     }
     &__movieTitle {
       height: 100%;
-      top:15px;
+      top: 15px;
       text-align: center;
       font-size: 1.7rem;
     }
-    &_tagList{
+    &_tagList {
       justify-content: center;
       padding-left: 20px;
     }
@@ -242,17 +241,17 @@ $highlight-color: red;
   }
 }
 
-@media screen and (min-width: $laptop-screen-2){
+@media screen and (min-width: $laptop-screen-2) {
   .movie-content {
     &_background {
     }
     &_container {
-      grid-template-rows: 100px 20px 60px minmax(250px,300px) 120px;
+      grid-template-rows: 100px 20px 60px minmax(250px, 300px) 120px;
       grid-template-columns: 300px 1fr;
       grid-gap: 20px;
-      &__mainPoster{
+      &__mainPoster {
         grid-row: 1 / 6;
-        img{
+        img {
           height: 60%;
           justify-content: center;
         }
@@ -260,11 +259,11 @@ $highlight-color: red;
     }
     &__movieTitle {
       height: 100%;
-      top:15px;
+      top: 15px;
       text-align: center;
       font-size: 1.7rem;
     }
-    &_tagList{
+    &_tagList {
       justify-content: center;
       padding-left: 20px;
     }

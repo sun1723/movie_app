@@ -1,6 +1,6 @@
-$hover-color: #FFB319;
+$hover-color: #ffb319;
 $phone-screen: 600px;
-$md-screen:768px;
+$md-screen: 768px;
 $lg-screen: 992px;
 $laptop-screen: 1200px;
 $phone-screen-hover-color: #3e4491;
@@ -17,11 +17,10 @@ $phone-screen-hover-color: #3e4491;
   &.active {
     border-bottom: solid 2px $hover-color;
   }
-  &:hover{
+  &:hover {
     border-bottom: solid 1px $hover-color;
     cursor: pointer;
   }
-  
 }
 
 @media screen and (max-width: $phone-screen) {
@@ -31,19 +30,18 @@ $phone-screen-hover-color: #3e4491;
       border-bottom: solid 1px $phone-screen-hover-color;
     }
 
-    &:hover{
+    &:hover {
       border-bottom: solid 1px $phone-screen-hover-color;
     }
   }
-
 }
 
-@media screen and (max-width: $md-screen) and (min-width: $phone-screen){
+@media screen and (max-width: $md-screen) and (min-width: $phone-screen) {
   .tab {
   }
 }
 
-@media screen and (min-width: $md-screen){
+@media screen and (min-width: $md-screen) {
   .tab {
   }
 }

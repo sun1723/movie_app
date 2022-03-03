@@ -1,15 +1,14 @@
 $white: #ffffff;
-$bg-color: #F5A200;
+$bg-color: #f5a200;
 
 .pagination {
   justify-content: center;
-  & li > *  {
+  & li > * {
     color: $white;
     button {
       .selected {
-        background-color: #F5A200;
+        background-color: $bg-color;
       }
     }
   }
-  
 }

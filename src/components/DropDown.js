@@ -1,15 +1,13 @@
-import { useEffect } from 'react';
-import '../utils/drop_down.scss';
+import "../utils/drop_down.scss";
 
-export const DropDown = ({open,content}) => {
-
+export const DropDown = ({ open, content }) => {
   return (
     <>
-      {open && 
+      {open && (
         <div className="drop-down" id="drop">
           {content}
         </div>
-      }
+      )}
     </>
-  )
-}
+  );
+};

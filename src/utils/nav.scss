@@ -1,19 +1,19 @@
 $phone-screen: 600px;
-$md-screen:768px;
+$md-screen: 768px;
 $lg-screen: 992px;
 $laptop-screen: 1200px;
 $icon-color: #ffffff;
-$bg-color:#3e4491;
+$bg-color: #3e4491;
 
 .nav-bar {
   width: 100%;
-  margin: 0 auto; 
+  margin: 0 auto;
   padding: 0 20px;
   display: flex;
   min-height: 50px;
   justify-content: space-between;
   background-color: $bg-color;
-  z-index:100;
+  z-index: 100;
   position: fixed;
   align-items: center;
   &_search {

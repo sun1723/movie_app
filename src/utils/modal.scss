@@ -1,12 +1,12 @@
-$bg-color:#3e4491;
-$sb-bg-color:#1a1b4b;
+$bg-color: #3e4491;
+$sb-bg-color: #1a1b4b;
 $sb-fill-color: #3a9efd;
 $phone-screen: 600px;
-$md-screen:768px;
+$md-screen: 768px;
 $lg-screen: 992px;
 $laptop-screen: 1200px;
 $phone-screen-2: 601px;
-$md-screen-2:769px;
+$md-screen-2: 769px;
 $lg-screen-2: 993px;
 $laptop-screen-2: 1201px;
 
@@ -17,10 +17,10 @@ $laptop-screen-2: 1201px;
   height: 550px;
   z-index: 100;
   font-size: large;
-  margin:20px auto 0 auto;
-  top:100px;
-  left: 0; 
-  bottom: 0; 
+  margin: 20px auto 0 auto;
+  top: 100px;
+  left: 0;
+  bottom: 0;
   right: 0;
   border: solid 1px $bg-color;
   border-radius: 10px;
@@ -28,17 +28,17 @@ $laptop-screen-2: 1201px;
 }
 
 .modal-box::-webkit-scrollbar {
-  width: 10px;               /* width of the entire scrollbar */
+  width: 10px; /* width of the entire scrollbar */
 }
 
 .modal-box::-webkit-scrollbar-track {
-  background: $sb-bg-color;        /* color of the tracking area */
+  background: $sb-bg-color; /* color of the tracking area */
 }
 
 .modal-box::-webkit-scrollbar-thumb {
-  background-color: $sb-fill-color;    /* color of the scroll thumb */
-  border-radius: 30px;       /* roundness of the scroll thumb */
-  border: 3px solid $sb-bg-color;  /* creates padding around scroll thumb */
+  background-color: $sb-fill-color; /* color of the scroll thumb */
+  border-radius: 30px; /* roundness of the scroll thumb */
+  border: 3px solid $sb-bg-color; /* creates padding around scroll thumb */
 }
 
 @media screen and (max-width: $phone-screen) {
@@ -48,20 +48,20 @@ $laptop-screen-2: 1201px;
   }
 }
 
-@media screen and (min-width: $phone-screen-2) and (max-width: $md-screen){
+@media screen and (min-width: $phone-screen-2) and (max-width: $md-screen) {
   .modal-box {
     width: 85%;
   }
 }
 
-@media screen and (min-width: $md-screen-2) and (max-width: $lg-screen){
+@media screen and (min-width: $md-screen-2) and (max-width: $lg-screen) {
   .modal-box {
     width: 85%;
     left: 2%;
   }
 }
 
-@media screen and (min-width: $lg-screen-2) and (max-width: $laptop-screen){
+@media screen and (min-width: $lg-screen-2) and (max-width: $laptop-screen) {
   .modal-box {
   }
 }

@@ -3,17 +3,17 @@
 
 $phone-screen: 600px;
 $phone-screen-2: 601px;
-$md-screen:768px;
-$md-screen-2:769px;
+$md-screen: 768px;
+$md-screen-2: 769px;
 $lg-screen: 992px;
 $lg-screen-2: 993px;
 $laptop-screen: 1200px;
-$hover-color: #FFB319;
-$bg-color:#3e4491;
+$hover-color: #ffb319;
+$bg-color: #3e4491;
 $title-color: #ffffff;
-$font-stack-content: 'Montserrat', helvetica, arial, sans-serif;
-$font-stack-header: 'Montserrat', helvetica, arial, sans-serif;
-$secondary-color: #F5A200;
+$font-stack-content: "Montserrat", helvetica, arial, sans-serif;
+$font-stack-header: "Montserrat", helvetica, arial, sans-serif;
+$secondary-color: #f5a200;
 $second-bg-color: #3a9efd;
 
 .movie-card {
@@ -22,56 +22,56 @@ $second-bg-color: #3a9efd;
   box-sizing: border-box;
   &_left {
     position: absolute;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     img {
-      width:100%;
-      height:100%;
+      width: 100%;
+      height: 100%;
       border-radius: 10px;
       object-fit: fill;
       opacity: 0.6;
     }
   }
-  &_phone{
+  &_phone {
     display: none;
   }
   &_right {
-    width:100%;
-    background:$bg-color;
-    height:100%;
+    width: 100%;
+    background: $bg-color;
+    height: 100%;
     border-radius: 10px;
-    padding:10px 20px 0 20px;
+    padding: 10px 20px 0 20px;
     text-align: center;
     text-transform: uppercase;
     color: $title-color;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 1);
     &:hover {
       cursor: pointer;
-    }  
-    &.active{
+    }
+    &.active {
       height: 100%;
-    }  
+    }
     &__title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight:400;
-    text-align: center;
-    font-size: 1rem;
-    margin:30px 0 10px 0;
-    letter-spacing:1px;
-    height: 90px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      text-align: center;
+      font-size: 1rem;
+      margin: 30px 0 10px 0;
+      letter-spacing: 1px;
+      height: 90px;
       :hover > & {
         font-weight: 600;
       }
-      .active > &{
-        font-weight:800;
+      .active > & {
+        font-weight: 800;
       }
     }
     &__info {
       background-color: transparent;
       width: 100%;
       font-size: 1.4rem;
-      :hover > & ,
-      .active > &{
+      :hover > &,
+      .active > & {
         background: transparent;
         font-weight: 600;
       }
@@ -92,48 +92,48 @@ $second-bg-color: #3a9efd;
 }
 
 @media screen and (max-width: $phone-screen) {
-  .movie-card{
+  .movie-card {
     height: 350px;
-    &_left{
+    &_left {
       display: none;
     }
-    &_right{
+    &_right {
       display: grid;
       grid-template-rows: 130px 20px 190px;
-      &.active{
+      &.active {
         background: $secondary-color;
-        color:$bg-color;
+        color: $bg-color;
         font-weight: 600;
-      } 
+      }
       &:hover {
         background: $hover-color;
-        color:$bg-color;
+        color: $bg-color;
         font-weight: 500;
-      } 
+      }
       &__title {
         font-size: 1.1rem;
-        text-align:left;
-        :hover > & ,
-        .active > &{
-          font-weight:500
+        text-align: left;
+        :hover > &,
+        .active > & {
+          font-weight: 500;
         }
       }
       &__info {
         font-size: 0.9rem;
         border: 1px solid $title-color;
         width: 30%;
-        max-width: 100px ;
+        max-width: 100px;
         border-radius: 10px;
         :hover > & {
           background: $bg-color;
           color: $hover-color;
           border: none;
-      }
-      .active > &{
-          background:  $bg-color;
+        }
+        .active > & {
+          background: $bg-color;
           color: $secondary-color;
           border: none;
-      }
+        }
       }
       &__phone {
         display: block;
@@ -143,44 +143,43 @@ $second-bg-color: #3a9efd;
         width: 140px;
         height: 60px;
       }
-    } 
+    }
   }
 }
 
 @media screen and (max-width: $md-screen) and (min-width: $phone-screen-2) {
-  .movie-card{
+  .movie-card {
     height: 270px;
     &_left {
-      img{
+      img {
         opacity: 1;
       }
     }
     &_right {
       position: absolute;
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0, 0, 0, 0.6);
       font-size: 0.9rem;
       &:hover {
-        background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
         color: $title-color;
         font-weight: 500;
         cursor: pointer;
-      }  
-      &.active{
-        background: rgba(0,0,0,0.4);
-        color:$title-color;
+      }
+      &.active {
+        background: rgba(0, 0, 0, 0.4);
+        color: $title-color;
         font-weight: 600;
-      } 
+      }
       &__title {
         font-weight: 500;
         font-size: 1rem;
-        .active > &, 
-        :hover > & 
-        {
+        .active > &,
+        :hover > & {
           font-size: 1rem;
         }
       }
-      &__info{
-        margin:auto;
+      &__info {
+        margin: auto;
         color: $hover-color;
       }
       &__phone {
@@ -201,25 +200,25 @@ $second-bg-color: #3a9efd;
     }
     &_right {
       width: 100%;
-      background-color: rgba(0,0,0,0.4);
+      background-color: rgba(0, 0, 0, 0.4);
     }
     &_right {
       &:hover {
-        background: rgba(0,0,0,0.1);
+        background: rgba(0, 0, 0, 0.1);
         color: $title-color;
         font-weight: 500;
         cursor: pointer;
-      }  
-      &.active{
-        background: rgba(0,0,0,0.2);
-        color:$title-color;
+      }
+      &.active {
+        background: rgba(0, 0, 0, 0.2);
+        color: $title-color;
         font-weight: 600;
-      } 
+      }
       &__title {
         font-weight: 500;
       }
-      &__info{
-        margin:50px auto 0 auto;
+      &__info {
+        margin: 50px auto 0 auto;
         color: $hover-color;
       }
       &__phone {

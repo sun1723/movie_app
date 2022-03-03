@@ -1,14 +1,13 @@
 $text-color: #ffffff;
 $border-color: #3a9efd;
 $phone-screen: 600px;
-$md-screen:768px;
+$md-screen: 768px;
 $lg-screen: 992px;
-$laptop-screen: 1200px; 
+$laptop-screen: 1200px;
 $phone-screen-2: 601px;
-$md-screen-2:769px;
+$md-screen-2: 769px;
 $lg-screen-2: 993px;
-$laptop-screen-2: 1201px; 
-
+$laptop-screen-2: 1201px;
 
 .score-box {
   display: flex;
@@ -22,7 +21,7 @@ $laptop-screen-2: 1201px;
   &.no_border {
     border: none;
   }
-  & > *{
+  & > * {
     font-weight: 700;
     font-size: 1.1rem;
   }
@@ -32,7 +31,7 @@ $laptop-screen-2: 1201px;
   .score-box {
     width: 200px;
     border-right: none;
-    border-bottom:2px solid #3a9efd;
+    border-bottom: 2px solid $border-color;
     margin: 0 auto;
   }
 }

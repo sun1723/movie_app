@@ -1,9 +1,9 @@
-$bg-color: #F5A200;
+$bg-color: #f5a200;
 $font-color: #fff;
 
 .movie-tag {
   display: flex;
-  color:#fff;
+  color: $font-color;
   margin-right: 30px;
   text-transform: uppercase;
   height: 25px;
@@ -14,7 +14,7 @@ $font-color: #fff;
   &_single {
     background-color: $bg-color;
     width: auto;
-    border-radius:13px;
+    border-radius: 13px;
     text-align: center;
     font-size: 1rem;
     box-sizing: content-box;

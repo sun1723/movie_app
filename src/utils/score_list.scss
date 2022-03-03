@@ -1,13 +1,12 @@
-
 $phone-screen: 600px;
-$md-screen:768px;
+$md-screen: 768px;
 $lg-screen: 992px;
-$laptop-screen: 1200px; 
+$laptop-screen: 1200px;
 $phone-screen-2: 601px;
-$md-screen-2:769px;
+$md-screen-2: 769px;
 $lg-screen-2: 993px;
 $laptop-screen-2: 1201px;
-$title-color: #FFB319;
+$title-color: #ffb319;
 
 .score-title {
   font-size: 1.3rem;
@@ -22,14 +21,14 @@ $title-color: #FFB319;
 .score-list {
   display: grid;
   grid-template-columns: auto auto auto;
-  justify-content:center;
+  justify-content: center;
   padding-bottom: 15px;
 }
 
 @media screen and (max-width: $phone-screen) {
   .score-list {
     display: none;
-  } 
+  }
 }
 
 @media screen and (min-width: $phone-screen-2) and (max-width: $md-screen) {
@@ -38,7 +37,7 @@ $title-color: #FFB319;
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
     justify-content: center;
-  } 
+  }
 }
 
 @media screen and (min-width: $md-screen-2) and (max-width: $lg-screen) {
@@ -53,7 +52,6 @@ $title-color: #FFB319;
     width: 90%;
     margin-bottom: 15px;
   }
-
 }
 
 @media screen and (min-width: $laptop-screen-2) {
@@ -61,5 +59,3 @@ $title-color: #FFB319;
     width: 90%;
   }
 }
-
-
