@@ -1,3 +1,4 @@
+import '../utils/filter_item.scss'
 
 export const FilterItem = ({title, content}) => {
 

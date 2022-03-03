@@ -11,11 +11,26 @@ import { PaginationFor } from './PaginationFor';
 import { TypeFilterList } from './TypeFilterList';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import Popover from '@material-ui/core/Popover';
-import { YearSelect } from './YearSlider';
+import { YearSelect } from './YearSelect';
+import { RangeYear } from './RangeYear';
+import { FilterItem } from './FilterItem'
+import { yearList } from "../utils/app_constant";
+import { MenuList } from "./MenuList";
 
 export const Main = ({fetchMovieById, movies,currentPage,currentType, selectedYear, handleOnChangeType,handleChangeYear, handleChangePage, totalResultNum, searchValueBackup, onClickIndex, movieContent, onTabletMode, onPhoneMode }) => {
   const [isOpen, setIsOpen] = useState(false);  
   const [anchorEl, setAnchorEl] = useState(null);
+  const [start, setStart] = useState('');
+  const [end, setEnd] = useState('');
+  const [year, setYear] = useState('')
+  const [filter, setFilter] = useState({year:{start:'', end:''}});
+  const [collapSetting, setCollapSetting] = useState(false);
+
+  useEffect (() => {
+    setFilter({year:{start:start, end: end}})
+    // handleChangeYear(filter && filter.year ? filter.year : '');
+  },[start,end])
+
 
   const handleOpenDetail = (value) => {
     setIsOpen(value)
@@ -33,6 +48,10 @@ export const Main = ({fetchMovieById, movies,currentPage,currentType, selectedYe
    */
   const handleOnCloseFilter = () => {
     setAnchorEl(null);
+  }
+
+  const submitFilter = () => {
+    handleChangeYear(filter.year)
   }
 
   return (
@@ -59,10 +78,31 @@ export const Main = ({fetchMovieById, movies,currentPage,currentType, selectedYe
             horizontal: 'left',
           }}
         >
-          <YearSelect 
-            handleChangeYear={handleChangeYear}
-            selectedYear={selectedYear}
+          <FilterItem 
+            title="Year"
+            content={(
+              <MenuList 
+                options={yearList()}
+                handleChangeYear={setStart}
+                selectedYear={start}/>
+            )}
           />
+          <div className='advanced' onClick={(evt) => {setCollapSetting(!collapSetting)}}>Advanced Settings</div>
+          {collapSetting && 
+          <FilterItem 
+            title=""
+            content={(
+              <>
+                <span>min</span>
+                <input className='range_input' onChange={(evt) => {setStart(evt.currentTarget.value)}}/>
+                -
+                <span>max</span>
+                <input className='range_input' onChange={(evt) => {setEnd(evt.currentTarget.value)}}/>
+              </>
+            )}
+          />
+          }
+          <button className="filter_search" onClick={() => submitFilter()}>Search</button>
         </Popover>
         {/* <span><MenuIcon /></span> */}
         {/* <span>{movies.length} Result for {searchValueBackup}</span> */}

@@ -10,7 +10,6 @@ export const yearList = () => {
   for(let end = 2050; end >= 1900; end --){
     options.push({label: end, value: end})
   }
-  console.log(options)
   return options;
 }
 

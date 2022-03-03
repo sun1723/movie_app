@@ -54,7 +54,12 @@ export const Moviesview = () => {
    * handleChangeYear: handle change year for movies
    */
   const handleChangeYear = (year) => {
-    setSelectedYear(year);
+    if(year.start == year.end || !(year.start!='' && year.end!=''))
+      setSelectedYear(year.start ? year.start : year.end);
+    else if(year.start!='' && year.end!=''){
+      let y = `${year.start}-${year.end}`;
+      setSelectedYear(y);
+    }
   }
 
   /**

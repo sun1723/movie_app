@@ -7,12 +7,24 @@ $md-screen-2:769px;
 $lg-screen-2: 993px;
 $laptop-screen-2: 1201px;
 $icon-color: #ffffff;
+$bg-color: #F5A200;
 
 .MuiPopover-paper{
   min-height: 200px;
   width: 250px;
   text-align: center;
   padding: 10px;
+}
+.advanced {
+  text-decoration: underline;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding-bottom: 5px;
+}
+.filter_search {
+  &:hover {
+    background-color: $bg-color;
+  }
 }
 .main {
   padding: 0 20px;
