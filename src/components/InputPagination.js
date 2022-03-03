@@ -4,8 +4,8 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 export const InputPagination = ({currentPage, totalResultNum, handleChangePage}) => {
   const totalPage = Math.floor(totalResultNum / 10) + 1;
-  const backPage = currentPage - 1;
-  const forwardPage =  currentPage + 1;
+  const backPage = parseInt(currentPage) - 1;
+  const forwardPage =  parseInt(currentPage) + 1;
   const start = currentPage ? (currentPage - 1) * 10 + 1 : 1;
   const end = currentPage ? currentPage * 10 < totalResultNum ? currentPage * 10 : totalResultNum : 10 ;
   
