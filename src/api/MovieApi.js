@@ -7,6 +7,7 @@ export const getMoviesByidOrTitle = ({
   type = null,
   year = null,
   plot = null,
+  season = null,
 }) => {
   let url = `${apiUrl}?apiKey=${apiKey}`;
   if (id) {
@@ -16,13 +17,16 @@ export const getMoviesByidOrTitle = ({
     url += `&t=${title}`;
   }
   if (type) {
-    url += `&t=${type}`;
+    url += `&type=${type}`;
   }
   if (year) {
-    url += `&t=${year}`;
+    url += `&y=${year}`;
   }
   if (plot) {
-    url += `&t=${plot}`;
+    url += `&plot=${plot}`;
+  }
+  if (season) {
+    url += `&Season=${season}`;
   }
   return axios.get(url);
 };

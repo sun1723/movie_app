@@ -2,7 +2,7 @@ import { TypeFilter } from "./TypeFIlter";
 import { types } from "../utils/app_constant";
 import "../utils/typeFilter_list.scss";
 
-export const TypeFilterList = ({ selectedType, handleOnChangeType }) => {
+export const TypeFilterList = ({ selectedType, handleOnChangeType, totalSeasons }) => {
   const handleOnClick = (type) => {
     if (selectedType == type) {
       handleOnChangeType("");
@@ -18,6 +18,7 @@ export const TypeFilterList = ({ selectedType, handleOnChangeType }) => {
           title={type}
           isSelected={selectedType == type}
           handleOnClick={() => handleOnClick(type)}
+          totalSeasons={totalSeasons}
         />
       ))}
     </div>

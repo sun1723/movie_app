@@ -25,7 +25,9 @@ export const Main = ({
   movieContent,
   onTabletMode,
   onPhoneMode,
-  selectedYear
+  selectedYear,
+  totalSeasons,
+  handleOnChangeSeason
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -34,15 +36,29 @@ export const Main = ({
   const [year, setYear] = useState("");
   const [filter, setFilter] = useState({ year: { start: "", end: "" } });
   const [collapSetting, setCollapSetting] = useState(false);
+  const [menuList, setMenuList] = useState([]);
 
   useEffect(() => {
     setFilter({ year: { start: start, end: end } });
     // handleChangeYear(filter && filter.year ? filter.year : '');
   }, [start, end]);
 
+  useEffect(() => {
+    constructMenuList();
+  },[totalSeasons]);
+
   const handleOpenDetail = (value) => {
     setIsOpen(value);
   };
+
+  const constructMenuList = () => {
+    let list = [];
+    for(let i = 1; i<=totalSeasons; i++)
+    {
+      list.push(<div className="season_item" onClick={(evt) => {handleOnChangeSeason(i)}}>Season {i}</div>)
+    }
+    setMenuList(list);
+  }
 
   /**
    * handleOpenFilter: handle open popOver window for filter
@@ -68,9 +84,15 @@ export const Main = ({
         <TypeFilterList
           selectedType={currentType}
           handleOnChangeType={handleOnChangeType}
+          totalSeasons={totalSeasons}
         />
         <div className="main_info">Release Year: {selectedYear ? selectedYear : 'any'}</div>
       </div>
+      {currentType == 'season' &&
+        <div className="main_seasons">
+          {menuList}
+        </div>
+      }
       <div className="main_result">
         <FilterListIcon
           id={Boolean(anchorEl) ? "filter" : undefined}

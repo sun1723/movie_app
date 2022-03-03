@@ -26,6 +26,13 @@ $bg-color: #f5a200;
     background-color: $bg-color;
   }
 }
+.season_item{
+  cursor: pointer;
+  padding: 5px 5px 0 5px;
+  &:hover{
+    text-decoration: underline;
+  }
+}
 .main {
   padding: 0 20px;
   font-size: 14px;
@@ -36,6 +43,11 @@ $bg-color: #f5a200;
     width: 100%;
     display: flex;
   }
+  &_seasons{
+    color: $icon-color;
+    display: flex;
+    padding-top: 5px;
+  }
   &_info {
     color: $icon-color;
   }
@@ -44,7 +56,7 @@ $bg-color: #f5a200;
     text-align: center;
     display: flex;
     justify-content: space-between;
-    padding: 10px 15px 5px 0;
+    padding: 5px 15px 5px 0;
     align-items: center;
     &__icon {
       cursor: pointer;

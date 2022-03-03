@@ -22,6 +22,8 @@ export const Moviesview = () => {
     useState(selectedMovieType);
   const [selectedPage, setSelectedPage] = useState(1);
   const [selectedYear, setSelectedYear] = useState(0);
+  const [selectedSeason, setSelectedSeason] = useState(1);
+  const [totalSeasons, setTotalSeasons] = useState('');
 
   useEffect(() => {
     windowResize();
@@ -43,7 +45,7 @@ export const Moviesview = () => {
 
   useEffect(() => {
     if (searchValueBackup.length >= 3) fetchMovies();
-  }, [selectedMovieType, searchValueBackup, selectedPage, selectedYear]);
+  }, [selectedMovieType, searchValueBackup, selectedPage, selectedYear, selectedSeason]);
 
   useEffect(() => {
     window.addEventListener("resize", windowResize);
@@ -108,6 +110,23 @@ export const Moviesview = () => {
   };
 
   /**
+   * fetchMovieByTitle: fetch movie by title
+   */
+  const fetchMovieByTitle = () => {
+    getMoviesByidOrTitle({
+      title: searchValueBackup,
+      season: selectedSeason,
+      year: selectedYear,
+    }).then((res) => {
+      const data = res.data;
+      if(data.Response == "True"){
+        setMovies(data.Episodes);
+        setTotalSeasons(data.totalSeasons);
+      }
+    });
+  };
+
+  /**
    * fetchMovieById: fetch movie by id
    */
   const fetchMovieById = (onClickId, index) => {
@@ -129,6 +148,11 @@ export const Moviesview = () => {
       (selectedYear < 1900 && selectedYear != 0) ||
       selectedYear > 2050
     ) {
+      return;
+    }
+    console.log(selectedMovieType == "season")
+    if (selectedMovieType == "season") {
+      fetchMovieByTitle();
       return;
     }
     getMoviesBySearch({
@@ -178,6 +202,13 @@ export const Moviesview = () => {
     setSelectedMovieTypeBackup(type);
   };
 
+  /**
+   * handleOnChangeSeason
+   */
+  const handleOnChangeSeason = (season) => {
+    setSelectedSeason(season);
+  }
+
   return (
     <div
       className="view"
@@ -214,6 +245,8 @@ export const Moviesview = () => {
           currentType={selectedMovieTypeBackup}
           handleChangeYear={handleChangeYear}
           handleOnChangeType={handleOnChangeType}
+          handleOnChangeSeason={handleOnChangeSeason}
+          totalSeasons = {totalSeasons}
         />
       </div>
     </div>
