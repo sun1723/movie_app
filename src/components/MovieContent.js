@@ -66,9 +66,11 @@ export const MovieContent = ({ movie, handleClose, onTabletMode }) => {
             <div className="movie-content_movieMore">
               <MovieMore movie={movie} />
             </div>
-            <div className="movie-content_scoreList">
-              <ScoreList movie={movie} />
-            </div>
+            {movie.Ratings && movie.Ratings.length > 0 &&
+              <div className="movie-content_scoreList">
+                <ScoreList movie={movie} />
+              </div>
+            }
           </div>
         </div>
       )}

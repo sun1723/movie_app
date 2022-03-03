@@ -6,8 +6,7 @@ export const ScoreList = ({ movie }) => {
     <>
       <div className="score-title">Scores</div>
       <div className="score-list">
-        {movie.Ratings &&
-          movie.Ratings.length > 0 &&
+        {
           movie.Ratings.map((rate, index) => (
             <ScoreBox
               rate={rate}
