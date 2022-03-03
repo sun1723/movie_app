@@ -5,7 +5,7 @@ $black: #000000;
   // background-color: rgba($color: ($white), $alpha: .8);
   color: $white;
   border-radius: 5px;
-  min-width: 250px;
+  width: 250px;
   display: flex;
   justify-content: space-around;
   .icon {
@@ -16,7 +16,7 @@ $black: #000000;
       cursor: pointer;
     }
   }
-  .text {
+  .input-text {
     font-size: 1rem;
     font-weight: 600;
     margin:0 auto;
@@ -26,5 +26,7 @@ $black: #000000;
     width: 20%;
     text-align: center;
     border: none;
+    align-items: center;
+    height: 100%;
   }
 }

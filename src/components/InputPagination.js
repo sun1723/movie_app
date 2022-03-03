@@ -11,7 +11,7 @@ export const InputPagination = ({currentPage, totalResultNum, handleChangePage})
   
   return (
     <div className="input-pagination">
-      <span className='text'>
+      <span className='input-text'>
         {start} - {end} Results
       </span>
       <span className='icon'>
@@ -28,7 +28,7 @@ export const InputPagination = ({currentPage, totalResultNum, handleChangePage})
             return;
           handleChangePage(evt.currentTarget.value)
         }} />
-        <span className='text'> / {totalPage}</span>
+        <span className='input-text'> / {totalPage}</span>
         <span className='icon'>
           <ArrowForwardIosIcon 
             style={{color: currentPage == totalPage ? 'rgba(255,255,255,0.4)' : '#fff'}}
