@@ -27,7 +27,8 @@ export const Main = ({
   onPhoneMode,
   selectedYear,
   totalSeasons,
-  handleOnChangeSeason
+  handleOnChangeSeason,
+  selectedSeason
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -40,12 +41,11 @@ export const Main = ({
 
   useEffect(() => {
     setFilter({ year: { start: start, end: end } });
-    // handleChangeYear(filter && filter.year ? filter.year : '');
   }, [start, end]);
 
   useEffect(() => {
     constructMenuList();
-  },[totalSeasons]);
+  }, [totalSeasons,selectedSeason]);
 
   const handleOpenDetail = (value) => {
     setIsOpen(value);
@@ -53,12 +53,20 @@ export const Main = ({
 
   const constructMenuList = () => {
     let list = [];
-    for(let i = 1; i<=totalSeasons; i++)
-    {
-      list.push(<div className="season_item" onClick={(evt) => {handleOnChangeSeason(i)}}>Season {i}</div>)
+    for (let i = 1; i <= totalSeasons; i++) {
+      list.push(
+        <div
+          className={selectedSeason == i ? "season_item active" : "season_item"}
+          onClick={(evt) => {
+            handleOnChangeSeason(i);
+          }}
+        >
+          Season {i}
+        </div>
+      );
     }
     setMenuList(list);
-  }
+  };
 
   /**
    * handleOpenFilter: handle open popOver window for filter
@@ -86,13 +94,13 @@ export const Main = ({
           handleOnChangeType={handleOnChangeType}
           totalSeasons={totalSeasons}
         />
-        <div className="main_info">Release Year: {selectedYear ? selectedYear : 'any'}</div>
-      </div>
-      {currentType == 'season' &&
-        <div className="main_seasons">
-          {menuList}
+        <div className="main_info">
+          Release Year: {selectedYear ? selectedYear : "any"}
         </div>
-      }
+      </div>
+      {currentType == "season" && (
+        <div className="main_seasons">{menuList}</div>
+      )}
       <div className="main_result">
         <FilterListIcon
           id={Boolean(anchorEl) ? "filter" : undefined}
@@ -195,13 +203,13 @@ export const Main = ({
             />
           </div>
         </Grid>
-      ) : 
-      <div className="main_noResult">
-        <div>No Movie Found for {searchValueBackup} !</div>
-        <div>Type: {currentType ? currentType : "any"} </div>
-        <div>Release Year: {selectedYear ? selectedYear : "any"}</div>
-      </div>
-      }
+      ) : (
+        <div className="main_noResult">
+          <div>No Movie Found for {searchValueBackup} !</div>
+          <div>Type: {currentType ? currentType : "any"} </div>
+          <div>Release Year: {selectedYear ? selectedYear : "any"}</div>
+        </div>
+      )}
     </div>
   );
 };

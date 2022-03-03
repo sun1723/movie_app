@@ -29,8 +29,12 @@ $bg-color: #f5a200;
 .season_item{
   cursor: pointer;
   padding: 5px 5px 0 5px;
-  &:hover{
+  &:hover,
+  &.active{
     text-decoration: underline;
+  }
+  &.active{
+    color:$bg-color
   }
 }
 .main {

@@ -1,5 +1,4 @@
 import "../utils/type_filter.scss";
-import { useEffect, useState } from "react";
 
 export const TypeFilter = ({ title, isSelected, handleOnClick }) => {
 

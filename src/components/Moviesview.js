@@ -23,7 +23,7 @@ export const Moviesview = () => {
   const [selectedPage, setSelectedPage] = useState(1);
   const [selectedYear, setSelectedYear] = useState(0);
   const [selectedSeason, setSelectedSeason] = useState(1);
-  const [totalSeasons, setTotalSeasons] = useState('');
+  const [totalSeasons, setTotalSeasons] = useState("");
 
   useEffect(() => {
     windowResize();
@@ -45,7 +45,13 @@ export const Moviesview = () => {
 
   useEffect(() => {
     if (searchValueBackup.length >= 3) fetchMovies();
-  }, [selectedMovieType, searchValueBackup, selectedPage, selectedYear, selectedSeason]);
+  }, [
+    selectedMovieType,
+    searchValueBackup,
+    selectedPage,
+    selectedYear,
+    selectedSeason,
+  ]);
 
   useEffect(() => {
     window.addEventListener("resize", windowResize);
@@ -119,7 +125,7 @@ export const Moviesview = () => {
       year: selectedYear,
     }).then((res) => {
       const data = res.data;
-      if(data.Response == "True"){
+      if (data.Response == "True") {
         setMovies(data.Episodes);
         setTotalSeasons(data.totalSeasons);
       }
@@ -150,7 +156,6 @@ export const Moviesview = () => {
     ) {
       return;
     }
-    console.log(selectedMovieType == "season")
     if (selectedMovieType == "season") {
       fetchMovieByTitle();
       return;
@@ -207,7 +212,7 @@ export const Moviesview = () => {
    */
   const handleOnChangeSeason = (season) => {
     setSelectedSeason(season);
-  }
+  };
 
   return (
     <div
@@ -246,7 +251,8 @@ export const Moviesview = () => {
           handleChangeYear={handleChangeYear}
           handleOnChangeType={handleOnChangeType}
           handleOnChangeSeason={handleOnChangeSeason}
-          totalSeasons = {totalSeasons}
+          totalSeasons={totalSeasons}
+          selectedSeason={selectedSeason}
         />
       </div>
     </div>
