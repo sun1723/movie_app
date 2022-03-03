@@ -28,7 +28,8 @@ export const Main = ({
   selectedYear,
   totalSeasons,
   handleOnChangeSeason,
-  selectedSeason
+  selectedSeason,
+  openSettings
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -86,128 +87,136 @@ export const Main = ({
   };
 
   return (
-    <div className="main">
-      <div className="main_type">
-        <TypeFilterList
-          selectedType={currentType}
-          handleOnChangeType={handleOnChangeType}
-          totalSeasons={totalSeasons}
-        />
-        <div className="main_info">
-          Release Year: {selectedYear ? selectedYear : "any"}
-        </div>
-      </div>
-      {currentType == "season" && (
-        <div className="main_seasons">{menuList}</div>
-      )}
-      <div className="main_result">
-        <FilterListIcon
-          id={Boolean(anchorEl) ? "filter" : undefined}
-          className="main_result__icon"
-          fontSize="small"
-          onClick={(evt) => {
-            handleOpenFilter(evt);
-          }}
-        />
-        <Popover
-          id={Boolean(anchorEl) ? "filter" : undefined}
-          open={Boolean(anchorEl)}
-          onClose={handleOnCloseFilter}
-          anchorEl={anchorEl}
-          disableScrollLock={true}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "right",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "left",
-          }}
-        >
-          <FilterItem
-            title="Year"
-            content={
-              <MenuList
-                options={yearList()}
-                handleChangeYear={setStart}
-                selectedYear={start}
-              />
-            }
+    <>
+    {!openSettings.saved ?
+      <div className="main">
+        <div className="main_type">
+          <TypeFilterList
+            selectedType={currentType}
+            handleOnChangeType={handleOnChangeType}
+            totalSeasons={totalSeasons}
           />
-          <div
-            className="advanced"
+          <div className="main_info">
+            Release Year: {selectedYear ? selectedYear : "any"}
+          </div>
+        </div>
+        {currentType == "season" && (
+          <div className="main_seasons">{menuList}</div>
+        )}
+        <div className="main_result">
+          <FilterListIcon
+            id={Boolean(anchorEl) ? "filter" : undefined}
+            className="main_result__icon"
+            fontSize="small"
             onClick={(evt) => {
-              setCollapSetting(!collapSetting);
+              handleOpenFilter(evt);
+            }}
+          />
+          <Popover
+            id={Boolean(anchorEl) ? "filter" : undefined}
+            open={Boolean(anchorEl)}
+            onClose={handleOnCloseFilter}
+            anchorEl={anchorEl}
+            disableScrollLock={true}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
             }}
           >
-            Advanced Settings
-          </div>
-          {collapSetting && (
             <FilterItem
-              title=""
+              title="Year"
               content={
-                <>
-                  <span>min</span>
-                  <input
-                    className="range_input"
-                    onChange={(evt) => {
-                      setStart(evt.currentTarget.value);
-                    }}
-                  />
-                  -<span>max</span>
-                  <input
-                    className="range_input"
-                    onChange={(evt) => {
-                      setEnd(evt.currentTarget.value);
-                    }}
-                  />
-                </>
+                <MenuList
+                  options={yearList()}
+                  handleChangeYear={setStart}
+                  selectedYear={start}
+                />
               }
             />
-          )}
-          <button className="filter_search" onClick={() => submitFilter()}>
-            Search
-          </button>
-        </Popover>
-        <InputPagination
-          currentPage={currentPage}
-          totalResultNum={totalResultNum}
-          movieCount={movies.length}
-          handleChangePage={handleChangePage}
-        />
-      </div>
-      {movies && movies.length > 0 ? (
-        <Grid className="main_movies" container item xs={12}>
-          {onTabletMode && (
-            <MovieModal
-              isOpen={isOpen}
-              movie={movieContent}
-              handleClose={() => {
-                setIsOpen(false);
+            <div
+              className="advanced"
+              onClick={(evt) => {
+                setCollapSetting(!collapSetting);
               }}
-              onTabletMode={onTabletMode}
-            />
-          )}
-          <div className="main_movies__list">
-            <MovieList
-              onTabletMode={onTabletMode}
-              onPhoneMode={onPhoneMode}
-              movies={movies}
-              onClickIndex={onClickIndex}
-              fetchMovieById={fetchMovieById}
-              movieContent={movieContent}
-              handleOpenDetail={handleOpenDetail}
-              isOpen={isOpen}
-            />
-          </div>
-        </Grid>
-      ) : (
-        <div className="main_noResult">
-          <div>No Movie Found for {searchValueBackup} !</div>
-          <div>Type: {currentType ? currentType : "any"} </div>
-          <div>Release Year: {selectedYear ? selectedYear : "any"}</div>
+            >
+              Advanced Settings
+            </div>
+            {collapSetting && (
+              <FilterItem
+                title=""
+                content={
+                  <>
+                    <span>min</span>
+                    <input
+                      className="range_input"
+                      onChange={(evt) => {
+                        setStart(evt.currentTarget.value);
+                      }}
+                    />
+                    -<span>max</span>
+                    <input
+                      className="range_input"
+                      onChange={(evt) => {
+                        setEnd(evt.currentTarget.value);
+                      }}
+                    />
+                  </>
+                }
+              />
+            )}
+            <button className="filter_search" onClick={() => submitFilter()}>
+              Search
+            </button>
+          </Popover>
+          <InputPagination
+            currentPage={currentPage}
+            totalResultNum={totalResultNum}
+            movieCount={movies.length}
+            handleChangePage={handleChangePage}
+          />
         </div>
-      )}
-    </div>
+        {movies && movies.length > 0 ? (
+          <Grid className="main_movies" container item xs={12}>
+            {onTabletMode && (
+              <MovieModal
+                isOpen={isOpen}
+                movie={movieContent}
+                handleClose={() => {
+                  setIsOpen(false);
+                }}
+                onTabletMode={onTabletMode}
+              />
+            )}
+            <div className="main_movies__list">
+              <MovieList
+                onTabletMode={onTabletMode}
+                onPhoneMode={onPhoneMode}
+                movies={movies}
+                onClickIndex={onClickIndex}
+                fetchMovieById={fetchMovieById}
+                movieContent={movieContent}
+                handleOpenDetail={handleOpenDetail}
+                isOpen={isOpen}
+              />
+            </div>
+          </Grid>
+        ) : (
+          <div className="main_noResult">
+            <div>No Movie Found for {searchValueBackup} !</div>
+            <div>Type: {currentType ? currentType : "any"} </div>
+            <div>Release Year: {selectedYear ? selectedYear : "any"}</div>
+          </div>
+        )}
+      </div>
+      :
+      <div>
+        a p
+      </div>
+      }
+    </>
   );
 };

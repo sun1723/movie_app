@@ -8,7 +8,7 @@ import BookmarkIcon from "@material-ui/icons/Bookmark";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
 
-export const Nav = ({ handleOnSearchClick }) => {
+export const Nav = ({ handleOnSearchClick, handleOpenSettings }) => {
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
 
   const handleClose = () => {
@@ -27,7 +27,7 @@ export const Nav = ({ handleOnSearchClick }) => {
         id="simple-menu"
         anchorEl={menuAnchorEl}
         keepMounted
-        style={{ top: "20px", width: '250px' }}
+        style={{ top: "20px", width: "250px" }}
         disableScrollLock={true}
         open={Boolean(menuAnchorEl)}
         onClose={handleClose}
@@ -41,15 +41,16 @@ export const Nav = ({ handleOnSearchClick }) => {
         }}
       >
         <div className="nav-bar_menu__item disabled">
-          <ExitToAppIcon className="nav-bar_icon"/>
+          <ExitToAppIcon className="nav-bar_icon" />
           Sign In / Sign up
         </div>
         <div className="nav-bar_menu__item disabled">
-          <AccountBoxIcon className="nav-bar_icon"/>
+          <AccountBoxIcon className="nav-bar_icon" />
           My Account
         </div>
-        <div className="nav-bar_menu__item">
-          <BookmarkIcon className="nav-bar_icon"/>Saved Movies
+        <div className="nav-bar_menu__item" onClick={() => {handleOpenSettings()}}>
+          <BookmarkIcon className="nav-bar_icon" />
+          Saved Movies
         </div>
       </Menu>
     </div>

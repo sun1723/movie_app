@@ -24,6 +24,7 @@ export const Moviesview = () => {
   const [selectedYear, setSelectedYear] = useState(0);
   const [selectedSeason, setSelectedSeason] = useState(1);
   const [totalSeasons, setTotalSeasons] = useState("");
+  const [openSettings, setOpenSettings] = useState({saved: false});
 
   useEffect(() => {
     windowResize();
@@ -56,6 +57,14 @@ export const Moviesview = () => {
   useEffect(() => {
     window.addEventListener("resize", windowResize);
   });
+
+  /**
+   * handleOpenSettings: handle open settings page
+   */
+  const handleOpenSettings = () => {
+    setOpenSettings({saved: true});
+  }
+
 
   /**
    * handleChangePage: handle change page for movies
@@ -197,6 +206,7 @@ export const Moviesview = () => {
    */
   const resetAfterSearch = () => {
     setSelectedPage(1);
+    setOpenSettings({saved: false});
   };
 
   /**
@@ -232,6 +242,7 @@ export const Moviesview = () => {
           handleOnClose={handleOnClose}
           dropDownEnable={dropDownEnable}
           handleChangeYear={handleChangeYear}
+          handleOpenSettings={handleOpenSettings}
         />
       </div>
       <div className="main">
@@ -253,6 +264,7 @@ export const Moviesview = () => {
           handleOnChangeSeason={handleOnChangeSeason}
           totalSeasons={totalSeasons}
           selectedSeason={selectedSeason}
+          openSettings={openSettings}
         />
       </div>
     </div>
