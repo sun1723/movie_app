@@ -17,6 +17,7 @@ $laptop-screen-2: 1201px;
   overflow: hidden scroll;
   grid-gap: 20px;
   min-width: 360px;
+  padding-left: 10px;
 }
 .movieList::-webkit-scrollbar {
   width: 15px; /* width of the entire scrollbar */
