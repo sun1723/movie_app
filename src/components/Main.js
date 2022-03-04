@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Grid } from "@material-ui/core";
 import { MovieList } from "./MovieList";
 import { MovieModal } from "./MovieModal";
 import "../utils/main.scss";
@@ -188,7 +187,7 @@ export const Main = ({
           />
         </div>
         {movies && movies.length > 0 ? (
-          <Grid className="main_movies" container item xs={12}>
+          <div className="main_movies" >
             {onTabletMode && (
               <MovieModal
                 isOpen={isOpen}
@@ -215,7 +214,7 @@ export const Main = ({
                 savedMap={savedMap}
               />
             </div>
-          </Grid>
+          </div>
         ) : (
           <div className="main_noResult">
             <div>{searchValueBackup ? `No Movie Found for ${searchValueBackup} !` : "Please Type in Search Key !"}</div>
