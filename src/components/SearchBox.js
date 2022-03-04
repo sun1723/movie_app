@@ -36,7 +36,7 @@ export const SearchBox = ({ onSearch, iconAfter }) => {
       <span className="search-box_input">
         <input
           onChange={(val) => setSearchValue(val.currentTarget.value)}
-          placeholder="Input Search"
+          placeholder="Search ..."
           value={searchValue}
         />
         <HighlightOffIcon
