@@ -2,6 +2,7 @@ import "../utils/settings.scss";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { useEffect, useState } from "react";
 import { MovieList } from "./MovieList";
+import { MovieModal } from "./MovieModal";
 
 export const Settings = ({
   settings,
@@ -12,13 +13,13 @@ export const Settings = ({
   movieContent,
   onPhoneMode,
   onTabletMode,
-  handleOpenDetail,
-  isOpen,
+  handleAddSaved,
+  savedMap
 }) => {
   const [title, setTitle] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    console.log(settings);
     checkSettingTitle();
   }, [settings]);
 
@@ -30,12 +31,29 @@ export const Settings = ({
     }
   };
 
+  const handleOpenDetail = (value) => {
+    setIsOpen(value);
+  };
+
   const content = () => {
     //page Content depend on title
     if (settings.saved.value) {
       //if it is saved page
       return (
         <div style={{ color: "#fff" }}>
+          {onTabletMode && (
+            <MovieModal
+              isOpen={isOpen}
+              movie={movieContent}
+              handleClose={() => {
+                setIsOpen(false);
+              }}
+              onTabletMode={onTabletMode}
+              handleAddSaved={handleAddSaved}
+              savedMap={savedMap}
+            />
+          )}
+          {savedList && 
           <MovieList
             onTabletMode={onTabletMode}
             onPhoneMode={onPhoneMode}
@@ -46,6 +64,7 @@ export const Settings = ({
             handleOpenDetail={handleOpenDetail}
             isOpen={isOpen}
           />
+          }
         </div>
       );
     }

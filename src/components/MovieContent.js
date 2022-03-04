@@ -1,12 +1,33 @@
 import "../utils/movie_content.scss";
+import { useEffect, useState } from "react";
 import { MovieTag } from "./MovieTag";
 import { MovieMore } from "./MovieMore";
 import CloseIcon from "@material-ui/icons/Close";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
 import { StarRating } from "./StarRating";
 import { ScoreList } from "./ScoreList";
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 
-export const MovieContent = ({ movie, handleClose, onTabletMode }) => {
+export const MovieContent = ({ movie, handleClose, onTabletMode, handleAddSaved, savedMap }) => {
+  const [isSaved, setIsSaved] = useState(false);
+  
+  useEffect(() => {
+    console.log(movie)
+    console.log(isSaved)
+    checkSaved();
+  },[movie])
+
+  /**
+   * checkSaved: check movie is saved or not
+   */
+  const checkSaved = () => {
+    console.log(savedMap)
+    if(movie && savedMap[movie.imdbID]){
+      //exist
+      setIsSaved(true);
+    }
+  }
+  
   return (
     <>
       {movie && (
@@ -35,6 +56,9 @@ export const MovieContent = ({ movie, handleClose, onTabletMode }) => {
             />
           </div>
           <div className="movie-content_container">
+            <div className="movie-content_container__saved">
+              <BookmarkIcon fontSize="large" className={isSaved ? "movie-content_container__saved___icon active" : "movie-content_container__saved_icon"} onClick={(evt) => {handleAddSaved(movie)}}/>
+            </div>
             <div className="movie-content_container__mainPoster">
               <img
                 src={

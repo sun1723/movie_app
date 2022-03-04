@@ -33,6 +33,7 @@ export const Main = ({
   openSettings,
   handleBack,
   savedList,
+  savedMap,
   handleAddSaved
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -193,6 +194,8 @@ export const Main = ({
                   setIsOpen(false);
                 }}
                 onTabletMode={onTabletMode}
+                handleAddSaved={handleAddSaved}
+                savedMap={savedMap}
               />
             )}
             <div className="main_movies__list">
@@ -218,7 +221,7 @@ export const Main = ({
       </div>
       :
         <Settings 
-          savedList = {savedList}
+          savedList={savedList}
           handleBack={handleBack} 
           settings={openSettings} 
           onTabletMode={onTabletMode}
@@ -227,7 +230,8 @@ export const Main = ({
           fetchMovieById={fetchMovieById}
           movieContent={movieContent}
           handleOpenDetail={handleOpenDetail}
-          isOpen={isOpen}/>
+          isOpen={isOpen}
+          savedMap={savedMap}/>
       }
     </>
   );

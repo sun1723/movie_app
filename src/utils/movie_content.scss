@@ -54,6 +54,19 @@ $highlight-color: red;
     margin-left: auto;
     margin-right: auto;
     height: 100%;
+    &__saved {
+      position: absolute;
+      z-index: 1000;
+      right: 70px;
+      top:50px;
+      color: $tag-name;
+      cursor: pointer;
+      &___icon{
+        &.active {
+          color: $tag-color;
+        }
+      }
+    }
     &__mainPoster {
       position: relative;
       z-index: 1;
@@ -123,6 +136,10 @@ $highlight-color: red;
       &__mainPoster {
         display: none;
       }
+      &__saved {
+        top:-100px;
+        right: 10px;
+      }
     }
     &__movieTitle,
     &_tagList {
@@ -156,6 +173,9 @@ $highlight-color: red;
       &__mainPoster {
         display: none;
       }
+      &__saved {
+        right: 35px;
+      }
     }
     &__movieTitle {
       top: 20px;
@@ -183,6 +203,9 @@ $highlight-color: red;
       grid-gap: 20px;
       &__mainPoster {
         grid-row: 1 / 5;
+      }
+      &__saved {
+        right: 8%;
       }
     }
     &__movieTitle {
@@ -217,6 +240,9 @@ $highlight-color: red;
       grid-auto-rows: auto;
       grid-template-columns: 300px 1fr;
       grid-gap: 20px;
+      &__saved {
+        right: 5%;
+      }
       &__mainPoster {
         grid-row: 1 / 5;
         img {
@@ -252,6 +278,9 @@ $highlight-color: red;
       grid-auto-rows: auto;
       grid-template-columns: 300px 1fr;
       grid-gap: 20px;
+      &__saved {
+        right: 7%;
+      }
       &__mainPoster {
         grid-row: 1 / 6;
         img {

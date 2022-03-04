@@ -29,10 +29,7 @@ export const Moviesview = () => {
     account: {name: "Account", value: false},
   });
   const [savedList, setSavedList] = useState([]);
-
-  useEffect(() =>{
-    console.log(openSettings)
-  },[openSettings])
+  const [savedMap, setSavedMap] = useState({});
 
   useEffect(() => {
     windowResize();
@@ -79,6 +76,35 @@ export const Moviesview = () => {
     else if(label == 'account')
       temp['account'].value = val;
     setOpenSettings(temp);
+  }
+
+  /**
+   * handleAddSaved:handle add Movie/episode/series to savedList
+   */
+  const handleAddSaved = (movie) => {
+    let is_existed=false
+    //check if it is already in savedList
+    for(let i =0; i<savedList.length; i++){
+      if(savedList[i].imdbID == movie.imdbID){
+        //already exist
+        is_existed = true
+      }
+    }
+    if(!is_existed)
+    {
+      let list  = savedList;
+      let temp = {};
+      let m = savedMap;
+      temp['imdbID'] = movie.imdbID;
+      temp['Title']=movie.Title;
+      temp['Type'] = movie.Type
+      temp['Episode'] = movie.Episode ? movie.Episode : '';
+      temp['Year'] = movie.Year;
+      list.push(temp);
+      setSavedList(list);
+      m[movie.imdbID] = {isSelected: true};
+      setSavedMap(m);
+    }
   }
 
   /**
@@ -194,7 +220,7 @@ export const Moviesview = () => {
         const data = res.data;
         if (data.Response == "True") {
           setMovies(data.Search);
-          setMovieContent(data.Search ? data.Search[0] : null);
+          // setMovieContent(data.Search ? data.Search[0] : null);
           setOnClickIndex(-1);
           setResultNum(data.totalResults);
         } else {
@@ -262,6 +288,7 @@ export const Moviesview = () => {
       </div>
       <div className="main">
         <Main
+          handleAddSaved={handleAddSaved}
           fetchMovieById={fetchMovieById}
           onTabletMode={onTabletMode}
           onPhoneMode={onPhoneMode}
@@ -281,6 +308,7 @@ export const Moviesview = () => {
           selectedSeason={selectedSeason}
           openSettings={openSettings}
           handleBack={handleOpenSettings}
+          savedMap={savedMap}
           savedList={savedList}
         />
       </div>
