@@ -160,14 +160,14 @@ export const Main = ({
                   <>
                     <span>min</span>
                     <input
-                      className="range_input"
+                      className="popover_input"
                       onChange={(evt) => {
                         setStart(evt.currentTarget.value);
                       }}
                     />
                     -<span>max</span>
                     <input
-                      className="range_input"
+                      className="popover_input"
                       onChange={(evt) => {
                         setEnd(evt.currentTarget.value);
                       }}

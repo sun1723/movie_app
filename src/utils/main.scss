@@ -92,6 +92,11 @@ $bg-color: #f5a200;
   &_emptySearch {
   }
 }
+.popover_input {
+  width:70px;
+  border-radius: 5px;
+  text-align: center;
+}
 
 @media screen and (max-width: $phone-screen) {
   .main {
