@@ -105,7 +105,7 @@ export const Main = ({
             Release : {selectedYear ? selectedYear : "any"}
           </div>
           <div className="main_info" >
-            Key: {searchValueBackup ? searchValueBackup : ""}
+            Key: {searchValueBackup ? searchValueBackup : "-"}
           </div>
         </div>
         {currentType == "season" && (
