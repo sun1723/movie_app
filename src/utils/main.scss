@@ -44,6 +44,7 @@ $bg-color: #f5a200;
   height: 100%;
   &_type {
     padding-top: 15px;
+    padding-left: 10px;
     width: 100%;
     display: flex;
   }
@@ -60,7 +61,7 @@ $bg-color: #f5a200;
     text-align: center;
     display: flex;
     justify-content: space-between;
-    padding: 5px 15px 5px 0;
+    padding: 5px 15px 5px 10px;
     align-items: center;
     &__icon {
       cursor: pointer;
