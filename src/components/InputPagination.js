@@ -1,6 +1,7 @@
 import "../utils/input_pagination.scss";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import { Tooltip } from "./Tooltip";
 
 export const InputPagination = ({
   currentPage,
@@ -23,20 +24,22 @@ export const InputPagination = ({
       <span className="input-text">
         {movieCount ? start : 0} - {movieCount ? end : 0} Results
       </span>
-      <span className="icon">
-        <ArrowBackIosIcon
-          style={{
-            color:
-              currentPage == 1 || currentPage == ""
-                ? "rgba(255,255,255,0.4)"
-                : "#fff",
-          }}
-          onClick={(evt) => {
-            if (currentPage == 1) return;
-            handleChangePage(backPage);
-          }}
-        />
-      </span>
+      <Tooltip content="Last Page">
+        <span className="icon">
+          <ArrowBackIosIcon
+            style={{
+              color:
+                currentPage == 1 || currentPage == ""
+                  ? "rgba(255,255,255,0.4)"
+                  : "#fff",
+            }}
+            onClick={(evt) => {
+              if (currentPage == 1) return;
+              handleChangePage(backPage);
+            }}
+          />
+        </span>
+      </Tooltip>
       <input
         placeholder={currentPage}
         value={movieCount ? currentPage : 1}
@@ -46,17 +49,19 @@ export const InputPagination = ({
         }}
       />
       <span className="input-text"> / {totalPage}</span>
-      <span className="icon">
-        <ArrowForwardIosIcon
-          style={{
-            color: currentPage == totalPage ? "rgba(255,255,255,0.4)" : "#fff",
-          }}
-          onClick={(evt) => {
-            if (currentPage == totalPage) return;
-            handleChangePage(forwardPage);
-          }}
-        />
-      </span>
+      <Tooltip content="Next Page">
+        <span className="icon">
+          <ArrowForwardIosIcon
+            style={{
+              color: currentPage == totalPage ? "rgba(255,255,255,0.4)" : "#fff",
+            }}
+            onClick={(evt) => {
+              if (currentPage == totalPage) return;
+              handleChangePage(forwardPage);
+            }}
+          />
+        </span>
+      </Tooltip>
     </div>
   );
 };

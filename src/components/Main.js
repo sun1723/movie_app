@@ -10,6 +10,7 @@ import { FilterItem } from "./FilterItem";
 import { yearList } from "../utils/app_constant";
 import { MenuList } from "./MenuList";
 import { Settings } from "./Settings";
+import { Tooltip } from "./Tooltip";
 
 export const Main = ({
   fetchMovieById,
@@ -111,14 +112,18 @@ export const Main = ({
           <div className="main_seasons">{menuList}</div>
         )}
         <div className="main_result">
-          <FilterListIcon
-            id={Boolean(anchorEl) ? "filter" : undefined}
-            className="main_result__icon"
-            fontSize="small"
-            onClick={(evt) => {
-              handleOpenFilter(evt);
-            }}
-          />
+          <Tooltip content="Open Filter">
+            <span>
+              <FilterListIcon
+                id={Boolean(anchorEl) ? "filter" : undefined}
+                className="main_result__icon"
+                fontSize="small"
+                onClick={(evt) => {
+                  handleOpenFilter(evt);
+                }}
+              />
+            </span>
+          </Tooltip>
           <Popover
             id={Boolean(anchorEl) ? "filter" : undefined}
             open={Boolean(anchorEl)}

@@ -14,5 +14,11 @@ $text-color: #ffffff;
   background: $bg-color;
   font-size: 0.8rem;
   line-height: 1;
+  z-index: 500;
   white-space: nowrap;
+  &.left{
+    left:auto;
+    right: 0;
+    top:20px;
+  }
 }

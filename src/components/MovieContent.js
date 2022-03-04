@@ -7,6 +7,7 @@ import { StarRating } from "./StarRating";
 import { ScoreList } from "./ScoreList";
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import { useEffect, useState } from "react";
+import { Tooltip } from "./Tooltip";
 
 export const MovieContent = ({ movie, handleClose, onTabletMode, handleAddSaved,savedMap }) => {
   const [isSaved, setIsSaved] = useState(false);
@@ -41,7 +42,9 @@ export const MovieContent = ({ movie, handleClose, onTabletMode, handleAddSaved,
               }}
               onClick={() => handleClose()}
             >
-              <CloseIcon />
+              <Tooltip direction="left" content="Close">
+                <span><CloseIcon /></span>
+              </Tooltip>
             </div>
           )}
           <div className="movie-content_background">
@@ -56,7 +59,9 @@ export const MovieContent = ({ movie, handleClose, onTabletMode, handleAddSaved,
           </div>
           <div className="movie-content_container">
             <div className="movie-content_container__saved">
-              <BookmarkIcon fontSize="large" className={isSaved ? "movie-content_container__saved___icon active" : "movie-content_container__saved_icon"} onClick={(evt) => {handleAddSaved(movie); checkSaved()}}/>
+              <Tooltip content={!isSaved ? "Save it ! ": "Cancel Saved"}>
+                <span><BookmarkIcon fontSize="large" className={isSaved ? "movie-content_container__saved___icon active" : "movie-content_container__saved_icon"} onClick={(evt) => {handleAddSaved(movie); checkSaved()}}/></span>
+              </Tooltip>
             </div>
             <div className="movie-content_container__mainPoster">
               <img
