@@ -102,7 +102,10 @@ export const Main = ({
             totalSeasons={totalSeasons}
           />
           <div className="main_info">
-            Release Year: {selectedYear ? selectedYear : "any"}
+            Release : {selectedYear ? selectedYear : "any"}
+          </div>
+          <div className="main_info" >
+            Key: {searchValueBackup ? searchValueBackup : ""}
           </div>
         </div>
         {currentType == "season" && (
