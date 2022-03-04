@@ -218,7 +218,7 @@ export const Main = ({
           </Grid>
         ) : (
           <div className="main_noResult">
-            <div>No Movie Found for {searchValueBackup} !</div>
+            <div>{searchValueBackup ? `No Movie Found for ${searchValueBackup} !` : "Please Type in Search Key !"}</div>
             <div>Type: {currentType ? currentType : "any"} </div>
             <div>Release Year: {selectedYear ? selectedYear : "any"}</div>
           </div>
