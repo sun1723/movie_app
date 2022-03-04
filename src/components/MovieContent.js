@@ -7,7 +7,7 @@ import { StarRating } from "./StarRating";
 import { ScoreList } from "./ScoreList";
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 
-export const MovieContent = ({ movie, handleClose, onTabletMode, handleAddSaved, isSaved }) => {
+export const MovieContent = ({ movie, handleClose, onTabletMode, handleAddSaved, isSaved, checkSaved }) => {
   
   return (
     <>
@@ -38,7 +38,7 @@ export const MovieContent = ({ movie, handleClose, onTabletMode, handleAddSaved,
           </div>
           <div className="movie-content_container">
             <div className="movie-content_container__saved">
-              <BookmarkIcon fontSize="large" className={isSaved ? "movie-content_container__saved___icon active" : "movie-content_container__saved_icon"} onClick={(evt) => {handleAddSaved(movie)}}/>
+              <BookmarkIcon fontSize="large" className={isSaved ? "movie-content_container__saved___icon active" : "movie-content_container__saved_icon"} onClick={(evt) => {handleAddSaved(movie); checkSaved()}}/>
             </div>
             <div className="movie-content_container__mainPoster">
               <img

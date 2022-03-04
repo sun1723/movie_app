@@ -7,7 +7,7 @@ export const MovieModal = ({ handleAddSaved, movie, isOpen, handleClose, onTable
   
   useEffect(() => {
     checkSaved();
-  },[movie])
+  },[movie,isSaved])
 
   /**
    * checkSaved: check movie is saved or not
@@ -31,6 +31,7 @@ export const MovieModal = ({ handleAddSaved, movie, isOpen, handleClose, onTable
             onTabletMode={onTabletMode}
             handleAddSaved={handleAddSaved}
             isSaved={isSaved}
+            checkSaved={checkSaved}
           />
         </div>
       )}
