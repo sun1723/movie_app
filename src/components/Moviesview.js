@@ -104,6 +104,9 @@ export const Moviesview = () => {
       setSavedList(list);
       m[movie.imdbID] = {isSelected: true};
       setSavedMap(m);
+    }else{
+      delete savedMap[movie.imdbID];
+      setSavedList(savedList.filter(it => it.imdbID != movie.imdbID))
     }
   }
 

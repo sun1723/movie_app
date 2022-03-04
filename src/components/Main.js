@@ -231,7 +231,8 @@ export const Main = ({
           movieContent={movieContent}
           handleOpenDetail={handleOpenDetail}
           isOpen={isOpen}
-          savedMap={savedMap}/>
+          savedMap={savedMap}
+          handleAddSaved={handleAddSaved}/>
       }
     </>
   );
