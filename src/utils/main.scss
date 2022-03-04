@@ -28,6 +28,7 @@ $bg-color: #f5a200;
 }
 .season_item{
   cursor: pointer;
+  min-width: 50px;
   padding: 5px 5px 0 5px;
   &:hover,
   &.active{
@@ -52,6 +53,7 @@ $bg-color: #f5a200;
     color: $icon-color;
     display: flex;
     padding-top: 5px;
+    flex-wrap: wrap;
   }
   &_info {
     color: $icon-color;

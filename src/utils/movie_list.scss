@@ -12,6 +12,7 @@ $laptop-screen-2: 1201px;
 .movieList {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-auto-columns: 1fr;
   font-size: 0.6rem;
   height: 100%;
   overflow: hidden scroll;
@@ -56,3 +57,5 @@ $laptop-screen-2: 1201px;
     grid-template-columns: repeat(4, 2fr);
   }
 }
+
+

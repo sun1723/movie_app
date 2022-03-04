@@ -165,6 +165,7 @@ $second-bg-color: #3a9efd;
 @media screen and (max-width: $md-screen) and (min-width: $phone-screen-2) {
   .movie-card {
     height: 270px;
+    min-width: 200px;
     &_left {
       img {
         opacity: 1;
