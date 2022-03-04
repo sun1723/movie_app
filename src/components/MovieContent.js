@@ -1,5 +1,4 @@
 import "../utils/movie_content.scss";
-import { useEffect, useState } from "react";
 import { MovieTag } from "./MovieTag";
 import { MovieMore } from "./MovieMore";
 import CloseIcon from "@material-ui/icons/Close";
@@ -8,25 +7,7 @@ import { StarRating } from "./StarRating";
 import { ScoreList } from "./ScoreList";
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 
-export const MovieContent = ({ movie, handleClose, onTabletMode, handleAddSaved, savedMap }) => {
-  const [isSaved, setIsSaved] = useState(false);
-  
-  useEffect(() => {
-    console.log(movie)
-    console.log(isSaved)
-    checkSaved();
-  },[movie])
-
-  /**
-   * checkSaved: check movie is saved or not
-   */
-  const checkSaved = () => {
-    console.log(savedMap)
-    if(movie && savedMap[movie.imdbID]){
-      //exist
-      setIsSaved(true);
-    }
-  }
+export const MovieContent = ({ movie, handleClose, onTabletMode, handleAddSaved, isSaved }) => {
   
   return (
     <>
