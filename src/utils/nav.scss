@@ -28,6 +28,7 @@ $bg-color: #3e4491;
   &_menu {
     color: $icon-color;
     cursor: pointer;
+    position: relative;
     &__item {
       text-align: justify;
       border-bottom:1px $bg-color solid;

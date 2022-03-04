@@ -7,6 +7,7 @@ import Menu from "@material-ui/core/Menu";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AccountBoxIcon from "@material-ui/icons/AccountBox";
+import { Tooltip } from "./Tooltip";
 
 export const Nav = ({ handleOnSearchClick, handleOpenSettings }) => {
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
@@ -20,8 +21,10 @@ export const Nav = ({ handleOnSearchClick, handleOpenSettings }) => {
       <div className="nav-bar_search">
         <SearchBox onSearch={handleOnSearchClick} iconAfter={<SearchIcon />} />
       </div>
-      <div className="nav-bar_menu">
-        <MenuIcon onClick={(evt) => setMenuAnchorEl(evt.currentTarget)} />
+      <div className="nav-bar_menu" >
+        <Tooltip  content="open Menu" >
+          <span><MenuIcon onClick={(evt) => setMenuAnchorEl(evt.currentTarget)} /></span>
+        </Tooltip>
       </div>
       <Menu
         id="simple-menu"
