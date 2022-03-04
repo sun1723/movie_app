@@ -8,7 +8,7 @@ import FilterListIcon from "@material-ui/icons/FilterList";
 import Popover from "@material-ui/core/Popover";
 import { FilterItem } from "./FilterItem";
 import { yearList } from "../utils/app_constant";
-import { MenuList } from "./MenuList";
+import { SelectYear } from "./SelectYear";
 import { Settings } from "./Settings";
 import { Tooltip } from "./Tooltip";
 
@@ -142,7 +142,7 @@ export const Main = ({
             <FilterItem
               title="Year"
               content={
-                <MenuList
+                <SelectYear
                   options={yearList()}
                   handleChangeYear={setStart}
                   selectedYear={start}

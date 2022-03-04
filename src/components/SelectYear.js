@@ -1,6 +1,6 @@
 import "../utils/menu_list.scss";
 
-export const MenuList = ({ options, handleChangeYear, selectedYear }) => {
+export const SelectYear = ({ options, handleChangeYear, selectedYear }) => {
   return (
     <select
       className="menu-select"
