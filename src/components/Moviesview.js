@@ -24,7 +24,15 @@ export const Moviesview = () => {
   const [selectedYear, setSelectedYear] = useState(0);
   const [selectedSeason, setSelectedSeason] = useState(1);
   const [totalSeasons, setTotalSeasons] = useState("");
-  const [openSettings, setOpenSettings] = useState({saved: false});
+  const [openSettings, setOpenSettings] = useState({
+    saved: {name: "Saved" , value: false},
+    account: {name: "Account", value: false},
+  });
+  const [savedList, setSavedList] = useState([]);
+
+  useEffect(() =>{
+    console.log(openSettings)
+  },[openSettings])
 
   useEffect(() => {
     windowResize();
@@ -61,10 +69,17 @@ export const Moviesview = () => {
   /**
    * handleOpenSettings: handle open settings page
    */
-  const handleOpenSettings = () => {
-    setOpenSettings({saved: true});
+  const handleOpenSettings = (label, val) => {
+    let temp = {
+      saved: {name: "Saved" , value: false},
+      account: {name: "Account", value: false},
+    }
+    if(label == 'saved')
+      temp['saved'].value = val;
+    else if(label == 'account')
+      temp['account'].value = val;
+    setOpenSettings(temp);
   }
-
 
   /**
    * handleChangePage: handle change page for movies
@@ -206,7 +221,7 @@ export const Moviesview = () => {
    */
   const resetAfterSearch = () => {
     setSelectedPage(1);
-    setOpenSettings({saved: false});
+    setOpenSettings({account: {name:"Account" ,value: false}, saved: {name:"Saved" ,value: false}});
   };
 
   /**
@@ -265,6 +280,8 @@ export const Moviesview = () => {
           totalSeasons={totalSeasons}
           selectedSeason={selectedSeason}
           openSettings={openSettings}
+          handleBack={handleOpenSettings}
+          savedList={savedList}
         />
       </div>
     </div>

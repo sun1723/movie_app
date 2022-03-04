@@ -1,0 +1,16 @@
+$font-color: #ffffff;
+
+.settings {
+  color: $font-color;
+  padding-top: 10px;
+  &_heading{
+    display: flex;
+    align-items: center;
+    &__icon{
+      cursor: pointer;
+    }
+    &__name{
+      font-size: 1.2rem;
+    }
+  }
+}

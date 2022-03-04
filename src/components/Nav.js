@@ -44,11 +44,11 @@ export const Nav = ({ handleOnSearchClick, handleOpenSettings }) => {
           <ExitToAppIcon className="nav-bar_icon" />
           Sign In / Sign up
         </div>
-        <div className="nav-bar_menu__item disabled">
+        <div className="nav-bar_menu__item " onClick={() => {handleOpenSettings('saved', false); handleOpenSettings('account',true)}}>
           <AccountBoxIcon className="nav-bar_icon" />
           My Account
         </div>
-        <div className="nav-bar_menu__item" onClick={() => {handleOpenSettings()}}>
+        <div className="nav-bar_menu__item" onClick={() => {handleOpenSettings('account',false); handleOpenSettings('saved',true)}}>
           <BookmarkIcon className="nav-bar_icon" />
           Saved Movies
         </div>

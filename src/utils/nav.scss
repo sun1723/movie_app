@@ -5,6 +5,12 @@ $laptop-screen: 1200px;
 $icon-color: #ffffff;
 $bg-color: #3e4491;
 
+.MuiPopover-paper {
+  width: 250px;
+  text-align: center;
+  padding: 10px;
+}
+
 .nav-bar {
   width: 100%;
   margin: 0 auto;

@@ -10,6 +10,7 @@ import Popover from "@material-ui/core/Popover";
 import { FilterItem } from "./FilterItem";
 import { yearList } from "../utils/app_constant";
 import { MenuList } from "./MenuList";
+import { Settings } from "./Settings";
 
 export const Main = ({
   fetchMovieById,
@@ -29,7 +30,10 @@ export const Main = ({
   totalSeasons,
   handleOnChangeSeason,
   selectedSeason,
-  openSettings
+  openSettings,
+  handleBack,
+  savedList,
+  handleAddSaved
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -88,7 +92,7 @@ export const Main = ({
 
   return (
     <>
-    {!openSettings.saved ?
+    {!openSettings.saved.value && !openSettings.account.value ?
       <div className="main">
         <div className="main_type">
           <TypeFilterList
@@ -213,9 +217,17 @@ export const Main = ({
         )}
       </div>
       :
-      <div>
-        a p
-      </div>
+        <Settings 
+          savedList = {savedList}
+          handleBack={handleBack} 
+          settings={openSettings} 
+          onTabletMode={onTabletMode}
+          onPhoneMode={onPhoneMode}
+          onClickIndex={onClickIndex}
+          fetchMovieById={fetchMovieById}
+          movieContent={movieContent}
+          handleOpenDetail={handleOpenDetail}
+          isOpen={isOpen}/>
       }
     </>
   );
