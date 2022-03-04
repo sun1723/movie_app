@@ -13,6 +13,9 @@ export const MovieCard = ({
   onPhoneMode,
   onTabletMode,
   handleOpenDetail,
+  handleAddSaved,
+  savedMap,
+  setting
 }) => {
   const [onClickId, setOnClickId] = useState("");
 
@@ -60,7 +63,7 @@ export const MovieCard = ({
             : " movie-card_right "
         }
       >
-        <div className="movie-card_right__title">{movie.Title}</div>
+        <div className="movie-card_right__title">{movie.Title}{setting ? `(${movie.Type})` : ''}</div>
         {movie.Episode && movie.imdbRating != 'N/A' &&
           <div className="movie-card_right__bd">
             <WhatshotIcon fontSize="medium"/> { movie.imdbRating }
@@ -80,6 +83,8 @@ export const MovieCard = ({
                 movie={movieContent}
                 handleClose={() => {}}
                 onTabletMode={onTabletMode}
+                handleAddSaved={handleAddSaved}
+                savedMap={savedMap}
               />
             </div>
           ) : (

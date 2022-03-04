@@ -6,9 +6,27 @@ import WhatshotIcon from "@material-ui/icons/Whatshot";
 import { StarRating } from "./StarRating";
 import { ScoreList } from "./ScoreList";
 import BookmarkIcon from '@material-ui/icons/Bookmark';
+import { useEffect, useState } from "react";
 
-export const MovieContent = ({ movie, handleClose, onTabletMode, handleAddSaved, isSaved, checkSaved }) => {
+export const MovieContent = ({ movie, handleClose, onTabletMode, handleAddSaved,savedMap }) => {
+  const [isSaved, setIsSaved] = useState(false);
   
+  useEffect(() => {
+    checkSaved();
+  },[movie,isSaved])
+
+  /**
+   * checkSaved: check movie is saved or not
+   */
+  const checkSaved = () => {
+    if(movie && savedMap[movie.imdbID]){
+      //exist
+      setIsSaved(true);
+    }else{
+      setIsSaved(false)
+    }
+  }
+
   return (
     <>
       {movie && (

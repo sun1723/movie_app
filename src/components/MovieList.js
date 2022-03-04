@@ -10,6 +10,9 @@ export const MovieList = ({
   onTabletMode,
   handleOpenDetail,
   isOpen,
+  handleAddSaved,
+  savedMap,
+  setting
 }) => {
   return (
     <div className="movieList">
@@ -22,9 +25,12 @@ export const MovieList = ({
           index={index}
           handleOpenDetail={handleOpenDetail}
           isOpen={isOpen}
+          handleAddSaved={handleAddSaved}
           fetchMovieById={fetchMovieById}
           onClickIndex={onClickIndex}
           movieContent={movieContent}
+          savedMap={savedMap}
+          setting={setting}
         />
       ))}
     </div>

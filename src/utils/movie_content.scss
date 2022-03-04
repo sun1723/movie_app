@@ -139,6 +139,11 @@ $highlight-color: red;
       &__saved {
         top:-100px;
         right: 10px;
+        &___icon{
+          &.active {
+            color: $bg-color;
+          }
+        }
       }
     }
     &__movieTitle,

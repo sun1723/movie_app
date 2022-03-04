@@ -1,25 +1,8 @@
 import { MovieContent } from "./MovieContent";
 import "../utils/modal.scss";
-import { useEffect, useState } from "react";
+
 
 export const MovieModal = ({ handleAddSaved, movie, isOpen, handleClose, onTabletMode, savedMap }) => {
-  const [isSaved, setIsSaved] = useState(false);
-  
-  useEffect(() => {
-    checkSaved();
-  },[movie,isSaved])
-
-  /**
-   * checkSaved: check movie is saved or not
-   */
-  const checkSaved = () => {
-    if(movie && savedMap[movie.imdbID]){
-      //exist
-      setIsSaved(true);
-    }else{
-      setIsSaved(false)
-    }
-  }
 
   return (
     <>
@@ -30,8 +13,7 @@ export const MovieModal = ({ handleAddSaved, movie, isOpen, handleClose, onTable
             handleClose={handleClose}
             onTabletMode={onTabletMode}
             handleAddSaved={handleAddSaved}
-            isSaved={isSaved}
-            checkSaved={checkSaved}
+            savedMap={savedMap}
           />
         </div>
       )}

@@ -62,7 +62,10 @@ export const Settings = ({
             fetchMovieById={fetchMovieById}
             movieContent={movieContent}
             handleOpenDetail={handleOpenDetail}
+            handleAddSaved={handleAddSaved}
             isOpen={isOpen}
+            savedMap={savedMap}
+            setting={true}
           />
           }
         </div>
@@ -70,7 +73,7 @@ export const Settings = ({
     }
     if (settings.account.value) {
       //if it is account page
-      return <div>account</div>;
+      return <div>Account Settings</div>;
     }
   };
 

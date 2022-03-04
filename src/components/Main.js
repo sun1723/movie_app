@@ -206,8 +206,10 @@ export const Main = ({
                 onClickIndex={onClickIndex}
                 fetchMovieById={fetchMovieById}
                 movieContent={movieContent}
+                handleAddSaved={handleAddSaved}
                 handleOpenDetail={handleOpenDetail}
                 isOpen={isOpen}
+                savedMap={savedMap}
               />
             </div>
           </Grid>
