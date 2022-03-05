@@ -14,11 +14,8 @@ export const Moviesview = () => {
   const [resultNum, setResultNum] = useState(0);
   const [onTabletMode, setOnTabletMode] = useState(false);
   const [onPhoneMode, setOnPhoneMode] = useState(false);
-  const [collapMode, setCollapMode] = useState(false);
-  const [dropDownEnable, setDropDownEnable] = useState(false);
   const [selectedMovieType, setSelectedMovieType] = useState("");
-  const [selectedMovieTypeBackup, setSelectedMovieTypeBackup] =
-    useState(selectedMovieType);
+  const [selectedMovieTypeBackup, setSelectedMovieTypeBackup] = useState(selectedMovieType);
   const [selectedPage, setSelectedPage] = useState(1);
   const [selectedYear, setSelectedYear] = useState(0);
   const [selectedSeason, setSelectedSeason] = useState(1);
@@ -115,41 +112,15 @@ export const Moviesview = () => {
   };
 
   /**
-   * handleOnClick: handle click on button
-   */
-  const handleOnOpen = () => {
-    if (collapMode) {
-      setDropDownEnable(true);
-    }
-  };
-
-  /**
-   * handleOnClose: handle close drop down
-   */
-  const handleOnClose = () => {
-    setDropDownEnable(false);
-  };
-
-  /**
    * windowResize: handle window resize
    */
   const windowResize = () => {
     if (window.innerWidth <= 600) {
       setOnPhoneMode(true);
       setOnTabletMode(false);
-      setCollapMode(true);
-    } else if (window.innerWidth > 600 && window.innerWidth <= 768) {
+    } else {
       setOnPhoneMode(false);
       setOnTabletMode(true);
-      setCollapMode(true);
-    } else if (window.innerWidth > 768 && window.innerWidth < 992) {
-      setOnTabletMode(true);
-      setOnPhoneMode(false);
-      setCollapMode(false);
-    } else if (window.innerWidth > 600) {
-      setOnTabletMode(true);
-      setOnPhoneMode(false);
-      setCollapMode(false);
     }
   };
 
@@ -260,14 +231,6 @@ export const Moviesview = () => {
       <div className="nav">
         <Nav
           handleOnSearchClick={handleOnSearchClick}
-          selectedType={selectedMovieTypeBackup}
-          handleOnChangeType={handleOnChangeType}
-          types={types}
-          collapMode={collapMode}
-          handleOnOpen={handleOnOpen}
-          handleOnClose={handleOnClose}
-          dropDownEnable={dropDownEnable}
-          handleChangeYear={handleChangeYear}
           handleOpenSettings={handleOpenSettings}
         />
       </div>

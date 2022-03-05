@@ -32,6 +32,9 @@ export const MovieCard = ({
     }
   }, [onClickIndex]);
 
+  /**
+   * imgError: handle image  onerror event
+   */
   const imgError = (image) => {
     console.log(`Can Not Load Image from ${image.src} `);
     image.onerror = "";
