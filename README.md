@@ -11,6 +11,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
+## clone project
+
+git clone https://github.com/sun1723/movie_app.git
+
+## go to prject folder
+
+cd movie_app
+
+## install packages
+
+npm install
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -213,7 +225,7 @@ src
 
 ![Aspose Words f2edb192-edc1-4fe6-a15d-3a3d01653fea 015](https://user-images.githubusercontent.com/36902339/156872809-bfc7f04a-6f48-4413-b494-361f0bd9edc7.png)
 
-# Development Note-note :
+# Development Note-note for all tickets created throughout this project:
 
 <https://docs.google.com/document/d/19bl_QACpZIQFTLgaQCQMlbL3ein1I7kB4hUFJ1plnjI/edit>
 
@@ -223,3 +235,4 @@ src
 2. improve movie details layout 
 3. add more functionality when backend api updated
 4. More details display in mobile view
+5. More test case for functional testing
