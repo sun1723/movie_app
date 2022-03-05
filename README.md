@@ -13,15 +13,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## clone project
 
-git clone https://github.com/sun1723/movie_app.git
+    git clone https://github.com/sun1723/movie_app.git
 
 ## go to prject folder
 
-cd movie_app
+    cd movie_app
 
 ## install packages
 
-npm install
+    npm install
 
 ## Available Scripts
 
