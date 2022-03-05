@@ -16,7 +16,6 @@ export const Moviesview = () => {
   const [onPhoneMode, setOnPhoneMode] = useState(false);
   const [collapMode, setCollapMode] = useState(false);
   const [dropDownEnable, setDropDownEnable] = useState(false);
-  const [anchorEl, setAnchorEl] = useState("-1");
   const [selectedMovieType, setSelectedMovieType] = useState("");
   const [selectedMovieTypeBackup, setSelectedMovieTypeBackup] =
     useState(selectedMovieType);
@@ -34,20 +33,6 @@ export const Moviesview = () => {
   useEffect(() => {
     windowResize();
   }, []);
-
-  useEffect(() => {
-    if (
-      anchorEl == "drop" ||
-      anchorEl == "radio_icon" ||
-      anchorEl == "radio_title" ||
-      anchorEl == "radio_con" ||
-      anchorEl == "type"
-    ) {
-      //stay open
-    } else if (dropDownEnable) {
-      setDropDownEnable(!dropDownEnable);
-    }
-  }, [anchorEl]);
 
   useEffect(() => {
     if (searchValueBackup.length >= 3) fetchMovies();
@@ -271,9 +256,6 @@ export const Moviesview = () => {
   return (
     <div
       className="view"
-      onClick={(evt) => {
-        setAnchorEl(evt.target.id);
-      }}
     >
       <div className="nav">
         <Nav
