@@ -10,6 +10,7 @@
 # Movie app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+All tickets details through this project are included in development note 
 
 ## clone project
 
