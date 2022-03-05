@@ -5,7 +5,7 @@
 |Example Asset|<https://drive.google.com/file/d/1nwuuZyp2pJN94p1FV6a6r3_UMJaDxeEt/view>|
 |Framework|create-react-app|
 |Environment|` `Node 12.13.0|
-|UI library|material UI - icons|
+|UI library|material UI - icons,Popover,Menu|
 
 # Movie app
 
