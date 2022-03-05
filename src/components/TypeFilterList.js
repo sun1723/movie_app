@@ -13,8 +13,9 @@ export const TypeFilterList = ({ selectedType, handleOnChangeType, totalSeasons 
 
   return (
     <div className="type-list">
-      {types.map((type) => (
+      {types.map((type,index) => (
         <TypeFilter
+          key={index}
           title={type}
           isSelected={selectedType == type}
           handleOnClick={() => handleOnClick(type)}
