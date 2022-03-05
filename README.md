@@ -56,7 +56,8 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 7. score list 
 
-![](Aspose.Words.f2edb192-edc1-4fe6-a15d-3a3d01653fea.007.png)
+![Aspose Words f2edb192-edc1-4fe6-a15d-3a3d01653fea 007](https://user-images.githubusercontent.com/36902339/156873313-82da2af2-8188-4302-8636-c48a21f0d645.png)
+
 
 8. Save into list
 
