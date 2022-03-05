@@ -227,7 +227,7 @@ src
 
 # Development Note-note for all tickets created throughout this project:
 
-<https://docs.google.com/document/d/19bl_QACpZIQFTLgaQCQMlbL3ein1I7kB4hUFJ1plnjI/edit>
+<https://docs.google.com/document/d/19bl_QACpZIQFTLgaQCQMlbL3ein1I7kB4hUFJ1plnjI/edit?usp=sharing>
 
 # Future improvement:
 
