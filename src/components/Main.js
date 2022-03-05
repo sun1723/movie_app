@@ -104,7 +104,7 @@ export const Main = ({
           <div className="main_info">
             Release : {selectedYear ? selectedYear : "any"}
           </div>
-          <div className="main_info" >
+          <div className="main_info" id="search">
             Key: {searchValueBackup ? searchValueBackup : "-"}
           </div>
         </div>
@@ -180,7 +180,7 @@ export const Main = ({
                 }
               />
             )}
-            <button className="filter_search" onClick={() => submitFilter()}>
+            <button className="filter_search" id="filter_search" onClick={() => submitFilter()}>
               Search
             </button>
           </Popover>

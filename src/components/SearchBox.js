@@ -38,6 +38,7 @@ export const SearchBox = ({ onSearch, iconAfter }) => {
           onChange={(val) => setSearchValue(val.currentTarget.value)}
           placeholder="Search ..."
           value={searchValue}
+          id="search_input"
         />
         <HighlightOffIcon
           className="search-box_input__icon"
@@ -49,6 +50,7 @@ export const SearchBox = ({ onSearch, iconAfter }) => {
       </span>
       <div className="search-box_icon">
         <button
+          id="search"
           onClick={() => {
             setOpenSearch(true);
           }}
