@@ -16,7 +16,7 @@ All tickets details through this project are included in development note
 
     git clone https://github.com/sun1723/movie_app.git
 
-## go to prject folder
+## go to project folder
 
     cd movie_app
 
