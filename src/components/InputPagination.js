@@ -48,7 +48,7 @@ export const InputPagination = ({
           handleChangePage(evt.currentTarget.value);
         }}
       />
-      <span className="input-text"> / {totalPage}</span>
+      <span className="input-text"> / {totalPage} [ Total: {totalResultNum} ] </span>
       <Tooltip content="Next Page">
         <span className="icon">
           <ArrowForwardIosIcon
