@@ -5,8 +5,7 @@ $black: #000000;
   color: $white;
   border-radius: 5px;
   min-width: 250px;
-  display: flex;
-  justify-content: end;
+  display: flex-end;
   .icon {
     height: 100%;
     align-items: center;
