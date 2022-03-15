@@ -237,3 +237,4 @@ src
 3. add more functionality when backend api updated
 4. More details display in mobile view
 5. More test case for functional testing
+6. sort function
